@@ -1,0 +1,58 @@
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+Finished importing PCA data.
+ - point 48972 of 489722
+ - point 97944 of 489722
+ - point 146916 of 489722
+ - point 195888 of 489722
+ - point 244860 of 489722
+ - point 293832 of 489722
+ - point 342804 of 489722
+ - point 391776 of 489722
+ - point 440748 of 489722
+ - point 489720 of 489722
+Done in 92.00 seconds (sparsity = 0.000270)!
+Learning embedding...
+Iteration 51: error is 144.044004 (50 iterations in 462.00 seconds)
+Iteration 101: error is 143.595821 (50 iterations in 491.00 seconds)
+Iteration 151: error is 143.627931 (50 iterations in 532.00 seconds)
+Iteration 201: error is 143.485394 (50 iterations in 427.00 seconds)
+Iteration 251: error is 142.786857 (50 iterations in 414.00 seconds)
+Iteration 301: error is 8.684275 (50 iterations in 405.00 seconds)
+Iteration 351: error is 8.116030 (50 iterations in 400.00 seconds)
+Iteration 401: error is 7.796261 (50 iterations in 401.00 seconds)
+Iteration 451: error is 7.570132 (50 iterations in 401.00 seconds)
+Iteration 501: error is 7.391138 (50 iterations in 414.00 seconds)
+Iteration 551: error is 7.240411 (50 iterations in 415.00 seconds)
+Iteration 601: error is 7.108515 (50 iterations in 407.00 seconds)
+Iteration 651: error is 6.990211 (50 iterations in 414.00 seconds)
+Iteration 701: error is 6.882178 (50 iterations in 410.00 seconds)
+Iteration 751: error is 6.782430 (50 iterations in 410.00 seconds)
+Iteration 801: error is 6.689611 (50 iterations in 422.00 seconds)
+Iteration 851: error is 6.603511 (50 iterations in 407.00 seconds)
+Iteration 901: error is 6.522808 (50 iterations in 397.00 seconds)
+Iteration 951: error is 6.447188 (50 iterations in 393.00 seconds)
+Iteration 1001: error is 6.376070 (50 iterations in 398.00 seconds)
+Iteration 1051: error is 6.308758 (50 iterations in 405.00 seconds)
+Iteration 1101: error is 6.244670 (50 iterations in 407.00 seconds)
+Iteration 1151: error is 6.183663 (50 iterations in 411.00 seconds)
+Iteration 1201: error is 6.125366 (50 iterations in 409.00 seconds)
+Iteration 1251: error is 6.070836 (50 iterations in 414.00 seconds)
+Iteration 1301: error is 6.019098 (50 iterations in 417.00 seconds)
+Iteration 1351: error is 5.969699 (50 iterations in 415.00 seconds)
+Iteration 1401: error is 5.922531 (50 iterations in 421.00 seconds)
+Iteration 1451: error is 5.877657 (50 iterations in 424.00 seconds)
+Iteration 1501: error is 5.835080 (50 iterations in 416.00 seconds)
+Iteration 1551: error is 5.794416 (50 iterations in 411.00 seconds)
+Iteration 1601: error is 5.755460 (50 iterations in 416.00 seconds)
+Iteration 1651: error is 5.718181 (50 iterations in 419.00 seconds)
+Iteration 1701: error is 5.682372 (50 iterations in 412.00 seconds)
+Iteration 1751: error is 5.647939 (50 iterations in 414.00 seconds)
+Iteration 1801: error is 5.614813 (50 iterations in 423.00 seconds)
+Iteration 1851: error is 5.582879 (50 iterations in 429.00 seconds)
+Iteration 1901: error is 5.552106 (50 iterations in 434.00 seconds)
+Iteration 1951: error is 5.522405 (50 iterations in 422.00 seconds)
+Iteration 2000: error is 5.494298 (50 iterations in 415.00 seconds)
+Fitting performed in 16754.00 seconds.

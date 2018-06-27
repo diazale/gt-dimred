@@ -1,0 +1,23 @@
+Beginning loop for PC 10
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 3450 samples in 0.002s...
+[t-SNE] Computed neighbors for 3450 samples in 0.266s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 3450
+[t-SNE] Computed conditional probabilities for sample 2000 / 3450
+[t-SNE] Computed conditional probabilities for sample 3000 / 3450
+[t-SNE] Computed conditional probabilities for sample 3450 / 3450
+[t-SNE] Mean sigma: 0.002838
+[t-SNE] Computed conditional probabilities in 0.160s
+[t-SNE] Iteration 50: error = 84.5915909, gradient norm = 0.1323727 (50 iterations in 5.316s)
+[t-SNE] Iteration 100: error = 84.4480896, gradient norm = 0.1275041 (50 iterations in 5.301s)
+[t-SNE] Iteration 150: error = 84.4795151, gradient norm = 0.1303166 (50 iterations in 4.995s)
+[t-SNE] Iteration 200: error = 84.7668304, gradient norm = 0.1321534 (50 iterations in 5.266s)
+[t-SNE] Iteration 250: error = 84.7097397, gradient norm = 0.1287280 (50 iterations in 5.232s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 84.709740
+[t-SNE] Iteration 300: error = 2.8939295, gradient norm = 0.0011288 (50 iterations in 3.703s)
+[t-SNE] Iteration 350: error = 2.7133968, gradient norm = 0.0004133 (50 iterations in 3.403s)
+[t-SNE] Iteration 400: error = 2.6321552, gradient norm = 0.0002232 (50 iterations in 3.377s)
+[t-SNE] Iteration 450: error = 2.5933342, gradient norm = 0.0001586 (50 iterations in 3.382s)
+[t-SNE] Iteration 500: error = 2.5733635, gradient norm = 0.0001181 (50 iterations in 3.358s)
+[t-SNE] Error after 500 iterations: 2.573364
+File output to: /Volumes/Stockage/alex/1000G/projections/1000G_TSNE_PC10_PLEX30.0_LR600.0_ITER500_SKL_2018323213436

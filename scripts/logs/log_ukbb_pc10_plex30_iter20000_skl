@@ -1,0 +1,898 @@
+Finished importing PCA data.
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 488377 samples in 1.264s...
+[t-SNE] Computed neighbors for 488377 samples in 1234.319s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 488377
+[t-SNE] Computed conditional probabilities for sample 2000 / 488377
+[t-SNE] Computed conditional probabilities for sample 3000 / 488377
+[t-SNE] Computed conditional probabilities for sample 4000 / 488377
+[t-SNE] Computed conditional probabilities for sample 5000 / 488377
+[t-SNE] Computed conditional probabilities for sample 6000 / 488377
+[t-SNE] Computed conditional probabilities for sample 7000 / 488377
+[t-SNE] Computed conditional probabilities for sample 8000 / 488377
+[t-SNE] Computed conditional probabilities for sample 9000 / 488377
+[t-SNE] Computed conditional probabilities for sample 10000 / 488377
+[t-SNE] Computed conditional probabilities for sample 11000 / 488377
+[t-SNE] Computed conditional probabilities for sample 12000 / 488377
+[t-SNE] Computed conditional probabilities for sample 13000 / 488377
+[t-SNE] Computed conditional probabilities for sample 14000 / 488377
+[t-SNE] Computed conditional probabilities for sample 15000 / 488377
+[t-SNE] Computed conditional probabilities for sample 16000 / 488377
+[t-SNE] Computed conditional probabilities for sample 17000 / 488377
+[t-SNE] Computed conditional probabilities for sample 18000 / 488377
+[t-SNE] Computed conditional probabilities for sample 19000 / 488377
+[t-SNE] Computed conditional probabilities for sample 20000 / 488377
+[t-SNE] Computed conditional probabilities for sample 21000 / 488377
+[t-SNE] Computed conditional probabilities for sample 22000 / 488377
+[t-SNE] Computed conditional probabilities for sample 23000 / 488377
+[t-SNE] Computed conditional probabilities for sample 24000 / 488377
+[t-SNE] Computed conditional probabilities for sample 25000 / 488377
+[t-SNE] Computed conditional probabilities for sample 26000 / 488377
+[t-SNE] Computed conditional probabilities for sample 27000 / 488377
+[t-SNE] Computed conditional probabilities for sample 28000 / 488377
+[t-SNE] Computed conditional probabilities for sample 29000 / 488377
+[t-SNE] Computed conditional probabilities for sample 30000 / 488377
+[t-SNE] Computed conditional probabilities for sample 31000 / 488377
+[t-SNE] Computed conditional probabilities for sample 32000 / 488377
+[t-SNE] Computed conditional probabilities for sample 33000 / 488377
+[t-SNE] Computed conditional probabilities for sample 34000 / 488377
+[t-SNE] Computed conditional probabilities for sample 35000 / 488377
+[t-SNE] Computed conditional probabilities for sample 36000 / 488377
+[t-SNE] Computed conditional probabilities for sample 37000 / 488377
+[t-SNE] Computed conditional probabilities for sample 38000 / 488377
+[t-SNE] Computed conditional probabilities for sample 39000 / 488377
+[t-SNE] Computed conditional probabilities for sample 40000 / 488377
+[t-SNE] Computed conditional probabilities for sample 41000 / 488377
+[t-SNE] Computed conditional probabilities for sample 42000 / 488377
+[t-SNE] Computed conditional probabilities for sample 43000 / 488377
+[t-SNE] Computed conditional probabilities for sample 44000 / 488377
+[t-SNE] Computed conditional probabilities for sample 45000 / 488377
+[t-SNE] Computed conditional probabilities for sample 46000 / 488377
+[t-SNE] Computed conditional probabilities for sample 47000 / 488377
+[t-SNE] Computed conditional probabilities for sample 48000 / 488377
+[t-SNE] Computed conditional probabilities for sample 49000 / 488377
+[t-SNE] Computed conditional probabilities for sample 50000 / 488377
+[t-SNE] Computed conditional probabilities for sample 51000 / 488377
+[t-SNE] Computed conditional probabilities for sample 52000 / 488377
+[t-SNE] Computed conditional probabilities for sample 53000 / 488377
+[t-SNE] Computed conditional probabilities for sample 54000 / 488377
+[t-SNE] Computed conditional probabilities for sample 55000 / 488377
+[t-SNE] Computed conditional probabilities for sample 56000 / 488377
+[t-SNE] Computed conditional probabilities for sample 57000 / 488377
+[t-SNE] Computed conditional probabilities for sample 58000 / 488377
+[t-SNE] Computed conditional probabilities for sample 59000 / 488377
+[t-SNE] Computed conditional probabilities for sample 60000 / 488377
+[t-SNE] Computed conditional probabilities for sample 61000 / 488377
+[t-SNE] Computed conditional probabilities for sample 62000 / 488377
+[t-SNE] Computed conditional probabilities for sample 63000 / 488377
+[t-SNE] Computed conditional probabilities for sample 64000 / 488377
+[t-SNE] Computed conditional probabilities for sample 65000 / 488377
+[t-SNE] Computed conditional probabilities for sample 66000 / 488377
+[t-SNE] Computed conditional probabilities for sample 67000 / 488377
+[t-SNE] Computed conditional probabilities for sample 68000 / 488377
+[t-SNE] Computed conditional probabilities for sample 69000 / 488377
+[t-SNE] Computed conditional probabilities for sample 70000 / 488377
+[t-SNE] Computed conditional probabilities for sample 71000 / 488377
+[t-SNE] Computed conditional probabilities for sample 72000 / 488377
+[t-SNE] Computed conditional probabilities for sample 73000 / 488377
+[t-SNE] Computed conditional probabilities for sample 74000 / 488377
+[t-SNE] Computed conditional probabilities for sample 75000 / 488377
+[t-SNE] Computed conditional probabilities for sample 76000 / 488377
+[t-SNE] Computed conditional probabilities for sample 77000 / 488377
+[t-SNE] Computed conditional probabilities for sample 78000 / 488377
+[t-SNE] Computed conditional probabilities for sample 79000 / 488377
+[t-SNE] Computed conditional probabilities for sample 80000 / 488377
+[t-SNE] Computed conditional probabilities for sample 81000 / 488377
+[t-SNE] Computed conditional probabilities for sample 82000 / 488377
+[t-SNE] Computed conditional probabilities for sample 83000 / 488377
+[t-SNE] Computed conditional probabilities for sample 84000 / 488377
+[t-SNE] Computed conditional probabilities for sample 85000 / 488377
+[t-SNE] Computed conditional probabilities for sample 86000 / 488377
+[t-SNE] Computed conditional probabilities for sample 87000 / 488377
+[t-SNE] Computed conditional probabilities for sample 88000 / 488377
+[t-SNE] Computed conditional probabilities for sample 89000 / 488377
+[t-SNE] Computed conditional probabilities for sample 90000 / 488377
+[t-SNE] Computed conditional probabilities for sample 91000 / 488377
+[t-SNE] Computed conditional probabilities for sample 92000 / 488377
+[t-SNE] Computed conditional probabilities for sample 93000 / 488377
+[t-SNE] Computed conditional probabilities for sample 94000 / 488377
+[t-SNE] Computed conditional probabilities for sample 95000 / 488377
+[t-SNE] Computed conditional probabilities for sample 96000 / 488377
+[t-SNE] Computed conditional probabilities for sample 97000 / 488377
+[t-SNE] Computed conditional probabilities for sample 98000 / 488377
+[t-SNE] Computed conditional probabilities for sample 99000 / 488377
+[t-SNE] Computed conditional probabilities for sample 100000 / 488377
+[t-SNE] Computed conditional probabilities for sample 101000 / 488377
+[t-SNE] Computed conditional probabilities for sample 102000 / 488377
+[t-SNE] Computed conditional probabilities for sample 103000 / 488377
+[t-SNE] Computed conditional probabilities for sample 104000 / 488377
+[t-SNE] Computed conditional probabilities for sample 105000 / 488377
+[t-SNE] Computed conditional probabilities for sample 106000 / 488377
+[t-SNE] Computed conditional probabilities for sample 107000 / 488377
+[t-SNE] Computed conditional probabilities for sample 108000 / 488377
+[t-SNE] Computed conditional probabilities for sample 109000 / 488377
+[t-SNE] Computed conditional probabilities for sample 110000 / 488377
+[t-SNE] Computed conditional probabilities for sample 111000 / 488377
+[t-SNE] Computed conditional probabilities for sample 112000 / 488377
+[t-SNE] Computed conditional probabilities for sample 113000 / 488377
+[t-SNE] Computed conditional probabilities for sample 114000 / 488377
+[t-SNE] Computed conditional probabilities for sample 115000 / 488377
+[t-SNE] Computed conditional probabilities for sample 116000 / 488377
+[t-SNE] Computed conditional probabilities for sample 117000 / 488377
+[t-SNE] Computed conditional probabilities for sample 118000 / 488377
+[t-SNE] Computed conditional probabilities for sample 119000 / 488377
+[t-SNE] Computed conditional probabilities for sample 120000 / 488377
+[t-SNE] Computed conditional probabilities for sample 121000 / 488377
+[t-SNE] Computed conditional probabilities for sample 122000 / 488377
+[t-SNE] Computed conditional probabilities for sample 123000 / 488377
+[t-SNE] Computed conditional probabilities for sample 124000 / 488377
+[t-SNE] Computed conditional probabilities for sample 125000 / 488377
+[t-SNE] Computed conditional probabilities for sample 126000 / 488377
+[t-SNE] Computed conditional probabilities for sample 127000 / 488377
+[t-SNE] Computed conditional probabilities for sample 128000 / 488377
+[t-SNE] Computed conditional probabilities for sample 129000 / 488377
+[t-SNE] Computed conditional probabilities for sample 130000 / 488377
+[t-SNE] Computed conditional probabilities for sample 131000 / 488377
+[t-SNE] Computed conditional probabilities for sample 132000 / 488377
+[t-SNE] Computed conditional probabilities for sample 133000 / 488377
+[t-SNE] Computed conditional probabilities for sample 134000 / 488377
+[t-SNE] Computed conditional probabilities for sample 135000 / 488377
+[t-SNE] Computed conditional probabilities for sample 136000 / 488377
+[t-SNE] Computed conditional probabilities for sample 137000 / 488377
+[t-SNE] Computed conditional probabilities for sample 138000 / 488377
+[t-SNE] Computed conditional probabilities for sample 139000 / 488377
+[t-SNE] Computed conditional probabilities for sample 140000 / 488377
+[t-SNE] Computed conditional probabilities for sample 141000 / 488377
+[t-SNE] Computed conditional probabilities for sample 142000 / 488377
+[t-SNE] Computed conditional probabilities for sample 143000 / 488377
+[t-SNE] Computed conditional probabilities for sample 144000 / 488377
+[t-SNE] Computed conditional probabilities for sample 145000 / 488377
+[t-SNE] Computed conditional probabilities for sample 146000 / 488377
+[t-SNE] Computed conditional probabilities for sample 147000 / 488377
+[t-SNE] Computed conditional probabilities for sample 148000 / 488377
+[t-SNE] Computed conditional probabilities for sample 149000 / 488377
+[t-SNE] Computed conditional probabilities for sample 150000 / 488377
+[t-SNE] Computed conditional probabilities for sample 151000 / 488377
+[t-SNE] Computed conditional probabilities for sample 152000 / 488377
+[t-SNE] Computed conditional probabilities for sample 153000 / 488377
+[t-SNE] Computed conditional probabilities for sample 154000 / 488377
+[t-SNE] Computed conditional probabilities for sample 155000 / 488377
+[t-SNE] Computed conditional probabilities for sample 156000 / 488377
+[t-SNE] Computed conditional probabilities for sample 157000 / 488377
+[t-SNE] Computed conditional probabilities for sample 158000 / 488377
+[t-SNE] Computed conditional probabilities for sample 159000 / 488377
+[t-SNE] Computed conditional probabilities for sample 160000 / 488377
+[t-SNE] Computed conditional probabilities for sample 161000 / 488377
+[t-SNE] Computed conditional probabilities for sample 162000 / 488377
+[t-SNE] Computed conditional probabilities for sample 163000 / 488377
+[t-SNE] Computed conditional probabilities for sample 164000 / 488377
+[t-SNE] Computed conditional probabilities for sample 165000 / 488377
+[t-SNE] Computed conditional probabilities for sample 166000 / 488377
+[t-SNE] Computed conditional probabilities for sample 167000 / 488377
+[t-SNE] Computed conditional probabilities for sample 168000 / 488377
+[t-SNE] Computed conditional probabilities for sample 169000 / 488377
+[t-SNE] Computed conditional probabilities for sample 170000 / 488377
+[t-SNE] Computed conditional probabilities for sample 171000 / 488377
+[t-SNE] Computed conditional probabilities for sample 172000 / 488377
+[t-SNE] Computed conditional probabilities for sample 173000 / 488377
+[t-SNE] Computed conditional probabilities for sample 174000 / 488377
+[t-SNE] Computed conditional probabilities for sample 175000 / 488377
+[t-SNE] Computed conditional probabilities for sample 176000 / 488377
+[t-SNE] Computed conditional probabilities for sample 177000 / 488377
+[t-SNE] Computed conditional probabilities for sample 178000 / 488377
+[t-SNE] Computed conditional probabilities for sample 179000 / 488377
+[t-SNE] Computed conditional probabilities for sample 180000 / 488377
+[t-SNE] Computed conditional probabilities for sample 181000 / 488377
+[t-SNE] Computed conditional probabilities for sample 182000 / 488377
+[t-SNE] Computed conditional probabilities for sample 183000 / 488377
+[t-SNE] Computed conditional probabilities for sample 184000 / 488377
+[t-SNE] Computed conditional probabilities for sample 185000 / 488377
+[t-SNE] Computed conditional probabilities for sample 186000 / 488377
+[t-SNE] Computed conditional probabilities for sample 187000 / 488377
+[t-SNE] Computed conditional probabilities for sample 188000 / 488377
+[t-SNE] Computed conditional probabilities for sample 189000 / 488377
+[t-SNE] Computed conditional probabilities for sample 190000 / 488377
+[t-SNE] Computed conditional probabilities for sample 191000 / 488377
+[t-SNE] Computed conditional probabilities for sample 192000 / 488377
+[t-SNE] Computed conditional probabilities for sample 193000 / 488377
+[t-SNE] Computed conditional probabilities for sample 194000 / 488377
+[t-SNE] Computed conditional probabilities for sample 195000 / 488377
+[t-SNE] Computed conditional probabilities for sample 196000 / 488377
+[t-SNE] Computed conditional probabilities for sample 197000 / 488377
+[t-SNE] Computed conditional probabilities for sample 198000 / 488377
+[t-SNE] Computed conditional probabilities for sample 199000 / 488377
+[t-SNE] Computed conditional probabilities for sample 200000 / 488377
+[t-SNE] Computed conditional probabilities for sample 201000 / 488377
+[t-SNE] Computed conditional probabilities for sample 202000 / 488377
+[t-SNE] Computed conditional probabilities for sample 203000 / 488377
+[t-SNE] Computed conditional probabilities for sample 204000 / 488377
+[t-SNE] Computed conditional probabilities for sample 205000 / 488377
+[t-SNE] Computed conditional probabilities for sample 206000 / 488377
+[t-SNE] Computed conditional probabilities for sample 207000 / 488377
+[t-SNE] Computed conditional probabilities for sample 208000 / 488377
+[t-SNE] Computed conditional probabilities for sample 209000 / 488377
+[t-SNE] Computed conditional probabilities for sample 210000 / 488377
+[t-SNE] Computed conditional probabilities for sample 211000 / 488377
+[t-SNE] Computed conditional probabilities for sample 212000 / 488377
+[t-SNE] Computed conditional probabilities for sample 213000 / 488377
+[t-SNE] Computed conditional probabilities for sample 214000 / 488377
+[t-SNE] Computed conditional probabilities for sample 215000 / 488377
+[t-SNE] Computed conditional probabilities for sample 216000 / 488377
+[t-SNE] Computed conditional probabilities for sample 217000 / 488377
+[t-SNE] Computed conditional probabilities for sample 218000 / 488377
+[t-SNE] Computed conditional probabilities for sample 219000 / 488377
+[t-SNE] Computed conditional probabilities for sample 220000 / 488377
+[t-SNE] Computed conditional probabilities for sample 221000 / 488377
+[t-SNE] Computed conditional probabilities for sample 222000 / 488377
+[t-SNE] Computed conditional probabilities for sample 223000 / 488377
+[t-SNE] Computed conditional probabilities for sample 224000 / 488377
+[t-SNE] Computed conditional probabilities for sample 225000 / 488377
+[t-SNE] Computed conditional probabilities for sample 226000 / 488377
+[t-SNE] Computed conditional probabilities for sample 227000 / 488377
+[t-SNE] Computed conditional probabilities for sample 228000 / 488377
+[t-SNE] Computed conditional probabilities for sample 229000 / 488377
+[t-SNE] Computed conditional probabilities for sample 230000 / 488377
+[t-SNE] Computed conditional probabilities for sample 231000 / 488377
+[t-SNE] Computed conditional probabilities for sample 232000 / 488377
+[t-SNE] Computed conditional probabilities for sample 233000 / 488377
+[t-SNE] Computed conditional probabilities for sample 234000 / 488377
+[t-SNE] Computed conditional probabilities for sample 235000 / 488377
+[t-SNE] Computed conditional probabilities for sample 236000 / 488377
+[t-SNE] Computed conditional probabilities for sample 237000 / 488377
+[t-SNE] Computed conditional probabilities for sample 238000 / 488377
+[t-SNE] Computed conditional probabilities for sample 239000 / 488377
+[t-SNE] Computed conditional probabilities for sample 240000 / 488377
+[t-SNE] Computed conditional probabilities for sample 241000 / 488377
+[t-SNE] Computed conditional probabilities for sample 242000 / 488377
+[t-SNE] Computed conditional probabilities for sample 243000 / 488377
+[t-SNE] Computed conditional probabilities for sample 244000 / 488377
+[t-SNE] Computed conditional probabilities for sample 245000 / 488377
+[t-SNE] Computed conditional probabilities for sample 246000 / 488377
+[t-SNE] Computed conditional probabilities for sample 247000 / 488377
+[t-SNE] Computed conditional probabilities for sample 248000 / 488377
+[t-SNE] Computed conditional probabilities for sample 249000 / 488377
+[t-SNE] Computed conditional probabilities for sample 250000 / 488377
+[t-SNE] Computed conditional probabilities for sample 251000 / 488377
+[t-SNE] Computed conditional probabilities for sample 252000 / 488377
+[t-SNE] Computed conditional probabilities for sample 253000 / 488377
+[t-SNE] Computed conditional probabilities for sample 254000 / 488377
+[t-SNE] Computed conditional probabilities for sample 255000 / 488377
+[t-SNE] Computed conditional probabilities for sample 256000 / 488377
+[t-SNE] Computed conditional probabilities for sample 257000 / 488377
+[t-SNE] Computed conditional probabilities for sample 258000 / 488377
+[t-SNE] Computed conditional probabilities for sample 259000 / 488377
+[t-SNE] Computed conditional probabilities for sample 260000 / 488377
+[t-SNE] Computed conditional probabilities for sample 261000 / 488377
+[t-SNE] Computed conditional probabilities for sample 262000 / 488377
+[t-SNE] Computed conditional probabilities for sample 263000 / 488377
+[t-SNE] Computed conditional probabilities for sample 264000 / 488377
+[t-SNE] Computed conditional probabilities for sample 265000 / 488377
+[t-SNE] Computed conditional probabilities for sample 266000 / 488377
+[t-SNE] Computed conditional probabilities for sample 267000 / 488377
+[t-SNE] Computed conditional probabilities for sample 268000 / 488377
+[t-SNE] Computed conditional probabilities for sample 269000 / 488377
+[t-SNE] Computed conditional probabilities for sample 270000 / 488377
+[t-SNE] Computed conditional probabilities for sample 271000 / 488377
+[t-SNE] Computed conditional probabilities for sample 272000 / 488377
+[t-SNE] Computed conditional probabilities for sample 273000 / 488377
+[t-SNE] Computed conditional probabilities for sample 274000 / 488377
+[t-SNE] Computed conditional probabilities for sample 275000 / 488377
+[t-SNE] Computed conditional probabilities for sample 276000 / 488377
+[t-SNE] Computed conditional probabilities for sample 277000 / 488377
+[t-SNE] Computed conditional probabilities for sample 278000 / 488377
+[t-SNE] Computed conditional probabilities for sample 279000 / 488377
+[t-SNE] Computed conditional probabilities for sample 280000 / 488377
+[t-SNE] Computed conditional probabilities for sample 281000 / 488377
+[t-SNE] Computed conditional probabilities for sample 282000 / 488377
+[t-SNE] Computed conditional probabilities for sample 283000 / 488377
+[t-SNE] Computed conditional probabilities for sample 284000 / 488377
+[t-SNE] Computed conditional probabilities for sample 285000 / 488377
+[t-SNE] Computed conditional probabilities for sample 286000 / 488377
+[t-SNE] Computed conditional probabilities for sample 287000 / 488377
+[t-SNE] Computed conditional probabilities for sample 288000 / 488377
+[t-SNE] Computed conditional probabilities for sample 289000 / 488377
+[t-SNE] Computed conditional probabilities for sample 290000 / 488377
+[t-SNE] Computed conditional probabilities for sample 291000 / 488377
+[t-SNE] Computed conditional probabilities for sample 292000 / 488377
+[t-SNE] Computed conditional probabilities for sample 293000 / 488377
+[t-SNE] Computed conditional probabilities for sample 294000 / 488377
+[t-SNE] Computed conditional probabilities for sample 295000 / 488377
+[t-SNE] Computed conditional probabilities for sample 296000 / 488377
+[t-SNE] Computed conditional probabilities for sample 297000 / 488377
+[t-SNE] Computed conditional probabilities for sample 298000 / 488377
+[t-SNE] Computed conditional probabilities for sample 299000 / 488377
+[t-SNE] Computed conditional probabilities for sample 300000 / 488377
+[t-SNE] Computed conditional probabilities for sample 301000 / 488377
+[t-SNE] Computed conditional probabilities for sample 302000 / 488377
+[t-SNE] Computed conditional probabilities for sample 303000 / 488377
+[t-SNE] Computed conditional probabilities for sample 304000 / 488377
+[t-SNE] Computed conditional probabilities for sample 305000 / 488377
+[t-SNE] Computed conditional probabilities for sample 306000 / 488377
+[t-SNE] Computed conditional probabilities for sample 307000 / 488377
+[t-SNE] Computed conditional probabilities for sample 308000 / 488377
+[t-SNE] Computed conditional probabilities for sample 309000 / 488377
+[t-SNE] Computed conditional probabilities for sample 310000 / 488377
+[t-SNE] Computed conditional probabilities for sample 311000 / 488377
+[t-SNE] Computed conditional probabilities for sample 312000 / 488377
+[t-SNE] Computed conditional probabilities for sample 313000 / 488377
+[t-SNE] Computed conditional probabilities for sample 314000 / 488377
+[t-SNE] Computed conditional probabilities for sample 315000 / 488377
+[t-SNE] Computed conditional probabilities for sample 316000 / 488377
+[t-SNE] Computed conditional probabilities for sample 317000 / 488377
+[t-SNE] Computed conditional probabilities for sample 318000 / 488377
+[t-SNE] Computed conditional probabilities for sample 319000 / 488377
+[t-SNE] Computed conditional probabilities for sample 320000 / 488377
+[t-SNE] Computed conditional probabilities for sample 321000 / 488377
+[t-SNE] Computed conditional probabilities for sample 322000 / 488377
+[t-SNE] Computed conditional probabilities for sample 323000 / 488377
+[t-SNE] Computed conditional probabilities for sample 324000 / 488377
+[t-SNE] Computed conditional probabilities for sample 325000 / 488377
+[t-SNE] Computed conditional probabilities for sample 326000 / 488377
+[t-SNE] Computed conditional probabilities for sample 327000 / 488377
+[t-SNE] Computed conditional probabilities for sample 328000 / 488377
+[t-SNE] Computed conditional probabilities for sample 329000 / 488377
+[t-SNE] Computed conditional probabilities for sample 330000 / 488377
+[t-SNE] Computed conditional probabilities for sample 331000 / 488377
+[t-SNE] Computed conditional probabilities for sample 332000 / 488377
+[t-SNE] Computed conditional probabilities for sample 333000 / 488377
+[t-SNE] Computed conditional probabilities for sample 334000 / 488377
+[t-SNE] Computed conditional probabilities for sample 335000 / 488377
+[t-SNE] Computed conditional probabilities for sample 336000 / 488377
+[t-SNE] Computed conditional probabilities for sample 337000 / 488377
+[t-SNE] Computed conditional probabilities for sample 338000 / 488377
+[t-SNE] Computed conditional probabilities for sample 339000 / 488377
+[t-SNE] Computed conditional probabilities for sample 340000 / 488377
+[t-SNE] Computed conditional probabilities for sample 341000 / 488377
+[t-SNE] Computed conditional probabilities for sample 342000 / 488377
+[t-SNE] Computed conditional probabilities for sample 343000 / 488377
+[t-SNE] Computed conditional probabilities for sample 344000 / 488377
+[t-SNE] Computed conditional probabilities for sample 345000 / 488377
+[t-SNE] Computed conditional probabilities for sample 346000 / 488377
+[t-SNE] Computed conditional probabilities for sample 347000 / 488377
+[t-SNE] Computed conditional probabilities for sample 348000 / 488377
+[t-SNE] Computed conditional probabilities for sample 349000 / 488377
+[t-SNE] Computed conditional probabilities for sample 350000 / 488377
+[t-SNE] Computed conditional probabilities for sample 351000 / 488377
+[t-SNE] Computed conditional probabilities for sample 352000 / 488377
+[t-SNE] Computed conditional probabilities for sample 353000 / 488377
+[t-SNE] Computed conditional probabilities for sample 354000 / 488377
+[t-SNE] Computed conditional probabilities for sample 355000 / 488377
+[t-SNE] Computed conditional probabilities for sample 356000 / 488377
+[t-SNE] Computed conditional probabilities for sample 357000 / 488377
+[t-SNE] Computed conditional probabilities for sample 358000 / 488377
+[t-SNE] Computed conditional probabilities for sample 359000 / 488377
+[t-SNE] Computed conditional probabilities for sample 360000 / 488377
+[t-SNE] Computed conditional probabilities for sample 361000 / 488377
+[t-SNE] Computed conditional probabilities for sample 362000 / 488377
+[t-SNE] Computed conditional probabilities for sample 363000 / 488377
+[t-SNE] Computed conditional probabilities for sample 364000 / 488377
+[t-SNE] Computed conditional probabilities for sample 365000 / 488377
+[t-SNE] Computed conditional probabilities for sample 366000 / 488377
+[t-SNE] Computed conditional probabilities for sample 367000 / 488377
+[t-SNE] Computed conditional probabilities for sample 368000 / 488377
+[t-SNE] Computed conditional probabilities for sample 369000 / 488377
+[t-SNE] Computed conditional probabilities for sample 370000 / 488377
+[t-SNE] Computed conditional probabilities for sample 371000 / 488377
+[t-SNE] Computed conditional probabilities for sample 372000 / 488377
+[t-SNE] Computed conditional probabilities for sample 373000 / 488377
+[t-SNE] Computed conditional probabilities for sample 374000 / 488377
+[t-SNE] Computed conditional probabilities for sample 375000 / 488377
+[t-SNE] Computed conditional probabilities for sample 376000 / 488377
+[t-SNE] Computed conditional probabilities for sample 377000 / 488377
+[t-SNE] Computed conditional probabilities for sample 378000 / 488377
+[t-SNE] Computed conditional probabilities for sample 379000 / 488377
+[t-SNE] Computed conditional probabilities for sample 380000 / 488377
+[t-SNE] Computed conditional probabilities for sample 381000 / 488377
+[t-SNE] Computed conditional probabilities for sample 382000 / 488377
+[t-SNE] Computed conditional probabilities for sample 383000 / 488377
+[t-SNE] Computed conditional probabilities for sample 384000 / 488377
+[t-SNE] Computed conditional probabilities for sample 385000 / 488377
+[t-SNE] Computed conditional probabilities for sample 386000 / 488377
+[t-SNE] Computed conditional probabilities for sample 387000 / 488377
+[t-SNE] Computed conditional probabilities for sample 388000 / 488377
+[t-SNE] Computed conditional probabilities for sample 389000 / 488377
+[t-SNE] Computed conditional probabilities for sample 390000 / 488377
+[t-SNE] Computed conditional probabilities for sample 391000 / 488377
+[t-SNE] Computed conditional probabilities for sample 392000 / 488377
+[t-SNE] Computed conditional probabilities for sample 393000 / 488377
+[t-SNE] Computed conditional probabilities for sample 394000 / 488377
+[t-SNE] Computed conditional probabilities for sample 395000 / 488377
+[t-SNE] Computed conditional probabilities for sample 396000 / 488377
+[t-SNE] Computed conditional probabilities for sample 397000 / 488377
+[t-SNE] Computed conditional probabilities for sample 398000 / 488377
+[t-SNE] Computed conditional probabilities for sample 399000 / 488377
+[t-SNE] Computed conditional probabilities for sample 400000 / 488377
+[t-SNE] Computed conditional probabilities for sample 401000 / 488377
+[t-SNE] Computed conditional probabilities for sample 402000 / 488377
+[t-SNE] Computed conditional probabilities for sample 403000 / 488377
+[t-SNE] Computed conditional probabilities for sample 404000 / 488377
+[t-SNE] Computed conditional probabilities for sample 405000 / 488377
+[t-SNE] Computed conditional probabilities for sample 406000 / 488377
+[t-SNE] Computed conditional probabilities for sample 407000 / 488377
+[t-SNE] Computed conditional probabilities for sample 408000 / 488377
+[t-SNE] Computed conditional probabilities for sample 409000 / 488377
+[t-SNE] Computed conditional probabilities for sample 410000 / 488377
+[t-SNE] Computed conditional probabilities for sample 411000 / 488377
+[t-SNE] Computed conditional probabilities for sample 412000 / 488377
+[t-SNE] Computed conditional probabilities for sample 413000 / 488377
+[t-SNE] Computed conditional probabilities for sample 414000 / 488377
+[t-SNE] Computed conditional probabilities for sample 415000 / 488377
+[t-SNE] Computed conditional probabilities for sample 416000 / 488377
+[t-SNE] Computed conditional probabilities for sample 417000 / 488377
+[t-SNE] Computed conditional probabilities for sample 418000 / 488377
+[t-SNE] Computed conditional probabilities for sample 419000 / 488377
+[t-SNE] Computed conditional probabilities for sample 420000 / 488377
+[t-SNE] Computed conditional probabilities for sample 421000 / 488377
+[t-SNE] Computed conditional probabilities for sample 422000 / 488377
+[t-SNE] Computed conditional probabilities for sample 423000 / 488377
+[t-SNE] Computed conditional probabilities for sample 424000 / 488377
+[t-SNE] Computed conditional probabilities for sample 425000 / 488377
+[t-SNE] Computed conditional probabilities for sample 426000 / 488377
+[t-SNE] Computed conditional probabilities for sample 427000 / 488377
+[t-SNE] Computed conditional probabilities for sample 428000 / 488377
+[t-SNE] Computed conditional probabilities for sample 429000 / 488377
+[t-SNE] Computed conditional probabilities for sample 430000 / 488377
+[t-SNE] Computed conditional probabilities for sample 431000 / 488377
+[t-SNE] Computed conditional probabilities for sample 432000 / 488377
+[t-SNE] Computed conditional probabilities for sample 433000 / 488377
+[t-SNE] Computed conditional probabilities for sample 434000 / 488377
+[t-SNE] Computed conditional probabilities for sample 435000 / 488377
+[t-SNE] Computed conditional probabilities for sample 436000 / 488377
+[t-SNE] Computed conditional probabilities for sample 437000 / 488377
+[t-SNE] Computed conditional probabilities for sample 438000 / 488377
+[t-SNE] Computed conditional probabilities for sample 439000 / 488377
+[t-SNE] Computed conditional probabilities for sample 440000 / 488377
+[t-SNE] Computed conditional probabilities for sample 441000 / 488377
+[t-SNE] Computed conditional probabilities for sample 442000 / 488377
+[t-SNE] Computed conditional probabilities for sample 443000 / 488377
+[t-SNE] Computed conditional probabilities for sample 444000 / 488377
+[t-SNE] Computed conditional probabilities for sample 445000 / 488377
+[t-SNE] Computed conditional probabilities for sample 446000 / 488377
+[t-SNE] Computed conditional probabilities for sample 447000 / 488377
+[t-SNE] Computed conditional probabilities for sample 448000 / 488377
+[t-SNE] Computed conditional probabilities for sample 449000 / 488377
+[t-SNE] Computed conditional probabilities for sample 450000 / 488377
+[t-SNE] Computed conditional probabilities for sample 451000 / 488377
+[t-SNE] Computed conditional probabilities for sample 452000 / 488377
+[t-SNE] Computed conditional probabilities for sample 453000 / 488377
+[t-SNE] Computed conditional probabilities for sample 454000 / 488377
+[t-SNE] Computed conditional probabilities for sample 455000 / 488377
+[t-SNE] Computed conditional probabilities for sample 456000 / 488377
+[t-SNE] Computed conditional probabilities for sample 457000 / 488377
+[t-SNE] Computed conditional probabilities for sample 458000 / 488377
+[t-SNE] Computed conditional probabilities for sample 459000 / 488377
+[t-SNE] Computed conditional probabilities for sample 460000 / 488377
+[t-SNE] Computed conditional probabilities for sample 461000 / 488377
+[t-SNE] Computed conditional probabilities for sample 462000 / 488377
+[t-SNE] Computed conditional probabilities for sample 463000 / 488377
+[t-SNE] Computed conditional probabilities for sample 464000 / 488377
+[t-SNE] Computed conditional probabilities for sample 465000 / 488377
+[t-SNE] Computed conditional probabilities for sample 466000 / 488377
+[t-SNE] Computed conditional probabilities for sample 467000 / 488377
+[t-SNE] Computed conditional probabilities for sample 468000 / 488377
+[t-SNE] Computed conditional probabilities for sample 469000 / 488377
+[t-SNE] Computed conditional probabilities for sample 470000 / 488377
+[t-SNE] Computed conditional probabilities for sample 471000 / 488377
+[t-SNE] Computed conditional probabilities for sample 472000 / 488377
+[t-SNE] Computed conditional probabilities for sample 473000 / 488377
+[t-SNE] Computed conditional probabilities for sample 474000 / 488377
+[t-SNE] Computed conditional probabilities for sample 475000 / 488377
+[t-SNE] Computed conditional probabilities for sample 476000 / 488377
+[t-SNE] Computed conditional probabilities for sample 477000 / 488377
+[t-SNE] Computed conditional probabilities for sample 478000 / 488377
+[t-SNE] Computed conditional probabilities for sample 479000 / 488377
+[t-SNE] Computed conditional probabilities for sample 480000 / 488377
+[t-SNE] Computed conditional probabilities for sample 481000 / 488377
+[t-SNE] Computed conditional probabilities for sample 482000 / 488377
+[t-SNE] Computed conditional probabilities for sample 483000 / 488377
+[t-SNE] Computed conditional probabilities for sample 484000 / 488377
+[t-SNE] Computed conditional probabilities for sample 485000 / 488377
+[t-SNE] Computed conditional probabilities for sample 486000 / 488377
+[t-SNE] Computed conditional probabilities for sample 487000 / 488377
+[t-SNE] Computed conditional probabilities for sample 488000 / 488377
+[t-SNE] Computed conditional probabilities for sample 488377 / 488377
+[t-SNE] Mean sigma: 1.190097
+[t-SNE] Computed conditional probabilities in 19.256s
+[t-SNE] Iteration 50: error = 121.4113693, gradient norm = 0.0000000 (50 iterations in 1267.323s)
+[t-SNE] Iteration 50: gradient norm 0.000000. Finished.
+[t-SNE] KL divergence after 50 iterations with early exaggeration: 121.411369
+[t-SNE] Iteration 100: error = 8.0895529, gradient norm = 0.0000001 (50 iterations in 1332.862s)
+[t-SNE] Iteration 150: error = 8.0895462, gradient norm = 0.0000081 (50 iterations in 1388.140s)
+[t-SNE] Iteration 200: error = 7.9448423, gradient norm = 0.0010075 (50 iterations in 1413.841s)
+[t-SNE] Iteration 250: error = 6.8790016, gradient norm = 0.0005552 (50 iterations in 1189.287s)
+[t-SNE] Iteration 300: error = 6.5203409, gradient norm = 0.0003809 (50 iterations in 1190.314s)
+[t-SNE] Iteration 350: error = 6.2926416, gradient norm = 0.0002986 (50 iterations in 1255.806s)
+[t-SNE] Iteration 400: error = 6.1205430, gradient norm = 0.0002449 (50 iterations in 1221.018s)
+[t-SNE] Iteration 450: error = 5.9836192, gradient norm = 0.0002063 (50 iterations in 1232.316s)
+[t-SNE] Iteration 500: error = 5.8716884, gradient norm = 0.0001772 (50 iterations in 1229.603s)
+[t-SNE] Iteration 550: error = 5.7777009, gradient norm = 0.0001549 (50 iterations in 1233.552s)
+[t-SNE] Iteration 600: error = 5.6970339, gradient norm = 0.0001378 (50 iterations in 1237.029s)
+[t-SNE] Iteration 650: error = 5.6265559, gradient norm = 0.0001232 (50 iterations in 1238.753s)
+[t-SNE] Iteration 700: error = 5.5643401, gradient norm = 0.0001115 (50 iterations in 1244.973s)
+[t-SNE] Iteration 750: error = 5.5088277, gradient norm = 0.0001020 (50 iterations in 1260.383s)
+[t-SNE] Iteration 800: error = 5.4582672, gradient norm = 0.0000939 (50 iterations in 1257.102s)
+[t-SNE] Iteration 850: error = 5.4126143, gradient norm = 0.0000868 (50 iterations in 1209.042s)
+[t-SNE] Iteration 900: error = 5.3709459, gradient norm = 0.0000802 (50 iterations in 1190.887s)
+[t-SNE] Iteration 950: error = 5.3325734, gradient norm = 0.0000747 (50 iterations in 1194.622s)
+[t-SNE] Iteration 1000: error = 5.2969961, gradient norm = 0.0000699 (50 iterations in 1197.692s)
+[t-SNE] Iteration 1050: error = 5.2640367, gradient norm = 0.0000655 (50 iterations in 1204.221s)
+[t-SNE] Iteration 1100: error = 5.2330503, gradient norm = 0.0000621 (50 iterations in 1208.343s)
+[t-SNE] Iteration 1150: error = 5.2040372, gradient norm = 0.0000591 (50 iterations in 1199.583s)
+[t-SNE] Iteration 1200: error = 5.1767011, gradient norm = 0.0000557 (50 iterations in 1195.833s)
+[t-SNE] Iteration 1250: error = 5.1509323, gradient norm = 0.0000528 (50 iterations in 1214.643s)
+[t-SNE] Iteration 1300: error = 5.1262727, gradient norm = 0.0000504 (50 iterations in 1214.142s)
+[t-SNE] Iteration 1350: error = 5.1030760, gradient norm = 0.0000482 (50 iterations in 1219.088s)
+[t-SNE] Iteration 1400: error = 5.0807853, gradient norm = 0.0000460 (50 iterations in 1211.360s)
+[t-SNE] Iteration 1450: error = 5.0598464, gradient norm = 0.0000439 (50 iterations in 1219.028s)
+[t-SNE] Iteration 1500: error = 5.0396104, gradient norm = 0.0000422 (50 iterations in 1219.991s)
+[t-SNE] Iteration 1550: error = 5.0202298, gradient norm = 0.0000409 (50 iterations in 1217.892s)
+[t-SNE] Iteration 1600: error = 5.0017023, gradient norm = 0.0000390 (50 iterations in 1219.142s)
+[t-SNE] Iteration 1650: error = 4.9837275, gradient norm = 0.0000375 (50 iterations in 1217.188s)
+[t-SNE] Iteration 1700: error = 4.9667110, gradient norm = 0.0000362 (50 iterations in 1217.924s)
+[t-SNE] Iteration 1750: error = 4.9501915, gradient norm = 0.0000351 (50 iterations in 1215.168s)
+[t-SNE] Iteration 1800: error = 4.9341364, gradient norm = 0.0000339 (50 iterations in 1209.583s)
+[t-SNE] Iteration 1850: error = 4.9187999, gradient norm = 0.0000329 (50 iterations in 1211.893s)
+[t-SNE] Iteration 1900: error = 4.9038105, gradient norm = 0.0000319 (50 iterations in 1216.678s)
+[t-SNE] Iteration 1950: error = 4.8893962, gradient norm = 0.0000310 (50 iterations in 1213.795s)
+[t-SNE] Iteration 2000: error = 4.8754849, gradient norm = 0.0000302 (50 iterations in 1218.026s)
+[t-SNE] Iteration 2050: error = 4.8618431, gradient norm = 0.0000294 (50 iterations in 1219.190s)
+[t-SNE] Iteration 2100: error = 4.8487458, gradient norm = 0.0000287 (50 iterations in 1214.960s)
+[t-SNE] Iteration 2150: error = 4.8360019, gradient norm = 0.0000279 (50 iterations in 1214.777s)
+[t-SNE] Iteration 2200: error = 4.8236322, gradient norm = 0.0000272 (50 iterations in 1218.740s)
+[t-SNE] Iteration 2250: error = 4.8115745, gradient norm = 0.0000265 (50 iterations in 1216.104s)
+[t-SNE] Iteration 2300: error = 4.7998710, gradient norm = 0.0000258 (50 iterations in 1215.784s)
+[t-SNE] Iteration 2350: error = 4.7886605, gradient norm = 0.0000251 (50 iterations in 1214.037s)
+[t-SNE] Iteration 2400: error = 4.7774982, gradient norm = 0.0000246 (50 iterations in 1215.807s)
+[t-SNE] Iteration 2450: error = 4.7667356, gradient norm = 0.0000240 (50 iterations in 1216.366s)
+[t-SNE] Iteration 2500: error = 4.7562652, gradient norm = 0.0000235 (50 iterations in 1214.343s)
+[t-SNE] Iteration 2550: error = 4.7459793, gradient norm = 0.0000229 (50 iterations in 1214.551s)
+[t-SNE] Iteration 2600: error = 4.7358608, gradient norm = 0.0000224 (50 iterations in 1212.224s)
+[t-SNE] Iteration 2650: error = 4.7261109, gradient norm = 0.0000219 (50 iterations in 1216.679s)
+[t-SNE] Iteration 2700: error = 4.7165194, gradient norm = 0.0000214 (50 iterations in 1215.508s)
+[t-SNE] Iteration 2750: error = 4.7071400, gradient norm = 0.0000211 (50 iterations in 1209.378s)
+[t-SNE] Iteration 2800: error = 4.6978393, gradient norm = 0.0000208 (50 iterations in 1212.141s)
+[t-SNE] Iteration 2850: error = 4.6886640, gradient norm = 0.0000205 (50 iterations in 1211.832s)
+[t-SNE] Iteration 2900: error = 4.6799278, gradient norm = 0.0000201 (50 iterations in 1210.063s)
+[t-SNE] Iteration 2950: error = 4.6712666, gradient norm = 0.0000198 (50 iterations in 1205.434s)
+[t-SNE] Iteration 3000: error = 4.6627960, gradient norm = 0.0000194 (50 iterations in 1205.559s)
+[t-SNE] Iteration 3050: error = 4.6546993, gradient norm = 0.0000191 (50 iterations in 1204.519s)
+[t-SNE] Iteration 3100: error = 4.6466780, gradient norm = 0.0000187 (50 iterations in 1206.615s)
+[t-SNE] Iteration 3150: error = 4.6388946, gradient norm = 0.0000184 (50 iterations in 1205.760s)
+[t-SNE] Iteration 3200: error = 4.6310439, gradient norm = 0.0000180 (50 iterations in 1203.387s)
+[t-SNE] Iteration 3250: error = 4.6234527, gradient norm = 0.0000177 (50 iterations in 1196.903s)
+[t-SNE] Iteration 3300: error = 4.6160326, gradient norm = 0.0000174 (50 iterations in 1190.956s)
+[t-SNE] Iteration 3350: error = 4.6088266, gradient norm = 0.0000172 (50 iterations in 1192.423s)
+[t-SNE] Iteration 3400: error = 4.6018963, gradient norm = 0.0000169 (50 iterations in 1190.008s)
+[t-SNE] Iteration 3450: error = 4.5948725, gradient norm = 0.0000166 (50 iterations in 1187.845s)
+[t-SNE] Iteration 3500: error = 4.5881681, gradient norm = 0.0000163 (50 iterations in 1191.723s)
+[t-SNE] Iteration 3550: error = 4.5815077, gradient norm = 0.0000160 (50 iterations in 1192.968s)
+[t-SNE] Iteration 3600: error = 4.5749016, gradient norm = 0.0000158 (50 iterations in 1183.461s)
+[t-SNE] Iteration 3650: error = 4.5685263, gradient norm = 0.0000155 (50 iterations in 1190.137s)
+[t-SNE] Iteration 3700: error = 4.5621996, gradient norm = 0.0000153 (50 iterations in 1194.564s)
+[t-SNE] Iteration 3750: error = 4.5559645, gradient norm = 0.0000152 (50 iterations in 1179.638s)
+[t-SNE] Iteration 3800: error = 4.5497775, gradient norm = 0.0000149 (50 iterations in 1196.561s)
+[t-SNE] Iteration 3850: error = 4.5437217, gradient norm = 0.0000148 (50 iterations in 1179.114s)
+[t-SNE] Iteration 3900: error = 4.5378871, gradient norm = 0.0000145 (50 iterations in 1192.521s)
+[t-SNE] Iteration 3950: error = 4.5322003, gradient norm = 0.0000143 (50 iterations in 1174.014s)
+[t-SNE] Iteration 4000: error = 4.5265012, gradient norm = 0.0000142 (50 iterations in 1181.448s)
+[t-SNE] Iteration 4050: error = 4.5209084, gradient norm = 0.0000140 (50 iterations in 1193.752s)
+[t-SNE] Iteration 4100: error = 4.5153766, gradient norm = 0.0000137 (50 iterations in 1170.386s)
+[t-SNE] Iteration 4150: error = 4.5100565, gradient norm = 0.0000136 (50 iterations in 1167.542s)
+[t-SNE] Iteration 4200: error = 4.5047936, gradient norm = 0.0000134 (50 iterations in 1163.513s)
+[t-SNE] Iteration 4250: error = 4.4995890, gradient norm = 0.0000132 (50 iterations in 1160.821s)
+[t-SNE] Iteration 4300: error = 4.4943647, gradient norm = 0.0000130 (50 iterations in 1156.821s)
+[t-SNE] Iteration 4350: error = 4.4892097, gradient norm = 0.0000127 (50 iterations in 1158.970s)
+[t-SNE] Iteration 4400: error = 4.4842072, gradient norm = 0.0000125 (50 iterations in 1157.136s)
+[t-SNE] Iteration 4450: error = 4.4792433, gradient norm = 0.0000124 (50 iterations in 1160.533s)
+[t-SNE] Iteration 4500: error = 4.4743686, gradient norm = 0.0000122 (50 iterations in 1160.790s)
+[t-SNE] Iteration 4550: error = 4.4693747, gradient norm = 0.0000121 (50 iterations in 1164.450s)
+[t-SNE] Iteration 4600: error = 4.4645262, gradient norm = 0.0000124 (50 iterations in 1162.173s)
+[t-SNE] Iteration 4650: error = 4.4598422, gradient norm = 0.0000118 (50 iterations in 1167.485s)
+[t-SNE] Iteration 4700: error = 4.4552178, gradient norm = 0.0000118 (50 iterations in 1165.369s)
+[t-SNE] Iteration 4750: error = 4.4505725, gradient norm = 0.0000115 (50 iterations in 1168.790s)
+[t-SNE] Iteration 4800: error = 4.4460654, gradient norm = 0.0000113 (50 iterations in 1172.519s)
+[t-SNE] Iteration 4850: error = 4.4416561, gradient norm = 0.0000112 (50 iterations in 1170.413s)
+[t-SNE] Iteration 4900: error = 4.4372926, gradient norm = 0.0000111 (50 iterations in 1171.078s)
+[t-SNE] Iteration 4950: error = 4.4329047, gradient norm = 0.0000109 (50 iterations in 1182.252s)
+[t-SNE] Iteration 5000: error = 4.4286456, gradient norm = 0.0000108 (50 iterations in 1179.298s)
+[t-SNE] Iteration 5050: error = 4.4243650, gradient norm = 0.0000107 (50 iterations in 1183.581s)
+[t-SNE] Iteration 5100: error = 4.4201279, gradient norm = 0.0000106 (50 iterations in 1174.555s)
+[t-SNE] Iteration 5150: error = 4.4159923, gradient norm = 0.0000105 (50 iterations in 1152.841s)
+[t-SNE] Iteration 5200: error = 4.4117732, gradient norm = 0.0000105 (50 iterations in 1160.777s)
+[t-SNE] Iteration 5250: error = 4.4077010, gradient norm = 0.0000104 (50 iterations in 1170.418s)
+[t-SNE] Iteration 5300: error = 4.4036212, gradient norm = 0.0000104 (50 iterations in 1178.582s)
+[t-SNE] Iteration 5350: error = 4.3996072, gradient norm = 0.0000103 (50 iterations in 1136.694s)
+[t-SNE] Iteration 5400: error = 4.3956833, gradient norm = 0.0000102 (50 iterations in 1092.705s)
+[t-SNE] Iteration 5450: error = 4.3917694, gradient norm = 0.0000101 (50 iterations in 1093.655s)
+[t-SNE] Iteration 5500: error = 4.3879280, gradient norm = 0.0000100 (50 iterations in 1092.074s)
+[t-SNE] Iteration 5550: error = 4.3842077, gradient norm = 0.0000098 (50 iterations in 1089.380s)
+[t-SNE] Iteration 5600: error = 4.3804512, gradient norm = 0.0000097 (50 iterations in 1092.853s)
+[t-SNE] Iteration 5650: error = 4.3767495, gradient norm = 0.0000097 (50 iterations in 1093.246s)
+[t-SNE] Iteration 5700: error = 4.3731461, gradient norm = 0.0000096 (50 iterations in 1093.156s)
+[t-SNE] Iteration 5750: error = 4.3695889, gradient norm = 0.0000095 (50 iterations in 1093.270s)
+[t-SNE] Iteration 5800: error = 4.3659921, gradient norm = 0.0000095 (50 iterations in 1088.807s)
+[t-SNE] Iteration 5850: error = 4.3625259, gradient norm = 0.0000094 (50 iterations in 1090.566s)
+[t-SNE] Iteration 5900: error = 4.3590879, gradient norm = 0.0000093 (50 iterations in 1087.643s)
+[t-SNE] Iteration 5950: error = 4.3556671, gradient norm = 0.0000092 (50 iterations in 1089.980s)
+[t-SNE] Iteration 6000: error = 4.3523059, gradient norm = 0.0000091 (50 iterations in 1087.726s)
+[t-SNE] Iteration 6050: error = 4.3489900, gradient norm = 0.0000091 (50 iterations in 1100.429s)
+[t-SNE] Iteration 6100: error = 4.3456717, gradient norm = 0.0000090 (50 iterations in 1088.062s)
+[t-SNE] Iteration 6150: error = 4.3424649, gradient norm = 0.0000089 (50 iterations in 1085.158s)
+[t-SNE] Iteration 6200: error = 4.3392205, gradient norm = 0.0000087 (50 iterations in 1093.688s)
+[t-SNE] Iteration 6250: error = 4.3360763, gradient norm = 0.0000087 (50 iterations in 1087.737s)
+[t-SNE] Iteration 6300: error = 4.3329706, gradient norm = 0.0000086 (50 iterations in 1087.761s)
+[t-SNE] Iteration 6350: error = 4.3298154, gradient norm = 0.0000085 (50 iterations in 1085.880s)
+[t-SNE] Iteration 6400: error = 4.3266220, gradient norm = 0.0000084 (50 iterations in 1084.645s)
+[t-SNE] Iteration 6450: error = 4.3234568, gradient norm = 0.0000084 (50 iterations in 1083.415s)
+[t-SNE] Iteration 6500: error = 4.3204775, gradient norm = 0.0000083 (50 iterations in 1082.173s)
+[t-SNE] Iteration 6550: error = 4.3174644, gradient norm = 0.0000082 (50 iterations in 1083.092s)
+[t-SNE] Iteration 6600: error = 4.3145456, gradient norm = 0.0000081 (50 iterations in 1091.548s)
+[t-SNE] Iteration 6650: error = 4.3115773, gradient norm = 0.0000081 (50 iterations in 1188.953s)
+[t-SNE] Iteration 6700: error = 4.3087254, gradient norm = 0.0000080 (50 iterations in 1187.909s)
+[t-SNE] Iteration 6750: error = 4.3059058, gradient norm = 0.0000080 (50 iterations in 1179.449s)
+[t-SNE] Iteration 6800: error = 4.3030090, gradient norm = 0.0000079 (50 iterations in 1150.635s)
+[t-SNE] Iteration 6850: error = 4.3002539, gradient norm = 0.0000079 (50 iterations in 1139.784s)
+[t-SNE] Iteration 6900: error = 4.2974734, gradient norm = 0.0000079 (50 iterations in 1137.774s)
+[t-SNE] Iteration 6950: error = 4.2947321, gradient norm = 0.0000079 (50 iterations in 1146.710s)
+[t-SNE] Iteration 7000: error = 4.2920270, gradient norm = 0.0000078 (50 iterations in 1140.503s)
+[t-SNE] Iteration 7050: error = 4.2894683, gradient norm = 0.0000077 (50 iterations in 1143.311s)
+[t-SNE] Iteration 7100: error = 4.2868271, gradient norm = 0.0000077 (50 iterations in 1153.870s)
+[t-SNE] Iteration 7150: error = 4.2841382, gradient norm = 0.0000076 (50 iterations in 1145.154s)
+[t-SNE] Iteration 7200: error = 4.2815456, gradient norm = 0.0000076 (50 iterations in 1139.871s)
+[t-SNE] Iteration 7250: error = 4.2789664, gradient norm = 0.0000075 (50 iterations in 1150.852s)
+[t-SNE] Iteration 7300: error = 4.2764306, gradient norm = 0.0000075 (50 iterations in 1148.761s)
+[t-SNE] Iteration 7350: error = 4.2738581, gradient norm = 0.0000074 (50 iterations in 1149.892s)
+[t-SNE] Iteration 7400: error = 4.2713757, gradient norm = 0.0000074 (50 iterations in 1029.758s)
+[t-SNE] Iteration 7450: error = 4.2689843, gradient norm = 0.0000073 (50 iterations in 1047.470s)
+[t-SNE] Iteration 7500: error = 4.2665539, gradient norm = 0.0000072 (50 iterations in 1058.980s)
+[t-SNE] Iteration 7550: error = 4.2641096, gradient norm = 0.0000071 (50 iterations in 1077.640s)
+[t-SNE] Iteration 7600: error = 4.2617369, gradient norm = 0.0000071 (50 iterations in 1040.179s)
+[t-SNE] Iteration 7650: error = 4.2593555, gradient norm = 0.0000070 (50 iterations in 1047.036s)
+[t-SNE] Iteration 7700: error = 4.2569818, gradient norm = 0.0000070 (50 iterations in 1035.158s)
+[t-SNE] Iteration 7750: error = 4.2546821, gradient norm = 0.0000070 (50 iterations in 1074.193s)
+[t-SNE] Iteration 7800: error = 4.2523727, gradient norm = 0.0000069 (50 iterations in 1075.891s)
+[t-SNE] Iteration 7850: error = 4.2500858, gradient norm = 0.0000069 (50 iterations in 1059.061s)
+[t-SNE] Iteration 7900: error = 4.2478132, gradient norm = 0.0000068 (50 iterations in 1013.492s)
+[t-SNE] Iteration 7950: error = 4.2456207, gradient norm = 0.0000068 (50 iterations in 1024.005s)
+[t-SNE] Iteration 8000: error = 4.2434254, gradient norm = 0.0000067 (50 iterations in 1031.511s)
+[t-SNE] Iteration 8050: error = 4.2412395, gradient norm = 0.0000067 (50 iterations in 1030.808s)
+[t-SNE] Iteration 8100: error = 4.2390151, gradient norm = 0.0000066 (50 iterations in 954.635s)
+[t-SNE] Iteration 8150: error = 4.2368312, gradient norm = 0.0000066 (50 iterations in 909.092s)
+[t-SNE] Iteration 8200: error = 4.2346210, gradient norm = 0.0000065 (50 iterations in 899.461s)
+[t-SNE] Iteration 8250: error = 4.2324390, gradient norm = 0.0000065 (50 iterations in 899.543s)
+[t-SNE] Iteration 8300: error = 4.2303295, gradient norm = 0.0000065 (50 iterations in 898.981s)
+[t-SNE] Iteration 8350: error = 4.2281861, gradient norm = 0.0000064 (50 iterations in 904.725s)
+[t-SNE] Iteration 8400: error = 4.2260303, gradient norm = 0.0000064 (50 iterations in 900.032s)
+[t-SNE] Iteration 8450: error = 4.2238908, gradient norm = 0.0000064 (50 iterations in 899.789s)
+[t-SNE] Iteration 8500: error = 4.2217827, gradient norm = 0.0000063 (50 iterations in 899.236s)
+[t-SNE] Iteration 8550: error = 4.2196879, gradient norm = 0.0000063 (50 iterations in 903.067s)
+[t-SNE] Iteration 8600: error = 4.2176375, gradient norm = 0.0000062 (50 iterations in 899.488s)
+[t-SNE] Iteration 8650: error = 4.2156315, gradient norm = 0.0000065 (50 iterations in 903.971s)
+[t-SNE] Iteration 8700: error = 4.2135792, gradient norm = 0.0000061 (50 iterations in 900.069s)
+[t-SNE] Iteration 8750: error = 4.2115936, gradient norm = 0.0000061 (50 iterations in 901.090s)
+[t-SNE] Iteration 8800: error = 4.2096257, gradient norm = 0.0000061 (50 iterations in 898.770s)
+[t-SNE] Iteration 8850: error = 4.2076483, gradient norm = 0.0000060 (50 iterations in 899.672s)
+[t-SNE] Iteration 8900: error = 4.2057171, gradient norm = 0.0000060 (50 iterations in 899.482s)
+[t-SNE] Iteration 8950: error = 4.2037988, gradient norm = 0.0000060 (50 iterations in 901.036s)
+[t-SNE] Iteration 9000: error = 4.2019086, gradient norm = 0.0000059 (50 iterations in 899.126s)
+[t-SNE] Iteration 9050: error = 4.2000146, gradient norm = 0.0000059 (50 iterations in 903.295s)
+[t-SNE] Iteration 9100: error = 4.1981606, gradient norm = 0.0000059 (50 iterations in 899.707s)
+[t-SNE] Iteration 9150: error = 4.1962948, gradient norm = 0.0000058 (50 iterations in 918.592s)
+[t-SNE] Iteration 9200: error = 4.1944666, gradient norm = 0.0000058 (50 iterations in 904.774s)
+[t-SNE] Iteration 9250: error = 4.1927152, gradient norm = 0.0000058 (50 iterations in 903.186s)
+[t-SNE] Iteration 9300: error = 4.1908917, gradient norm = 0.0000057 (50 iterations in 899.268s)
+[t-SNE] Iteration 9350: error = 4.1891074, gradient norm = 0.0000057 (50 iterations in 900.851s)
+[t-SNE] Iteration 9400: error = 4.1873045, gradient norm = 0.0000057 (50 iterations in 899.376s)
+[t-SNE] Iteration 9450: error = 4.1854901, gradient norm = 0.0000057 (50 iterations in 899.491s)
+[t-SNE] Iteration 9500: error = 4.1837320, gradient norm = 0.0000058 (50 iterations in 899.383s)
+[t-SNE] Iteration 9550: error = 4.1820927, gradient norm = 0.0000058 (50 iterations in 901.659s)
+[t-SNE] Iteration 9600: error = 4.1803942, gradient norm = 0.0000058 (50 iterations in 902.081s)
+[t-SNE] Iteration 9650: error = 4.1788282, gradient norm = 0.0000059 (50 iterations in 906.168s)
+[t-SNE] Iteration 9700: error = 4.1773219, gradient norm = 0.0000059 (50 iterations in 902.875s)
+[t-SNE] Iteration 9750: error = 4.1758032, gradient norm = 0.0000059 (50 iterations in 904.839s)
+[t-SNE] Iteration 9800: error = 4.1743956, gradient norm = 0.0000059 (50 iterations in 907.601s)
+[t-SNE] Iteration 9850: error = 4.1729579, gradient norm = 0.0000060 (50 iterations in 904.720s)
+[t-SNE] Iteration 9900: error = 4.1715717, gradient norm = 0.0000060 (50 iterations in 904.471s)
+[t-SNE] Iteration 9950: error = 4.1702209, gradient norm = 0.0000060 (50 iterations in 903.760s)
+[t-SNE] Iteration 10000: error = 4.1689587, gradient norm = 0.0000059 (50 iterations in 904.049s)
+[t-SNE] Iteration 10050: error = 4.1676908, gradient norm = 0.0000059 (50 iterations in 902.321s)
+[t-SNE] Iteration 10100: error = 4.1664467, gradient norm = 0.0000059 (50 iterations in 906.005s)
+[t-SNE] Iteration 10150: error = 4.1651797, gradient norm = 0.0000059 (50 iterations in 903.870s)
+[t-SNE] Iteration 10200: error = 4.1639528, gradient norm = 0.0000059 (50 iterations in 905.580s)
+[t-SNE] Iteration 10250: error = 4.1627345, gradient norm = 0.0000059 (50 iterations in 903.611s)
+[t-SNE] Iteration 10300: error = 4.1615200, gradient norm = 0.0000059 (50 iterations in 902.366s)
+[t-SNE] Iteration 10350: error = 4.1603508, gradient norm = 0.0000060 (50 iterations in 901.746s)
+[t-SNE] Iteration 10400: error = 4.1591706, gradient norm = 0.0000061 (50 iterations in 901.967s)
+[t-SNE] Iteration 10450: error = 4.1580958, gradient norm = 0.0000061 (50 iterations in 900.203s)
+[t-SNE] Iteration 10500: error = 4.1570287, gradient norm = 0.0000060 (50 iterations in 898.941s)
+[t-SNE] Iteration 10550: error = 4.1560135, gradient norm = 0.0000060 (50 iterations in 905.803s)
+[t-SNE] Iteration 10600: error = 4.1550298, gradient norm = 0.0000060 (50 iterations in 900.232s)
+[t-SNE] Iteration 10650: error = 4.1540170, gradient norm = 0.0000060 (50 iterations in 897.690s)
+[t-SNE] Iteration 10700: error = 4.1530509, gradient norm = 0.0000060 (50 iterations in 898.169s)
+[t-SNE] Iteration 10750: error = 4.1521158, gradient norm = 0.0000060 (50 iterations in 900.243s)
+[t-SNE] Iteration 10800: error = 4.1512089, gradient norm = 0.0000061 (50 iterations in 900.468s)
+[t-SNE] Iteration 10850: error = 4.1502743, gradient norm = 0.0000063 (50 iterations in 896.629s)
+[t-SNE] Iteration 10900: error = 4.1492968, gradient norm = 0.0000068 (50 iterations in 896.278s)
+[t-SNE] Iteration 10950: error = 4.1484170, gradient norm = 0.0000064 (50 iterations in 895.865s)
+[t-SNE] Iteration 11000: error = 4.1475787, gradient norm = 0.0000060 (50 iterations in 896.087s)
+[t-SNE] Iteration 11050: error = 4.1467175, gradient norm = 0.0000059 (50 iterations in 894.927s)
+[t-SNE] Iteration 11100: error = 4.1459169, gradient norm = 0.0000059 (50 iterations in 894.695s)
+[t-SNE] Iteration 11150: error = 4.1451435, gradient norm = 0.0000058 (50 iterations in 897.569s)
+[t-SNE] Iteration 11200: error = 4.1443377, gradient norm = 0.0000058 (50 iterations in 892.518s)
+[t-SNE] Iteration 11250: error = 4.1435103, gradient norm = 0.0000058 (50 iterations in 889.429s)
+[t-SNE] Iteration 11300: error = 4.1427484, gradient norm = 0.0000058 (50 iterations in 890.048s)
+[t-SNE] Iteration 11350: error = 4.1419830, gradient norm = 0.0000058 (50 iterations in 894.552s)
+[t-SNE] Iteration 11400: error = 4.1412239, gradient norm = 0.0000057 (50 iterations in 894.850s)
+[t-SNE] Iteration 11450: error = 4.1404424, gradient norm = 0.0000057 (50 iterations in 894.552s)
+[t-SNE] Iteration 11500: error = 4.1397271, gradient norm = 0.0000057 (50 iterations in 900.968s)
+[t-SNE] Iteration 11550: error = 4.1389871, gradient norm = 0.0000057 (50 iterations in 903.021s)
+[t-SNE] Iteration 11600: error = 4.1382756, gradient norm = 0.0000057 (50 iterations in 904.889s)
+[t-SNE] Iteration 11650: error = 4.1375790, gradient norm = 0.0000057 (50 iterations in 900.335s)
+[t-SNE] Iteration 11700: error = 4.1369214, gradient norm = 0.0000057 (50 iterations in 898.868s)
+[t-SNE] Iteration 11750: error = 4.1362648, gradient norm = 0.0000056 (50 iterations in 900.147s)
+[t-SNE] Iteration 11800: error = 4.1355824, gradient norm = 0.0000056 (50 iterations in 902.317s)
+[t-SNE] Iteration 11850: error = 4.1348948, gradient norm = 0.0000056 (50 iterations in 900.477s)
+[t-SNE] Iteration 11900: error = 4.1342249, gradient norm = 0.0000056 (50 iterations in 900.786s)
+[t-SNE] Iteration 11950: error = 4.1335492, gradient norm = 0.0000056 (50 iterations in 899.944s)
+[t-SNE] Iteration 12000: error = 4.1328988, gradient norm = 0.0000056 (50 iterations in 901.895s)
+[t-SNE] Iteration 12050: error = 4.1322412, gradient norm = 0.0000056 (50 iterations in 895.845s)
+[t-SNE] Iteration 12100: error = 4.1315193, gradient norm = 0.0000055 (50 iterations in 896.259s)
+[t-SNE] Iteration 12150: error = 4.1308746, gradient norm = 0.0000055 (50 iterations in 895.411s)
+[t-SNE] Iteration 12200: error = 4.1301842, gradient norm = 0.0000055 (50 iterations in 897.902s)
+[t-SNE] Iteration 12250: error = 4.1295552, gradient norm = 0.0000055 (50 iterations in 896.581s)
+[t-SNE] Iteration 12300: error = 4.1289153, gradient norm = 0.0000055 (50 iterations in 896.444s)
+[t-SNE] Iteration 12350: error = 4.1282659, gradient norm = 0.0000054 (50 iterations in 902.357s)
+[t-SNE] Iteration 12400: error = 4.1276293, gradient norm = 0.0000054 (50 iterations in 900.612s)
+[t-SNE] Iteration 12450: error = 4.1270108, gradient norm = 0.0000054 (50 iterations in 905.117s)
+[t-SNE] Iteration 12500: error = 4.1263800, gradient norm = 0.0000054 (50 iterations in 899.726s)
+[t-SNE] Iteration 12550: error = 4.1257658, gradient norm = 0.0000054 (50 iterations in 899.126s)
+[t-SNE] Iteration 12600: error = 4.1251693, gradient norm = 0.0000054 (50 iterations in 899.918s)
+[t-SNE] Iteration 12650: error = 4.1245284, gradient norm = 0.0000054 (50 iterations in 898.529s)
+[t-SNE] Iteration 12700: error = 4.1238832, gradient norm = 0.0000054 (50 iterations in 895.566s)
+[t-SNE] Iteration 12750: error = 4.1232953, gradient norm = 0.0000054 (50 iterations in 894.871s)
+[t-SNE] Iteration 12800: error = 4.1226182, gradient norm = 0.0000053 (50 iterations in 899.373s)
+[t-SNE] Iteration 12850: error = 4.1219778, gradient norm = 0.0000053 (50 iterations in 904.442s)
+[t-SNE] Iteration 12900: error = 4.1213851, gradient norm = 0.0000053 (50 iterations in 900.854s)
+[t-SNE] Iteration 12950: error = 4.1207795, gradient norm = 0.0000053 (50 iterations in 899.873s)
+[t-SNE] Iteration 13000: error = 4.1201463, gradient norm = 0.0000053 (50 iterations in 899.036s)
+[t-SNE] Iteration 13050: error = 4.1195259, gradient norm = 0.0000053 (50 iterations in 896.907s)
+[t-SNE] Iteration 13100: error = 4.1189027, gradient norm = 0.0000053 (50 iterations in 895.639s)
+[t-SNE] Iteration 13150: error = 4.1182714, gradient norm = 0.0000053 (50 iterations in 898.843s)
+[t-SNE] Iteration 13200: error = 4.1176662, gradient norm = 0.0000052 (50 iterations in 898.254s)
+[t-SNE] Iteration 13250: error = 4.1170483, gradient norm = 0.0000052 (50 iterations in 899.401s)
+[t-SNE] Iteration 13300: error = 4.1164627, gradient norm = 0.0000052 (50 iterations in 895.914s)
+[t-SNE] Iteration 13350: error = 4.1158605, gradient norm = 0.0000052 (50 iterations in 896.263s)
+[t-SNE] Iteration 13400: error = 4.1152978, gradient norm = 0.0000052 (50 iterations in 896.663s)
+[t-SNE] Iteration 13450: error = 4.1147022, gradient norm = 0.0000052 (50 iterations in 903.411s)
+[t-SNE] Iteration 13500: error = 4.1140904, gradient norm = 0.0000052 (50 iterations in 896.938s)
+[t-SNE] Iteration 13550: error = 4.1134949, gradient norm = 0.0000052 (50 iterations in 897.100s)
+[t-SNE] Iteration 13600: error = 4.1129313, gradient norm = 0.0000051 (50 iterations in 896.954s)
+[t-SNE] Iteration 13650: error = 4.1123734, gradient norm = 0.0000051 (50 iterations in 899.133s)
+[t-SNE] Iteration 13700: error = 4.1117854, gradient norm = 0.0000051 (50 iterations in 895.739s)
+[t-SNE] Iteration 13750: error = 4.1111994, gradient norm = 0.0000051 (50 iterations in 897.578s)
+[t-SNE] Iteration 13800: error = 4.1106114, gradient norm = 0.0000051 (50 iterations in 901.605s)
+[t-SNE] Iteration 13850: error = 4.1100097, gradient norm = 0.0000051 (50 iterations in 911.224s)
+[t-SNE] Iteration 13900: error = 4.1094041, gradient norm = 0.0000051 (50 iterations in 900.297s)
+[t-SNE] Iteration 13950: error = 4.1088314, gradient norm = 0.0000051 (50 iterations in 902.022s)
+[t-SNE] Iteration 14000: error = 4.1082053, gradient norm = 0.0000051 (50 iterations in 897.392s)
+[t-SNE] Iteration 14050: error = 4.1076198, gradient norm = 0.0000051 (50 iterations in 901.603s)
+[t-SNE] Iteration 14100: error = 4.1070175, gradient norm = 0.0000052 (50 iterations in 898.473s)
+[t-SNE] Iteration 14150: error = 4.1063743, gradient norm = 0.0000052 (50 iterations in 898.252s)
+[t-SNE] Iteration 14200: error = 4.1058116, gradient norm = 0.0000052 (50 iterations in 897.552s)
+[t-SNE] Iteration 14250: error = 4.1052470, gradient norm = 0.0000051 (50 iterations in 904.266s)
+[t-SNE] Iteration 14300: error = 4.1046982, gradient norm = 0.0000051 (50 iterations in 902.352s)
+[t-SNE] Iteration 14350: error = 4.1040888, gradient norm = 0.0000051 (50 iterations in 898.869s)
+[t-SNE] Iteration 14400: error = 4.1035347, gradient norm = 0.0000051 (50 iterations in 898.716s)
+[t-SNE] Iteration 14450: error = 4.1029525, gradient norm = 0.0000051 (50 iterations in 899.025s)
+[t-SNE] Iteration 14500: error = 4.1023674, gradient norm = 0.0000051 (50 iterations in 899.420s)
+[t-SNE] Iteration 14550: error = 4.1018219, gradient norm = 0.0000051 (50 iterations in 897.908s)
+[t-SNE] Iteration 14600: error = 4.1012259, gradient norm = 0.0000051 (50 iterations in 900.838s)
+[t-SNE] Iteration 14650: error = 4.1006742, gradient norm = 0.0000051 (50 iterations in 896.898s)
+[t-SNE] Iteration 14700: error = 4.1000996, gradient norm = 0.0000050 (50 iterations in 923.895s)
+[t-SNE] Iteration 14750: error = 4.0995388, gradient norm = 0.0000050 (50 iterations in 900.347s)
+[t-SNE] Iteration 14800: error = 4.0989904, gradient norm = 0.0000051 (50 iterations in 896.800s)
+[t-SNE] Iteration 14850: error = 4.0984359, gradient norm = 0.0000051 (50 iterations in 897.181s)
+[t-SNE] Iteration 14900: error = 4.0978737, gradient norm = 0.0000051 (50 iterations in 899.311s)
+[t-SNE] Iteration 14950: error = 4.0973287, gradient norm = 0.0000050 (50 iterations in 896.155s)
+[t-SNE] Iteration 15000: error = 4.0967503, gradient norm = 0.0000050 (50 iterations in 897.169s)
+[t-SNE] Iteration 15050: error = 4.0961962, gradient norm = 0.0000050 (50 iterations in 902.709s)
+[t-SNE] Iteration 15100: error = 4.0956912, gradient norm = 0.0000050 (50 iterations in 902.496s)
+[t-SNE] Iteration 15150: error = 4.0951362, gradient norm = 0.0000049 (50 iterations in 897.243s)
+[t-SNE] Iteration 15200: error = 4.0946083, gradient norm = 0.0000049 (50 iterations in 896.065s)
+[t-SNE] Iteration 15250: error = 4.0940752, gradient norm = 0.0000049 (50 iterations in 897.114s)
+[t-SNE] Iteration 15300: error = 4.0935769, gradient norm = 0.0000049 (50 iterations in 897.502s)
+[t-SNE] Iteration 15350: error = 4.0929952, gradient norm = 0.0000049 (50 iterations in 899.540s)
+[t-SNE] Iteration 15400: error = 4.0924921, gradient norm = 0.0000049 (50 iterations in 897.034s)
+[t-SNE] Iteration 15450: error = 4.0919552, gradient norm = 0.0000048 (50 iterations in 896.519s)
+[t-SNE] Iteration 15500: error = 4.0914187, gradient norm = 0.0000048 (50 iterations in 902.220s)
+[t-SNE] Iteration 15550: error = 4.0909343, gradient norm = 0.0000048 (50 iterations in 898.428s)
+[t-SNE] Iteration 15600: error = 4.0904303, gradient norm = 0.0000048 (50 iterations in 895.280s)
+[t-SNE] Iteration 15650: error = 4.0899167, gradient norm = 0.0000048 (50 iterations in 895.571s)
+[t-SNE] Iteration 15700: error = 4.0894122, gradient norm = 0.0000048 (50 iterations in 899.444s)
+[t-SNE] Iteration 15750: error = 4.0889039, gradient norm = 0.0000048 (50 iterations in 895.178s)
+[t-SNE] Iteration 15800: error = 4.0884237, gradient norm = 0.0000048 (50 iterations in 894.780s)
+[t-SNE] Iteration 15850: error = 4.0878868, gradient norm = 0.0000047 (50 iterations in 897.058s)
+[t-SNE] Iteration 15900: error = 4.0873728, gradient norm = 0.0000047 (50 iterations in 902.321s)
+[t-SNE] Iteration 15950: error = 4.0868545, gradient norm = 0.0000047 (50 iterations in 896.269s)
+[t-SNE] Iteration 16000: error = 4.0863128, gradient norm = 0.0000047 (50 iterations in 895.871s)
+[t-SNE] Iteration 16050: error = 4.0858002, gradient norm = 0.0000047 (50 iterations in 896.011s)
+[t-SNE] Iteration 16100: error = 4.0852981, gradient norm = 0.0000047 (50 iterations in 899.754s)
+[t-SNE] Iteration 16150: error = 4.0848374, gradient norm = 0.0000047 (50 iterations in 897.446s)
+[t-SNE] Iteration 16200: error = 4.0843034, gradient norm = 0.0000047 (50 iterations in 900.048s)
+[t-SNE] Iteration 16250: error = 4.0838180, gradient norm = 0.0000047 (50 iterations in 899.449s)
+[t-SNE] Iteration 16300: error = 4.0833440, gradient norm = 0.0000047 (50 iterations in 908.063s)
+[t-SNE] Iteration 16350: error = 4.0828261, gradient norm = 0.0000047 (50 iterations in 907.146s)
+[t-SNE] Iteration 16400: error = 4.0823369, gradient norm = 0.0000047 (50 iterations in 898.835s)
+[t-SNE] Iteration 16450: error = 4.0818839, gradient norm = 0.0000046 (50 iterations in 899.710s)
+[t-SNE] Iteration 16500: error = 4.0813718, gradient norm = 0.0000046 (50 iterations in 899.157s)
+[t-SNE] Iteration 16550: error = 4.0808735, gradient norm = 0.0000046 (50 iterations in 901.960s)
+[t-SNE] Iteration 16600: error = 4.0803933, gradient norm = 0.0000046 (50 iterations in 899.448s)
+[t-SNE] Iteration 16650: error = 4.0799451, gradient norm = 0.0000046 (50 iterations in 900.090s)
+[t-SNE] Iteration 16700: error = 4.0795002, gradient norm = 0.0000046 (50 iterations in 904.292s)
+[t-SNE] Iteration 16750: error = 4.0790486, gradient norm = 0.0000045 (50 iterations in 909.069s)
+[t-SNE] Iteration 16800: error = 4.0785580, gradient norm = 0.0000045 (50 iterations in 904.201s)
+[t-SNE] Iteration 16850: error = 4.0781245, gradient norm = 0.0000046 (50 iterations in 905.266s)
+[t-SNE] Iteration 16900: error = 4.0776167, gradient norm = 0.0000046 (50 iterations in 906.564s)
+[t-SNE] Iteration 16950: error = 4.0771561, gradient norm = 0.0000046 (50 iterations in 908.991s)
+[t-SNE] Iteration 17000: error = 4.0767083, gradient norm = 0.0000046 (50 iterations in 909.882s)
+[t-SNE] Iteration 17050: error = 4.0763073, gradient norm = 0.0000046 (50 iterations in 904.477s)
+[t-SNE] Iteration 17100: error = 4.0758162, gradient norm = 0.0000046 (50 iterations in 903.954s)
+[t-SNE] Iteration 17150: error = 4.0754008, gradient norm = 0.0000046 (50 iterations in 907.900s)
+[t-SNE] Iteration 17200: error = 4.0749531, gradient norm = 0.0000046 (50 iterations in 899.354s)
+[t-SNE] Iteration 17250: error = 4.0745316, gradient norm = 0.0000046 (50 iterations in 900.273s)
+[t-SNE] Iteration 17300: error = 4.0741067, gradient norm = 0.0000045 (50 iterations in 898.832s)
+[t-SNE] Iteration 17350: error = 4.0736618, gradient norm = 0.0000045 (50 iterations in 902.714s)
+[t-SNE] Iteration 17400: error = 4.0731750, gradient norm = 0.0000045 (50 iterations in 899.639s)
+[t-SNE] Iteration 17450: error = 4.0727429, gradient norm = 0.0000045 (50 iterations in 899.297s)
+[t-SNE] Iteration 17500: error = 4.0722990, gradient norm = 0.0000045 (50 iterations in 899.250s)
+[t-SNE] Iteration 17550: error = 4.0718598, gradient norm = 0.0000045 (50 iterations in 902.139s)
+[t-SNE] Iteration 17600: error = 4.0714121, gradient norm = 0.0000045 (50 iterations in 900.445s)
+[t-SNE] Iteration 17650: error = 4.0709672, gradient norm = 0.0000045 (50 iterations in 900.777s)
+[t-SNE] Iteration 17700: error = 4.0705938, gradient norm = 0.0000045 (50 iterations in 899.498s)
+[t-SNE] Iteration 17750: error = 4.0701656, gradient norm = 0.0000044 (50 iterations in 900.800s)
+[t-SNE] Iteration 17800: error = 4.0697484, gradient norm = 0.0000044 (50 iterations in 898.570s)
+[t-SNE] Iteration 17850: error = 4.0693150, gradient norm = 0.0000044 (50 iterations in 901.629s)
+[t-SNE] Iteration 17900: error = 4.0689034, gradient norm = 0.0000044 (50 iterations in 901.695s)
+[t-SNE] Iteration 17950: error = 4.0685124, gradient norm = 0.0000044 (50 iterations in 911.114s)
+[t-SNE] Iteration 18000: error = 4.0680885, gradient norm = 0.0000044 (50 iterations in 903.919s)
+[t-SNE] Iteration 18050: error = 4.0676746, gradient norm = 0.0000043 (50 iterations in 900.748s)
+[t-SNE] Iteration 18100: error = 4.0672460, gradient norm = 0.0000043 (50 iterations in 899.456s)
+[t-SNE] Iteration 18150: error = 4.0667796, gradient norm = 0.0000043 (50 iterations in 901.303s)
+[t-SNE] Iteration 18200: error = 4.0663705, gradient norm = 0.0000043 (50 iterations in 899.242s)
+[t-SNE] Iteration 18250: error = 4.0659308, gradient norm = 0.0000043 (50 iterations in 898.801s)
+[t-SNE] Iteration 18300: error = 4.0655541, gradient norm = 0.0000043 (50 iterations in 899.833s)
+[t-SNE] Iteration 18350: error = 4.0650740, gradient norm = 0.0000043 (50 iterations in 901.033s)
+[t-SNE] Iteration 18400: error = 4.0646596, gradient norm = 0.0000043 (50 iterations in 898.954s)
+[t-SNE] Iteration 18450: error = 4.0642405, gradient norm = 0.0000043 (50 iterations in 900.113s)
+[t-SNE] Iteration 18500: error = 4.0638194, gradient norm = 0.0000043 (50 iterations in 900.807s)
+[t-SNE] Iteration 18550: error = 4.0634079, gradient norm = 0.0000042 (50 iterations in 901.398s)
+[t-SNE] Iteration 18600: error = 4.0629916, gradient norm = 0.0000042 (50 iterations in 900.195s)
+[t-SNE] Iteration 18650: error = 4.0625949, gradient norm = 0.0000042 (50 iterations in 906.955s)
+[t-SNE] Iteration 18700: error = 4.0621552, gradient norm = 0.0000042 (50 iterations in 898.911s)
+[t-SNE] Iteration 18750: error = 4.0617428, gradient norm = 0.0000042 (50 iterations in 903.693s)
+[t-SNE] Iteration 18800: error = 4.0613265, gradient norm = 0.0000042 (50 iterations in 904.797s)
+[t-SNE] Iteration 18850: error = 4.0609140, gradient norm = 0.0000042 (50 iterations in 899.526s)
+[t-SNE] Iteration 18900: error = 4.0605159, gradient norm = 0.0000041 (50 iterations in 898.813s)
+[t-SNE] Iteration 18950: error = 4.0601315, gradient norm = 0.0000042 (50 iterations in 898.921s)
+[t-SNE] Iteration 19000: error = 4.0597358, gradient norm = 0.0000042 (50 iterations in 902.456s)
+[t-SNE] Iteration 19050: error = 4.0593119, gradient norm = 0.0000041 (50 iterations in 898.643s)
+[t-SNE] Iteration 19100: error = 4.0589113, gradient norm = 0.0000041 (50 iterations in 899.656s)
+[t-SNE] Iteration 19150: error = 4.0584841, gradient norm = 0.0000041 (50 iterations in 899.054s)
+[t-SNE] Iteration 19200: error = 4.0580821, gradient norm = 0.0000041 (50 iterations in 902.539s)
+[t-SNE] Iteration 19250: error = 4.0576706, gradient norm = 0.0000041 (50 iterations in 899.490s)
+[t-SNE] Iteration 19300: error = 4.0572929, gradient norm = 0.0000041 (50 iterations in 899.934s)
+[t-SNE] Iteration 19350: error = 4.0568738, gradient norm = 0.0000041 (50 iterations in 900.618s)
+[t-SNE] Iteration 19400: error = 4.0564847, gradient norm = 0.0000041 (50 iterations in 905.474s)
+[t-SNE] Iteration 19450: error = 4.0560684, gradient norm = 0.0000041 (50 iterations in 905.506s)
+[t-SNE] Iteration 19500: error = 4.0556941, gradient norm = 0.0000041 (50 iterations in 903.441s)
+[t-SNE] Iteration 19550: error = 4.0552993, gradient norm = 0.0000041 (50 iterations in 903.324s)
+[t-SNE] Iteration 19600: error = 4.0548973, gradient norm = 0.0000042 (50 iterations in 907.967s)
+[t-SNE] Iteration 19650: error = 4.0545454, gradient norm = 0.0000042 (50 iterations in 899.895s)
+[t-SNE] Iteration 19700: error = 4.0541620, gradient norm = 0.0000042 (50 iterations in 899.708s)
+[t-SNE] Iteration 19750: error = 4.0537519, gradient norm = 0.0000041 (50 iterations in 899.320s)
+[t-SNE] Iteration 19800: error = 4.0533934, gradient norm = 0.0000041 (50 iterations in 901.995s)
+[t-SNE] Iteration 19850: error = 4.0530362, gradient norm = 0.0000041 (50 iterations in 899.642s)
+[t-SNE] Iteration 19900: error = 4.0526848, gradient norm = 0.0000041 (50 iterations in 899.753s)
+[t-SNE] Iteration 19950: error = 4.0523305, gradient norm = 0.0000041 (50 iterations in 899.134s)
+[t-SNE] Iteration 20000: error = 4.0519414, gradient norm = 0.0000041 (50 iterations in 901.905s)
+[t-SNE] Error after 20000 iterations: 4.051941
