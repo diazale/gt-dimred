@@ -7,3 +7,9 @@ Most of the code is dedicated to data management and visualization. There's a py
 PC data for the UKBB was provided to me so I didn't generate it myself.
 PC data for the HRS (and HRS/1KGP data) was generated in PLINK.
 Work done on the 1KGP data can be found in another repo: https://github.com/diazale/1KGP_dimred
+
+This HRS code is quite messy - this is because we worked with several subsets of the data and had to use proxies for ethnicities. While it works, it involves bouncing around different parts of it.
+
+The UKBB code can be run in a straightforward manner provided you already have the data.
+
+The code for generating UMAP projections is in /scripts.
