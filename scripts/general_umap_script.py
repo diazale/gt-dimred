@@ -30,7 +30,7 @@ hrs_1000g_path = os.path.join(hrs_1000g_dir, 'merged_1000G_HRS_pca.eigenvec')
 tg_path = os.path.join(tg_dir,'pca_1000g_100')
 
 # Logging directory.
-log_dir = '/Users/alex/Documents/Ethnicity/scripts/logs'
+log_dir = '/Volumes/Stockage/alex/logs'
 
 tstamp_log = ''.join([str(t) for t in time.gmtime()[0:6]])
 log_file = os.path.join(log_dir,'log_general_umap_' + dset + '_UMAP_NC' + str(nc) + '_NN' + str(nn) + '_MD' + str(md) + tstamp_log)

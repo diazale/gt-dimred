@@ -1,9 +1,0 @@
-UKBB_UMAP[10, 15, 20, 25, 30, 35, 40]_NC2_NN5_MD0.5
-Successfully imported UKBB PCA data.
-Beginning loop for PC 10
-File output to: /Volumes/Stockage/alex/ukbb_projections/UKBB_UMAP_PC10_NC2_NN5_MD0.5_20184261318
-Beginning loop for PC 15
-File output to: /Volumes/Stockage/alex/ukbb_projections/UKBB_UMAP_PC15_NC2_NN5_MD0.5_201842612641
-Beginning loop for PC 20
-operands could not be broadcast together with shapes (488280,2) (488377,2) 
-Error during UMAP projection.

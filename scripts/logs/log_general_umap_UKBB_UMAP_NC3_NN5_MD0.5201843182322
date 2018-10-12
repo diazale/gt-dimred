@@ -1,5 +1,0 @@
-UKBB_UMAP[10]_NC3_NN5_MD0.5
-Successfully imported UKBB PCA data.
-Beginning loop for PC 10
-operands could not be broadcast together with shapes (488371,3) (488377,3) 
-Error during UMAP projection.
