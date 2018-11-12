@@ -1,0 +1,120 @@
+\begin{thebibliography}{10}
+
+\bibitem{lawson2012inference}
+Lawson DJ, Hellenthal G, Myers S, Falush D (2012) Inference of population
+  structure using dense haplotype data.
+\newblock {\em PLoS genetics} 8(1):e1002453.
+
+\bibitem{mcvean2009genealogical}
+McVean G (2009) A genealogical interpretation of principal components analysis.
+\newblock {\em PLoS genetics} 5(10):e1000686.
+
+\bibitem{brisbin2012pcadmix}
+Brisbin A, et~al. (2012) {PCA}dmix: principal components-based assignment of
+  ancestry along each chromosome in individuals with admixed ancestry from two
+  or more populations.
+\newblock {\em Human biology} 84(4):343.
+
+\bibitem{novembre2008europe}
+Novembre J, et~al. (2008) Genes mirror geography within {E}urope.
+\newblock {\em Nature} 456:98--101.
+
+\bibitem{nelson2008population}
+Nelson MR, et~al. (2008) The {P}opulation {R}eference {S}ample, {POPRES}: a
+  resource for population, disease, and pharmacological genetics research.
+\newblock {\em The American Journal of Human Genetics} 83(3):347--358.
+
+\bibitem{eigen2006}
+Patterson N, Price AL, Reich D (2006) Population structure and eigenanalysis.
+\newblock {\em PLOS Genetics} 2(12):1--20.
+
+\bibitem{10002015global}
+{1000 Genomes Project Consortium} (2015) A global reference for human genetic
+  variation.
+\newblock {\em Nature} 526(7571):68.
+
+\bibitem{maaten2008visualizing}
+van~der Maaten L, Hinton G (2008) Visualizing data using t-{SNE}.
+\newblock {\em Journal of machine learning research} 9(Nov):2579--2605.
+
+\bibitem{platzer2013visualization}
+Platzer A (2013) Visualization of {SNP}s with t-{SNE}.
+\newblock {\em PloS one} 8(2):e56883.
+
+\bibitem{li2017tsne}
+Li W, Cerise JE, Yang Y, Han H (2017) Application of t-{SNE} to human genetic
+  data.
+\newblock {\em Journal of Bioinformatics and Computational Biology}
+  15(04):1750017.
+\newblock PMID: 28718343.
+
+\bibitem{2018arXivUMAP}
+{McInnes} L, {Healy} J (2018) {UMAP}: Uniform manifold approximation and
+  projection for dimension reduction.
+\newblock {\em arXiv preprint arXiv:1802.03426}.
+
+\bibitem{juster1995overview}
+Juster FT, Suzman R (1995) An overview of the {H}ealth and {R}etirement
+  {S}tudy.
+\newblock {\em Journal of Human Resources} pp. S7--S56.
+
+\bibitem{sudlow2015uk}
+Sudlow C, et~al. (2015) {UK} biobank: an open access resource for identifying
+  the causes of a wide range of complex diseases of middle and old age.
+\newblock {\em PLoS medicine} 12(3):e1001779.
+
+\bibitem{baharian2016great}
+Baharian S, et~al. (2016) The great migration and {A}frican-{A}merican genomic
+  diversity.
+\newblock {\em PLoS genetics} 12(5):e1006059.
+
+\bibitem{Maples:2013fia}
+Maples BK, Gravel S, Kenny EE, Bustamante CD (2013) {RFM}ix: A discriminative
+  modeling approach for rapid and robust local-ancestry inference.
+\newblock {\em Am J Hum Genet} 93(2):278--288.
+
+\bibitem{Jordan333609}
+Jordan I, Rishishwar L, Conley AB (2018) Cryptic {N}ative {A}merican ancestry
+  recapitulates population-specific migration and settlement of the continental
+  {U}nited {S}tates.
+\newblock {\em bioRxiv}.
+
+\bibitem{leslie2015fine}
+Leslie S, et~al. (2015) The fine-scale genetic structure of the {B}ritish
+  population.
+\newblock {\em Nature} 519(7543):309.
+
+\bibitem{robinson2015population}
+Robinson MR, et~al. (2015) Population genetic differentiation of height and
+  body mass index across {E}urope.
+\newblock {\em Nature genetics} 47(11):1357.
+
+\bibitem{komlos1994stature}
+Komlos A (1994) {\em Stature, living standards, and economic development:
+  Essays in anthropometric history}.
+\newblock (University of Chicago Press).
+
+\bibitem{novembre2008interpreting}
+Novembre J, Stephens M (2008) Interpreting principal component analyses of
+  spatial population genetic variation.
+\newblock {\em Nature genetics} 40(5):646.
+
+\bibitem{purcell2007plink}
+Purcell S, et~al. (2007) {PLINK}: a tool set for whole-genome association and
+  population-based linkage analyses.
+\newblock {\em The American Journal of Human Genetics} 81(3):559--575.
+
+\bibitem{scikit-learn}
+Pedregosa F, et~al. (2011) Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research} 12:2825--2830.
+
+\bibitem{scipy}
+Jones E, Oliphant T, Peterson P, , et~al. (2001--) {SciPy}: Open source
+  scientific tools for {Python}.
+\newblock [Online; accessed 2018-02-02].
+
+\bibitem{seabold2010statsmodels}
+Seabold S, Perktold J (2010) Statsmodels: Econometric and statistical modeling
+  with python in {\em 9th Python in Science Conference}.
+
+\end{thebibliography}
