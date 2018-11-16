@@ -43,13 +43,13 @@
 
 \begin{abstract}
 %Max 250
-Background: Population structure in genetic data depends on complex demographic processes including geographic isolation, genetic drift, migration, and admixture. Existing data exploration methods struggle with unbalanced cohort ancestries, reconciliation of global versus local relationships, and the sheer size of modern datasets. We investigate an approach to dimension reduction and visualization of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to reveal layers of diversity and cryptic population structure.
+Background: Genetic structure in large cohorts can arise from technical, sampling and demographic variation. Data visualisation is therefore a first step in most genomic analyses. However, existing data exploration methods struggle with unbalanced sampling and the multiple scales of population structure in large cohorts. We investigate an approach to dimension reduction and visualization of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to reveal layers of diversity and cryptic population structure.
 \\
 \\
-Results: We demonstrate using genotype data from the 1000 Genomes Project, the Health and Retirement Study, and the UK Biobank that projections using PCA-UMAP effectively cluster individuals who are genetically closely related while placing them in a global continuum of genetic variation. These projections quickly reveal subpopulations within the American Hispanic population, deep relationships between geography and genotype in the UK population, and stark phenotypic variation between groups in the UK Biobank. 
+Results: Using genotype data from the 1000 Genomes Project, the Health and Retirement Study, and the UK Biobank, we demonstrate that PCA-UMAP effectively clusters individuals who are genetically closely related while placing them in a global continuum of genetic variation. This dimension reduction approach reveals previously overlooked subpopulations within the American Hispanic population, fine-scale relationships between geography and genotype in the UK population, and rich phenotypic variation across space and ethnicity in the UK Biobank. 
 \\
 \\
-Conclusion: These projections succinctly illustrate population structure in large cohorts and capture relationships on local and global scales, establishing PCA-UMAP as a general-purpose approach to exploratory analysis in genomics.
+Conclusion: PCA-UMAP reveals genetic subgroups among study participants that had been previously overlooked, opening new lines of investigation for demographic research and statistical genetics. Given its small computational cost, it provides an important general-purpose approach to exploratory analysis in population-scale datasets.
 \end{abstract}
 
 \keywords{genomics $|$ genetics $|$ population structure $|$ ethnicity $|$ ancestry $|$ machine learning $|$ data visualization $|$ dimension reduction}
