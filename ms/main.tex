@@ -43,12 +43,13 @@
 
 \begin{abstract}
 %Max 250
-Background: Population structure in genetic data depends on complex demographic processes including geographic isolation, genetic drift, migration, and admixture. Together with technical artifacts, population structure is a prominent confounder of genomic studies. Identifying such patterns is therefore central to the genomic enterprise. Whereas many methods can identify specific types of population structure, few are able to provide simple representations of genomic diversity across a range of scales. We investigate an approach to dimension reduction and visualization of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP).
+Background: Population structure in genetic data depends on complex demographic processes including geographic isolation, genetic drift, migration, and admixture. Existing data exploration methods struggle with unbalanced cohort ancestries, reconciliation of global versus local relationships, and the sheer size of modern datasets. We investigate an approach to dimension reduction and visualization of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to reveal layers of diversity and cryptic population structure.
 \\
 \\
-Results: We demonstrate using genotype data from the 1000 Genomes Project, the Health and Retirement Study, and the UK Biobank that projections using PCA-UMAP effectively cluster individuals who are genetically closely related while placing them in a global continuum of genetic variation. These projections reveal non-trivial population groupings, reflect ethnicity and geography on fine-scale levels, and uncover patterns in the distributions of a variety of phenotypes.
+Results: We demonstrate using genotype data from the 1000 Genomes Project, the Health and Retirement Study, and the UK Biobank that projections using PCA-UMAP effectively cluster individuals who are genetically closely related while placing them in a global continuum of genetic variation. These projections quickly reveal subpopulations within the American Hispanic population, deep relationships between geography and genotype in the UK population, and stark phenotypic variation between groups in the UK Biobank. 
 \\
-\\Conclusion: These projections succinctly illustrate population structure in large cohorts and capture relationships on local and global scales, establishing PCA-UMAP as a general-purpose approach to exploratory analysis in genomics.
+\\
+Conclusion: These projections succinctly illustrate population structure in large cohorts and capture relationships on local and global scales, establishing PCA-UMAP as a general-purpose approach to exploratory analysis in genomics.
 \end{abstract}
 
 \keywords{genomics $|$ genetics $|$ population structure $|$ ethnicity $|$ ancestry $|$ machine learning $|$ data visualization $|$ dimension reduction}
@@ -66,8 +67,7 @@ Results: We demonstrate using genotype data from the 1000 Genomes Project, the H
 
 Questions in medicine, anthropology, and related fields hinge on interpreting the deluge of genomic data provided by modern high-throughput sequencing technologies. Because genomic datasets are high-dimensional, their interpretation requires statistical methods that can comprehensively condense information in a manner that is understandable to researchers and minimizes the amount of data that is sacrificed. Both model-based and model-agnostic approaches to summarize data have played important roles in shaping our understanding of the evolution of our species~\cite{lawson2012inference}.
 
-Here we will focus on nonparametric approaches to visualize relatedness patterns among individuals within populations. %Relatedness patterns are shaped by geographic isolation, founder effects, migration patterns, and admixture. Understanding such patterns is therefore useful to understand the genetic history of individuals and populations. It is also important to interpret genomic association studies, as unaccounted-for relatedness patterns can generate spurious correlations between genotypes and phenotypes. 
-If we consider unphased single nucleotide polymorphism (SNP) data, an individual genome can be represented as a sequence of integers corresponding to the number of derived alleles carried by the individual at each of the $L$ SNPs for which genotypes are available, with $L$ typically larger than $100,000$. Since each individual is represented as an $L$-dimensional vector, dimension reduction methods are needed to visualize the data.
+Here we will focus on nonparametric approaches to visualize relatedness patterns among individuals within populations. If we consider unphased single nucleotide polymorphism (SNP) data, an individual genome can be represented as a sequence of integers corresponding to the number of derived alleles carried by the individual at each of the $L$ SNPs for which genotypes are available, with $L$ typically larger than $100,000$. Since each individual is represented as an $L$-dimensional vector, dimension reduction methods are needed to visualize the data.
 
 Principal component analysis (PCA) is often the first dimensional reduction tool used for genomic data. It identifies and ranks directions in genotype space that explain most-to-least variance among individuals. Positions of individuals along directions of highest variance can then be used to summarize individual genotypes. PCA coordinates have natural genealogical interpretations in terms of times to a most recent common ancestor (TMRCA) \cite{mcvean2009genealogical}, and are used empirically to reveal admixture \cite{brisbin2012pcadmix}, continuous isolation-by-distance \cite{novembre2008europe, nelson2008population}, as well as technical artefacts. PCA coordinates are particularly well-suited to correct for population structure in GWAS~\cite{eigen2006}.
 
@@ -113,25 +113,36 @@ Uniform Manifold Approximation and Projection (UMAP) is a new dimension reductio
 A common practice in dimensional reduction is to first apply PCA to reduce the number of dimensions before performing nonlinear dimensional reduction. In addition to being computationally advantageous, this discards statistical noise that can confound nonlinear approaches: Population structure arising from $n$ isolated randomly-mating demes can be described by the leading $n-1$ PCs, with the following PCs describing stochastic variation in relatedness~\cite{eigen2006}. Selecting the leading PCs therefore has potential to extract meaningful population structure while filtering out stochastic noise.
 
 We explore different strategies to pre-process the data and investigate discrete and continuous population structure patterns present in large datasets of human genotypes: the 1KGP, the Health and Retirement Study (HRS)\cite{juster1995overview}, and the UK BioBank (UKBB)\cite{sudlow2015uk}.  
-%A common practice in dimensional reduction is to first apply PCA before performing nonlinear dimensional reduction. We then then feed the top principal components into UMAP and tSNE to generate a two-dimensional representation of the data. After the projections are generated, we create dimensional images colored by variables such as ethnicity (or a proxy for ethnicity), admixture, geography, and phenotype.
 
 \begin{figure}
 \centering
    %\includegraphics[width=0.6\linewidth]{images/HRS_UMAP_PC10_NN15_MD05_admix_crop.pdf}
    \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix.pdf}
-   \caption{UMAP on the first 10 principal components of HRS data. Coloring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. This projection colored by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}. Individuals with intermediate admixture ratios sometimes fall between clusters of Black, White, and Hispanic individuals \adpcomment{(alternate projection shown in figure~\ref{fig:supp_hrs_admix_alt}).} }
-    %\caption{UMAP on the first 10 principal components of HRS data. coloring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. Individuals with intermediate admixture ratios sometimes fall between three clusters of Black, White, and Hispanic individuals. This projection colored by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}}
+   \caption{UMAP on the first 10 principal components of HRS data. Coloring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. This projection colored by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}.}
     \label{fig:umap_hrs_admix}
 \end{figure}
 
-\subsection*{Results}
-\begin{figure}
-\centering
-   %\includegraphics[width=0.6\linewidth]{images/HRS_HISP_UMAP_PC7_NC2_NN15_MD05_201844193148.pdf}
-   \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_highlighted.pdf}
-    \caption{The top $7$ principal components of the Hispanic population of the HRS projected by UMAP, colored by region of birth. The highlighted region consists almost entirely of individuals who were born in the Mountain region of the United States. This region contains New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same figure colored according to estimated continental ancestry proportion. Figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp} shows that populations from the 1KGP do not map to the cluster when projected onto the UMAP embedding.}
-    \label{fig:hrs_hisp}
-\end{figure}
+%\subsection*{Results}
+%\begin{figure}
+%\centering
+%   \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_highlighted.pdf}
+%    \caption{The top $7$ principal components of the Hispanic population of the HRS projected by UMAP, colored by region of birth. The highlighted region consists almost entirely of individuals who were born in the Mountain region of the United States. This region contains New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same figure colored according to estimated continental ancestry proportion. Figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp} shows that populations from the 1KGP do not map to the cluster when projected onto the UMAP embedding.}
+%    \label{fig:hrs_hisp}
+%\end{figure}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.6\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
+    \end{subfigure}
+    \caption{Applying UMAP to the top $7$ principal components of the self-identified Hispanic population of the HRS reveals a cluster (highlighted). Colouring the points by birthplace shows they were born almost entirely in the Mountain region of the United States (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). When populations from the 1KGP are projected onto the UMAP embedding they do not map to the cluster. Six relevant 1KGP populations are presented: CLM, Colombian in Medellin, Colombia;
+    IBS, Iberian in Spain;
+    MXL, Mexican in Los Angeles, California;
+    PEL, Peruvian;
+    PUR, Puerto Rican;
+    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS coloured by estimated admixture proportions.}
+    \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
+\end{figure*}
 
 \subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and PCA-UMAP (that is, UMAP with PCA pre-processing). Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to more distinct population clusters and less defined continental structure (see figure \ref{fig:supp_megamontage_pc10_50} for PCA-tSNE). Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; further components gradually approach results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9} and~\ref{fig:supp_megamontage_pc10_50}). 
 
@@ -150,7 +161,7 @@ The HRS forms several large groupings and clusters, reflecting both ethnicity (f
 
 To investigate possible ancestries related to populations in the 1KGP we took two approaches. In the first we generated PC axes and a UMAP embedding using UMAP and 1KGP data together (figure~\ref{fig:supp_hrs_1000g}). In the second we used the PC axes and UMAP embedding generated in figure~\ref{fig:umap_hrs_admix} and projected 1KGP data onto it (figure~\ref{fig:supp_hrs_1kgp_projected}). Both approaches reveal substructure within the Hispanic cluster, groupings of Finnish individuals within the WNH groups, as well as Italian and Spanish individuals grouping near the White Hispanic population. One group of WNH individuals regularly appears at the periphery of the main cluster and does not cluster with any 1KGP populations.
 
-\subsubsection*{Regional patterns in the American Hispanic population} In contrast to the WNH individuals, applying PCA-UMAP to self-identified Hispanic individuals reveals clear groupings related to birth region. One separate cluster, highlighted in figure~\ref{fig:hrs_hisp}, consists almost entirely of individuals born in the Mountain Region of the United States. This cluster is not apparent when looking at a grid of pairwise plots of the first 8 principal components, provided in figure~\ref{fig:supp_hrs_hisp_grid}, as the signal is distributed along PCs 3, 4, and 6. Even though continental admixture patterns do correlate with UMAP position (figure~\ref{fig:supp_umap_hrs_hisp_admix}), these do not explain the Mountain Region cluster. Individuals from 1KGP populations do not appear in the cluster when projected to the UMAP embedding (figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp}). The cluster possibly comprises the Hispano population of the Southwest US, who have been present in the Mountain Region area long before the more recent immigrants from Latin America, and whose ancestry is expected to reflect both distinct Native ancestry and population-specific drift relative to other Hispanic populations. A recent preprint discusses the Mountain Region Hispanics and provides a more detailed historical description \cite{Jordan333609}.  
+\subsubsection*{Regional patterns in the American Hispanic population} In contrast to the WNH individuals, applying PCA-UMAP to self-identified Hispanic individuals reveals clear groupings related to birth region. One separate cluster, highlighted in figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp}, consists almost entirely of individuals born in the Mountain Region of the United States. This cluster is not apparent when looking at a grid of pairwise plots of the first 8 principal components, provided in figure~\ref{fig:supp_hrs_hisp_grid}, as the signal is distributed along PCs 3, 4, and 6. Even though continental admixture patterns do correlate with UMAP position (figure~\ref{fig:supp_umap_hrs_hisp_admix}), these do not explain the Mountain Region cluster. Individuals from 1KGP populations do not appear in the cluster when projected to the UMAP embedding. The cluster possibly comprises the Hispano population of the Southwest US, who have been present in the Mountain Region area long before the more recent immigrants from Latin America, and whose ancestry is expected to reflect both distinct Native ancestry and population-specific drift relative to other Hispanic populations. A recent preprint discusses the Mountain Region Hispanics and provides a more detailed historical description \cite{Jordan333609}.  
 
 \subsubsection*{Population structure in the UKBB reflects local and global genetic variation} The UKBB provides genotype data on 488,377 individuals along with self-identified ethnic background in a hierarchical tree-structured dictionary. Participants provided ethnic background on two occasions. We used the initial ethnicity after finding minimal differences between the two. The dataset is majority White (88.3\% British, 2.6\% Irish, 3.4\% other), with large populations identifying as Black (1.6\% either African, Caribbean, or other), Asian (1.9\% either Indian, Pakistani, Bangladeshi, or other), Chinese (0.3\%), an other ethnic group (0.8\%), mixed ethnicity (0.6\%), or an unavailable response (0.5\%). 
 
@@ -606,7 +617,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure*}
     \centering
     \begin{subfigure}{\textwidth}
-    %\includegraphics[width=\textwidth]{images/HRS_UMAP_PC10_NN15_MD05_2018330153123_born.pdf}
     \includegraphics[width=0.75\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_born.pdf}
     \end{subfigure}
     \caption{UMAP on the top 10 principal components of the HRS dataset, colored by Census Bureau birth region. There is no obvious pattern in the clusters of majority "White Not Hispanic" individuals.}
@@ -618,7 +628,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_custom_label.pdf}
     \end{subfigure}
-    \caption{\adpcomment{This is also new} UMAP on the top 10 principal components of the HRS data, with 1KGP data projected onto the embedding. Individuals from the HRS are coloured grey and largely transparent. British (GBR) and other European (CEU) individuals are scattered throughout the "White Not Hispanic" clusters. Finns (FIN) form clear groupings. Spanish (IBS) and Italian (TSI) individuals cluster near the Hispanic grouping. There is a clear gradient in the Hispanic cluster formed of Puerto Ricans (PUR), Colombians (CLM), Mexicans (MXL), and Peruvians (PEL). Populations with African ancestry (AFR) appear with Black individuals. East Asian (EAS) populations comprising Chinese, Kinh, and Japanese individuals cluster together with what appears in figure~\ref{fig:umap_hrs_admix} as a population of mostly Asian ancestry. South Asian (SAS) populations with Indian, Pakistani, and Sri Lankan ancestry cluster in a separate area. One "White Not Hispanic" cluster at the bottom does not cluster with any 1KGP populations.}
+    \caption{UMAP on the top 10 principal components of the HRS data, with 1KGP data projected onto the embedding. Individuals from the HRS are grey. British (GBR) and other European (CEU) individuals are scattered throughout the "White Not Hispanic" clusters. Finns (FIN) form clear groupings. Spanish (IBS) and Italian (TSI) individuals cluster near the Hispanic grouping. There are sub-groups in the Hispanic cluster formed of Puerto Ricans (PUR), Colombians (CLM), Mexicans (MXL), and Peruvians (PEL). Populations with African ancestry (AFR) appear with Black individuals. East Asian (EAS) populations comprising Chinese, Kinh, and Japanese individuals cluster together with what appears in figure~\ref{fig:umap_hrs_admix} as a population of mostly Asian ancestry. South Asian (SAS) populations with Indian, Pakistani, and Sri Lankan ancestry cluster in a separate area. One "White Not Hispanic" cluster at the bottom does not cluster with any 1KGP populations.}
     \label{fig:supp_hrs_1kgp_projected}
 \end{figure*}
 
@@ -627,7 +637,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/HRS_1000G_UMAP_PC10_NC2_NN15_MD05_2018627203416_label.pdf}
     \end{subfigure}
-    \caption{UMAP on the top 10 principal components of the combined HRS and 1KGP datasets. The colors match those used in the separate 1KGP and HRS plots. The large blue clusters are "White Not Hispanic" individuals. Scattered brown dots within these clusters are Utah residents with Northern/Western European ancestry, and British in England and Scotland ("CEU" and "GBR", respectively, in the 1KGP datasets). A cluster of Finnish individuals consistently shows up and is labelled "FIN". Toscani individuals regularly form clusters and are labelled "TSI". However, their locations relative to the other clusters of "White Not Hispanic" are not consistent, sometimes appearing next to clusters of Spanish individuals and other times not. One cluster of "White Not Hispanic" individuals is highlighted in a box --- unlike the other clusters, CEU and GBR individuals are not projected here.}
+    \caption{UMAP projection of the top 10 principal components of the combined HRS and 1KGP datasets. One cluster (in the box) does not group with any of the 1KGP populations. A cluster of Finnish (FIN) individuals consistently appears in the "White Not Hispanic" (WNH) group. Groups of Central and South American populations from the 1KGP (CLM, Colombian; MXL, Mexican; PEL, Peruvian; PUR, Puerto Rican) form nearby or within the HRS Hispanic cluster (HIS). Iberian individuals (IBS) cluster near the Hispanic population. Toscani individuals (TSI) form some small clusters and sometimes appear near the Iberian and Hispanic populations. Individuals with British/Scottish (GBR) or Northern/Western European ancestry (CEU) are scattered throughout the WNH clusters. Individuals with African ancestry from the 1KGP group with Black Americans from the HRS (AFR). Similar population groupings occur with South Asian (SAS) and East Asian (EAS) individuals.}
     \label{fig:supp_hrs_1000g}
 \end{figure*}
 
@@ -650,20 +660,19 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \label{fig:supp_umap_hrs_hisp_admix}
 \end{figure*}
 
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    %\includegraphics[width=\textwidth]{images/HRS_HISP_UMAP_PC7_NN15_MD05_admix.pdf}
-    \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
-    \end{subfigure}
-    \caption{UMAP of the first $7$ principal components of the Hispanic population of the HRS, colored by birth region, with selected 1KGP populations projected onto the UMAP embedding. The highlighted area consists almost entirely of individuals born in the Mountain region of the census (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). The six populations do not fall onto the highlighted cluster.  CLM, Colombian in Medellin, Colombia;
-    IBS, Iberian in Spain;
-    MXL, Mexican in Los Angeles, California;
-    PEL, Peruvian;
-    PUR, Puerto Rican;
-    TSI, Tuscani in Italy.}
-    \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
-\end{figure*}
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}{\textwidth}
+%    \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
+%    \end{subfigure}
+%    \caption{UMAP of the first $7$ principal components of the Hispanic population of the HRS, colored by birth region, with selected 1KGP populations projected onto the UMAP embedding. The highlighted area consists almost entirely of individuals born in the Mountain region of the census (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). The six populations do not fall onto the highlighted cluster.  CLM, Colombian in Medellin, Colombia;
+%    IBS, Iberian in Spain;
+%    MXL, Mexican in Los Angeles, California;
+%    PEL, Peruvian;
+%    PUR, Puerto Rican;
+%    TSI, Tuscani in Italy.}
+%    \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
+%\end{figure*}
 
 \begin{figure*}
     \centering
@@ -674,14 +683,14 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \label{fig:supp_hrs_hisp_admix}
 \end{figure*}
 
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/HRS_UMAP_PC10_NN15_MD05_admix_crop.pdf}
-    \end{subfigure}
-    \caption{UMAP on the first $10$ principal components of HRS data, coloring individuals by estimated admixture from three ancestral populations. Alternate projection to demonstrate how individuals may fall between clusters.}
-    \label{fig:supp_hrs_admix_alt}
-\end{figure*}
+%\begin{figure*}
+%    \centering
+%    \begin{subfigure}{\textwidth}
+%    \includegraphics[width=\textwidth]{images/HRS_UMAP_PC10_NN15_MD05_admix_crop.pdf}
+%    \end{subfigure}
+%    \caption{UMAP on the first $10$ principal components of HRS data, coloring individuals by estimated admixture from three ancestral populations. Alternate projection to demonstrate how individuals may fall between clusters.}
+%    \label{fig:supp_hrs_admix_alt}
+%\end{figure*}
 
 \begin{figure}[!htb]
     \centering
