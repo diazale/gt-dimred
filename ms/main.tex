@@ -42,10 +42,8 @@
 \leadauthor{Diaz-Papkovich} 
 
 \begin{abstract}
-%Max 250
-Genetic structure in large cohorts results from technical, sampling and demographic variation. Visualisation is therefore a first step in most genomic analyses. However, existing data exploration methods struggle with unbalanced sampling and the many scales of population structure. We investigate an approach to dimension reduction of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to reveal layers of diversity and cryptic population structure.
-Using data from large-scale genomic datasets, we demonstrate that PCA-UMAP effectively clusters closely related individuals while placing them in a global continuum of genetic variation. This approach reveals previously overlooked subpopulations within the American Hispanic population and fine-scale relationships between geography, genotypes, and phenotypes in the UK population. 
-This opens new lines of investigation for demographic research and statistical genetics. Given its small computational cost, PCA-UMAP also provides a general-purpose approach to exploratory analysis in population-scale datasets.
+\adpcomment{Changed the abstract.}
+Genetic structure in cohorts results from technical, sampling and demographic variation, necessitating visualization as an early step in genomic analyses. Existing approaches are stymied by the massive size of modern cohorts and unbalanced sizes of populations of many disparate ancestries and struggle to place individuals of admixed ancestries. They also struggle to reconcile local genetic relationships in a global context, and the push for larger and more diverse genomic data will only exacerbate these issues. We investigate an approach to dimension reduction of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to succinctly reveal cryptic population structure, the flow between layers of diversity, and phenotype heterogeneity between populations. Using data from large-scale genomic datasets, we demonstrate that PCA-UMAP intuitively clusters closely related individuals while placing them in a global continuum of genetic variation. We uncover previously overlooked subpopulations within the American Hispanic population and fine-scale relationships between geography, genotypes, and phenotypes in the UK population, opening new lines of investigation for demographic research and statistical genetics. We also demonstrate that in a massive and diverse cohort, UMAP outperforms state-of-the-art dimension reduction. Given its small computational cost and promising results, PCA-UMAP should become a standard approach to exploratory analysis of population-scale genetic datasets.
 \end{abstract}
 
 \keywords{genomics $|$ genetics $|$ population structure $|$ ethnicity $|$ ancestry $|$ machine learning $|$ data visualization $|$ dimension reduction}
@@ -233,6 +231,10 @@ Forced expiratory volume in 1 second (FEV1) (figures~\ref{fig:supp_ukbb_fev_f}, 
     \caption{A map of Great Britain colored by a 3D UMAP projection. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates (inset): Individuals who are closer to each other in the projection will appear to be closer in color. Patterns in genetic similarity are visible in Scotland, South England, the East and West Midlands, and major urban centres. A flattened 2D view of of the 3D projection used for coloring is presented in the top right. To protect participant privacy, data has been randomized as explained in the materials and methods.}
     \label{fig:umap_ukbb_geo_map}
 \end{figure}
+
+\adpcomment{Added this subsection}
+\subsubsection*{Performance of t-SNE and UMAP}
+To compare UMAP to t-SNE, we ran Python's sklearn implementation of t-SNE on the top 10 PCs of each dataset, once using the default initialization, and once initializing it with a two-dimensional UMAP embedding and skipping the early exaggeration phase of t-SNE (typically the first 250 iterations). The two approaches produce similar results in smaller datasets such as the 1KGP and HRS, with the main differences being in run-time and some qualitative factors such as clusters being more interconnected when using UMAP (figures~\ref{fig:supp_tsne_umap_compare_1kgp},~\ref{fig:supp_tsne_umap_compare_hrs}). Using the UKBB, it becomes clear that UMAP is far better equipped to handle massive genomic datasets with individuals from a variety of ancestral populations. Looking at the Kullback-Leibler divergence after 20,000 iterations, t-SNE's default initialization did not improve upon initialization with the UMAP embedding (figure~\ref{fig:supp_tsne_umap_compare_ukbb_graph}). Qualitatively the standard t-SNE initialization generated a large number of arbitrary clusters, while initializing t-SNE with UMAP preserved much of the large scale structure created by the UMAP embedding but broke the global continuity (figure~\ref{fig:supp_tsne_umap_compare_ukbb}). Given the many desirable properties of UMAP, such computational performance and intuitive placement of individuals within a global genetic continuum, we conclude that UMAP is a superior alternative to t-SNE for large and diverse genomic datasets.
 
 \subsection*{Discussion}
 Understanding population structure is important to identify confounders in medical genomics and studies of anthropology and human evolution. PCA of genomic data reflects genealogical and geographic data, but visualization in large datasets still requires scanning through a large number of pairwise plots. UMAP condenses these components and comprehensively illustrates information --- phenotypic, geographic, and ancestral --- contained within genotypes on fine-scale levels and within the context of a global population structure. In large datasets where the number of significant PCs is large, the resulting representation has important advantages over
@@ -592,21 +594,11 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure*}
     \centering
     \begin{subfigure}{0.95\textwidth}
-    %\includegraphics[width=0.95\textwidth]{images/HRS_UMAP_PC10_NN15_MD05_2018330153123_RACE_HISP_MEX.pdf}
     \includegraphics[width=0.75\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_race_hisp_mex_labels.pdf}
     \end{subfigure}
     \caption{UMAP applied to the first 10 principal components of HRS data. Points colored by self-identified race, Hispanic status, and Mexican-American status. The cluster on the left is mostly people who identify as neither Black nor White and were born outside the contiguous United States or in the Pacific census region. Clustering with the 1KGP data places them with Asian-identified populations. BNH, Black (not Hispanic); BHO, Black (Hispanic, Other); WNH, White (not Hispanic); WHM, White (Hispanic, Mexican-American); WHO, White Hispanic (Other); ONH, Other (not Hispanic); OHM, Other (Hispanic, Mexican-American); OHO, Other (Hispanic, Other).}
     \label{fig:supp_umap_hrs_eth}
 \end{figure*}
-
-%\begin{figure*}
-%    \centering
-%    \begin{subfigure}{\textwidth}
-%    \includegraphics[width=\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_race_hisp_mex_labels.jpeg}
-%    \end{subfigure}
-%    \caption{}
-%    \label{fig:supp_hrs_projection_2}
-%\end{figure*}
 
 \begin{figure*}
     \centering
@@ -647,26 +639,11 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure*}
     \centering
     \begin{subfigure}{\textwidth}
-    %\includegraphics[width=\textwidth]{images/HRS_HISP_UMAP_PC7_NN15_MD05_admix.pdf}
     \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_admix.pdf}
     \end{subfigure}
     \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, colored by estimated admixture proportions.}
     \label{fig:supp_umap_hrs_hisp_admix}
 \end{figure*}
-
-%\begin{figure*}
-%    \centering
-%    \begin{subfigure}{\textwidth}
-%    \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
-%    \end{subfigure}
-%    \caption{UMAP of the first $7$ principal components of the Hispanic population of the HRS, colored by birth region, with selected 1KGP populations projected onto the UMAP embedding. The highlighted area consists almost entirely of individuals born in the Mountain region of the census (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). The six populations do not fall onto the highlighted cluster.  CLM, Colombian in Medellin, Colombia;
-%    IBS, Iberian in Spain;
-%    MXL, Mexican in Los Angeles, California;
-%    PEL, Peruvian;
-%    PUR, Puerto Rican;
-%    TSI, Tuscani in Italy.}
-%    \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
-%\end{figure*}
 
 \begin{figure*}
     \centering
@@ -677,20 +654,53 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \label{fig:supp_hrs_hisp_admix}
 \end{figure*}
 
-%\begin{figure*}
-%    \centering
-%    \begin{subfigure}{\textwidth}
-%    \includegraphics[width=\textwidth]{images/HRS_UMAP_PC10_NN15_MD05_admix_crop.pdf}
-%    \end{subfigure}
-%    \caption{UMAP on the first $10$ principal components of HRS data, coloring individuals by estimated admixture from three ancestral populations. Alternate projection to demonstrate how individuals may fall between clusters.}
-%    \label{fig:supp_hrs_admix_alt}
-%\end{figure*}
-
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/UKBB_TSNE_10PCs_DefaultPerplexity_eth.pdf}
     \caption{t-SNE applied to the top 10 principal components of the UKBB, colored by ethnic background. The unbalanced populations resulted in many individuals and populations being orphaned along the periphery of the main cluster.}
     \label{fig:supp_ukbb_tsne}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/1KGP_tsne_umap.jpeg}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the 1KGP.}
+    \label{fig:supp_tsne_umap_compare_1kgp}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/HRS_tsne_umap.jpeg}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the HRS.}
+    \label{fig:supp_tsne_umap_compare_hrs}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/ukbb_tsne_umap.jpeg}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the UKBB.}
+    \label{fig:supp_tsne_umap_compare_ukbb}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_1kgp.jpeg}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the 1KGP dataset with 5000 iterations.}
+    \label{fig:supp_tsne_umap_compare_1kgp_graph}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_hrs.jpeg}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the HRS dataset with 5000 iterations.}
+    \label{fig:supp_tsne_umap_compare_hrs_graph}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_ukbb.jpeg}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the UKBB dataset with 20000 iterations.}
+    \label{fig:supp_tsne_umap_compare_ukbb_graph}
 \end{figure}
 
 \end{document}
