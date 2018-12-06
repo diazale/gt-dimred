@@ -42,8 +42,9 @@
 \leadauthor{Diaz-Papkovich} 
 
 \begin{abstract}
-\adpcomment{Changed the abstract.}
-Genetic structure in cohorts results from technical, sampling and demographic variation, necessitating visualization as an early step in genomic analyses. Existing approaches are stymied by the massive size of modern cohorts and unbalanced sizes of populations of many disparate ancestries. They also struggle to reconcile local genetic relationships with the global context. The push for larger and more diverse genomic data will only exacerbate these issues. We investigate an approach to dimension reduction of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to succinctly reveal cryptic population structure, the flow between layers of diversity\sgcomment{What does that even mean?}, and phenotype heterogeneity between populations. Using data from large-scale genomic datasets, we demonstrate that PCA-UMAP intuitively clusters closely related individuals while placing them in a global continuum of genetic variation. We uncover previously overlooked subpopulations within the American Hispanic population and fine-scale relationships between geography, genotypes, and phenotypes in the UK population, opening new lines of investigation for demographic research and statistical genetics. We also demonstrate that in a massive and diverse cohort, UMAP outperforms state-of-the-art dimension reduction methods for both global convergence and preservation of qualitative features of the data. Given its small computational cost and promising results, we think that UMAP should be run in tandem with PCA as a standard initial analysis of population-scale genetic datasets.
+Genetic structure in large cohorts results from technical, sampling and demographic variation. Visualisation is therefore a first step in most genomic analyses. However, existing data exploration methods struggle with unbalanced sampling and the many scales of population structure. We investigate an approach to dimension reduction of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to reveal layers of diversity and cryptic population structure.
+Using data from large-scale genomic datasets, we demonstrate that PCA-UMAP effectively clusters closely related individuals while placing them in a global continuum of genetic variation. This approach reveals previously overlooked subpopulations within the American Hispanic population and fine-scale relationships between geography, genotypes, and phenotypes in the UK population. 
+This opens new lines of investigation for demographic research and statistical genetics. Given its small computational cost, PCA-UMAP also provides a general-purpose approach to exploratory analysis in population-scale datasets.
 \end{abstract}
 
 \keywords{genomics $|$ genetics $|$ population structure $|$ ethnicity $|$ ancestry $|$ machine learning $|$ data visualization $|$ dimension reduction}
@@ -102,7 +103,7 @@ As sample sizes increase, the amount of information encoded in the lower-varianc
 
 To display more of the high-dimensional features of the data in a two dimensional figure,  we can use non-linear transformations that seek to preserve the local structure of the data. A popular method for visualization is t-distributed stochastic neighbour embedding (t-SNE)\cite{maaten2008visualizing}. Whereas PC projection is designed to capture as much variance as possible for a linear transformation, t-SNE seeks a low-dimensional representations of the data that preserves pairwise distances, using a probabilistic heuristic to weight mismatches. t-SNE has been used before to visualize SNPs\cite{platzer2013visualization}. Using data from the 1000 Genomes Project (1KGP)\cite{10002015global}, it groups individuals corresponding roughly to their continent of origin, with smaller ethnic sub-groups visible within the larger continental clusters\cite{li2017tsne}. However, t-SNE struggles with very large datasets, when a large number of locally optimal configurations make convergence to a globally satisfying solution difficult. 
 
-Uniform Manifold Approximation and Projection (UMAP) is a new dimension reduction technique grounded in Riemannian geometry, algebraic topology, and category theory, and designed to model and preserve the high-dimensional topology of data points in the low-dimensional space \cite{2018arXivUMAP}. The assumption behind UMAP is that data are uniformly distributed on local manifolds in high-dimensional space, which can be approximated as fuzzy sets that are patched together to form a topological representation. One can then construct a low-dimensional topological representation that minimizes the differences between the two representations. With genotype data, UMAP creates a neighbourhood around each individual's genetic coordinates and identifies a pre-selected number of neighbours to build high-dimensional manifolds. The end result is a low-dimension representation that groups genetically similar individuals together on a local scale while preserving long-range topological connections to more distantly related individuals. 
+Uniform Manifold Approximation and Projection (UMAP) is a new dimension reduction technique grounded in Riemannian geometry, algebraic topology, and category theory, and designed to model and preserve the high-dimensional topology of data points in the low-dimensional space\cite{2018arXivUMAP}. The assumption behind UMAP is that data are uniformly distributed on local manifolds in high-dimensional space, which can be approximated as fuzzy sets that are patched together to form a topological representation. One can then construct a low-dimensional topological representation that minimizes the differences between the two representations. With genotype data, UMAP creates a neighbourhood around each individual's genetic coordinates and identifies a pre-selected number of neighbours to build high-dimensional manifolds. The end result is a low-dimension representation that groups genetically similar individuals together on a local scale while preserving long-range topological connections to more distantly related individuals.\adpcomment{added this sentence.} The method has been successfully applied to single-cell RNA sequencing datasets\cite{umap2018singlecell}.
 
 A common practice in dimensional reduction is to first apply PCA to reduce the number of dimensions before performing nonlinear dimensional reduction. In addition to being computationally advantageous, this discards statistical noise that can confound nonlinear approaches: Population structure arising from $n$ isolated randomly-mating demes can be described by the leading $n-1$ PCs, with the following PCs describing stochastic variation in relatedness~\cite{eigen2006}. Selecting the leading PCs therefore has potential to extract meaningful population structure while filtering out stochastic noise.
 
@@ -110,19 +111,10 @@ We explore different strategies to pre-process the data and investigate discrete
 
 \begin{figure}
 \centering
-   %\includegraphics[width=0.6\linewidth]{images/HRS_UMAP_PC10_NN15_MD05_admix_crop.pdf}
    \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix.pdf}
    \caption{UMAP on the first 10 principal components of HRS data. Coloring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. This projection colored by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}.}
     \label{fig:umap_hrs_admix}
 \end{figure}
-
-%\subsection*{Results}
-%\begin{figure}
-%\centering
-%   \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_highlighted.pdf}
-%    \caption{The top $7$ principal components of the Hispanic population of the HRS projected by UMAP, colored by region of birth. The highlighted region consists almost entirely of individuals who were born in the Mountain region of the United States. This region contains New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same figure colored according to estimated continental ancestry proportion. Figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp} shows that populations from the 1KGP do not map to the cluster when projected onto the UMAP embedding.}
-%    \label{fig:hrs_hisp}
-%\end{figure}
 
 \begin{figure*}
     \centering
@@ -232,7 +224,6 @@ Forced expiratory volume in 1 second (FEV1) (figures~\ref{fig:supp_ukbb_fev_f}, 
     \label{fig:umap_ukbb_geo_map}
 \end{figure}
 
-\adpcomment{Added this subsection}
 \subsubsection*{Comparing t-SNE and UMAP}
 Assessing the relative merits of data visualization methods is notoriously difficult, because different users might give different importance to different features of the data. Methods differ in their choice of a similarity metric between high- and low-dimensional representation, which are hard to assess, 
  but also in their strategy to optimize the metrics, which are amenable to direct comparison. This is especially true with UMAP and t-SNE which, despite different mathematical motivations, have computationally similar similarity matrices. Given that t-SNE generated a smattering of clusters for the minority populations when applied to the UKBB, we hypothesized that this was due to a convergence issue rather than a property of the global optimum of the t-SNE metric.  
@@ -667,42 +658,42 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/1KGP_tsne_umap.jpeg}
-    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the 1KGP.}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the 1KGP. t-SNE used 5000 iterations.}
     \label{fig:supp_tsne_umap_compare_1kgp}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/HRS_tsne_umap.jpeg}
-    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the HRS.}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the HRS. t-SNE used 5000 iterations.}
     \label{fig:supp_tsne_umap_compare_hrs}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/ukbb_tsne_umap.jpeg}
-    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the UKBB.}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the UKBB. t-SNE used 20000 iterations}
     \label{fig:supp_tsne_umap_compare_ukbb}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_1kgp.jpeg}
-    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the 1KGP dataset with 5000 iterations.}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the 1KGP dataset with 5000 iterations. The UMAP-initialized graph has been shifted by 600 iterations to approximate the 600 epochs UMAP uses for small datasets ($n\leq10,000$).}
     \label{fig:supp_tsne_umap_compare_1kgp_graph}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_hrs.jpeg}
-    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the HRS dataset with 5000 iterations.}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the HRS dataset with 5000 iterations. The UMAP-initialized graph has been shifted by 230 iterations to approximate the 230 epochs UMAP uses for large datasets ($n>10,000$).}
     \label{fig:supp_tsne_umap_compare_hrs_graph}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_ukbb.jpeg}
-    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the UKBB dataset with 20000 iterations.}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the UKBB dataset with 20000 iterations. The UMAP-initialized graph has been shifted by 230 iterations to approximate the 230 epochs UMAP uses for large datasets ($n>10,000$).}
     \label{fig:supp_tsne_umap_compare_ukbb_graph}
 \end{figure}
 
