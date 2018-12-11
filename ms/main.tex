@@ -42,6 +42,8 @@
 \leadauthor{Diaz-Papkovich} 
 
 \begin{abstract}
+{\large Abstract.}
+
 Genetic structure in large cohorts results from technical, sampling and demographic variation. Visualisation is therefore a first step in most genomic analyses. However, existing data exploration methods struggle with unbalanced sampling and the many scales of population structure. We investigate an approach to dimension reduction of genomic data that combines principal components analysis (PCA) with uniform manifold approximation and projection (UMAP) to succinctly illustrate population structure in large cohorts and capture their relationships on local and global scales. Using data from large-scale genomic datasets, we demonstrate that PCA-UMAP effectively clusters closely related individuals while placing them in a global continuum of genetic variation. This approach reveals previously overlooked subpopulations within the American Hispanic population and fine-scale relationships between geography, genotypes, and phenotypes in the UK population. 
 This opens new lines of investigation for demographic research and statistical genetics. Given its small computational cost, PCA-UMAP also provides a general-purpose approach to exploratory analysis in population-scale datasets.
 \end{abstract}
@@ -57,7 +59,16 @@ This opens new lines of investigation for demographic research and statistical g
 \thispagestyle{firststyle}
 \ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
 
-\subsection*{Background}
+\subsection*{Author summary}
+%We ask that all authors of research articles include a 150?200 word non-technical summary of the work as part of the manuscript to immediately follow the abstract. This text is subject to editorial change, should be written in the first-person voice, and should be distinct from the scientific abstract.
+
+%Aim to highlight where your work fits within a broader context; present the significance or possible implications of your work simply and objectively; and avoid the use of acronyms and complex terminology wherever possible. The goal is to make your findings accessible to a wide audience that includes both scientists and non-scientists.
+
+%Authors may benefit from consulting with a science writer or press officer to ensure they effectively communicate their findings to a general audience.
+
+Population structure is a systematic difference in allele frequencies between populations. It is a consequence of non-random mating from factors such as geographic isolation and founder effects from migrations, and is a common confounder in genetic studies. We use a newly developed method (UMAP) to visualize population structure from three genomic datasets. Using genotype data alone, we reveal numerous patterns that relate population structure and ancestry to traits such as white blood cell count, height, and FEV1, a baseline measure for airway obstruction. We demonstrate that UMAP reveals previously unobserved patterns and fine-scale structure, and that when working in higher dimensions it can be used to study, for example, the spatial distribution of genetic relatedness\adpcomment{ (talking about the UK map here)}. We show that visualizations work especially well in large datasets containing populations with diverse backgrounds, which are rapidly becoming more common, and that unlike other visualization methods, we can preserve intuitive connections between populations that reflect their shared ancestries. The combination of these results and the effectiveness of the strategy on large and diverse datasets make this an important approach for exploratory analysis for geneticists studying ancestral events and phenotype distributions, and the images generated will pique the interest of general audiences.
+
+\subsection*{Introduction}
 
 Questions in medicine, anthropology, and related fields hinge on interpreting the deluge of genomic data provided by modern high-throughput sequencing technologies. Because genomic datasets are high-dimensional, their interpretation requires statistical methods that can comprehensively condense information in a manner that is understandable to researchers and minimizes the amount of data that is sacrificed. Both model-based and model-agnostic approaches to summarize data have played important roles in shaping our understanding of the evolution of our species~\cite{lawson2012inference}.
 
@@ -130,6 +141,7 @@ We explore different strategies to pre-process the data and investigate discrete
     \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
 \end{figure*}
 
+\subsection*{Results}
 \subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and PCA-UMAP (that is, UMAP with PCA pre-processing). Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to more distinct population clusters and less defined continental structure (see figure \ref{fig:supp_megamontage_pc10_50} for PCA-tSNE). Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; further components gradually approach results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9} and~\ref{fig:supp_megamontage_pc10_50}). 
 
 Focusing on PCA-UMAP with 15 principal components (figure~\ref{fig:1000g_compare}~(iv)), we also find several population clusters that reflect shared ancestries. British individuals from England and Scotland form a cluster mixed with those from Utah who claim Northern and Western European ancestry. Toscani and Iberian individuals form a group reflecting their Mediterranean heritage. African Americans in the Southwest US, African Caribbean individuals in Barbados, and some Puerto Ricans also form a cluster. The East Asian super-population forms three sub-populations split by geography: one is largely Han and Southern Han individuals, another is comprised of the Chinese Dai in southern China and the Kinh from Vietnam, and the third is the Japanese population. Looser geographical groupings include Colombians and Peruvians, and the Esan and Yoruba populations of Nigeria; both groupings appear as connected sub-clusters. The South Asian super-population also forms a loose grouping. 
