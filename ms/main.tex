@@ -144,11 +144,11 @@ We explore different strategies to pre-process the data and investigate discrete
 \end{figure*}
 
 \subsection*{Results}
-\subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and UMAP with PCA pre-processing. Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to more distinct population clusters and less defined continental structure (see figure \ref{fig:supp_megamontage_pc10_50} for tSNE). Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; further components gradually approach results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9} and~\ref{fig:supp_megamontage_pc10_50}). 
+\subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and UMAP with PCA pre-processing. Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to more distinct population clusters and less defined continental structure (see figure \ref{fig:supp_megamontage_pc10_50} for tSNE). Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; further components gradually approach results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9}, \ref{fig:supp_megamontage_pc10_50}, and \ref{fig:supp_montage_1kgp_converge}). 
 
 Focusing on UMAP with 15 principal components (figure~\ref{fig:1000g_compare}~(iv)), we also find several population clusters that reflect shared ancestries. British individuals from England and Scotland form a cluster mixed with those from Utah who claim Northern and Western European ancestry. Toscani and Iberian individuals form a group reflecting their Mediterranean heritage. African Americans in the Southwest US, African Caribbean individuals in Barbados, and some Puerto Ricans also form a cluster. The East Asian super-population forms three sub-populations split by geography: one is largely Han and Southern Han individuals, another is comprised of the Chinese Dai in southern China and the Kinh from Vietnam, and the third is the Japanese population. Looser geographical groupings include Colombians and Peruvians, and the Esan and Yoruba populations of Nigeria; both groupings appear as connected sub-clusters. The South Asian super-population also forms a loose grouping. 
 
-Only a few individuals cluster differently than the majority of individual bearing the same population label: a few Mexican individuals cluster with Spanish and Italian individuals, and a few Puerto Ricans cluster with the African Americans and African Caribbeans, likely resulting from ancestry proportions that differ from the majority. One Gambian-identified individual is present in a cluster that is otherwise entirely Mende people from Sierra Leone. Only two populations form multiple clusters: Gujarati Indians in Houston, Texas and Punjabi people in Lahore, Pakistan. This clustering is robust to, e.g., the choice of the number of PCs considered (see figure ~\ref{fig:supp_megamontage_pc10_50}).
+Only a few individuals cluster differently than the majority of individual bearing the same population label: a few Mexican individuals cluster with Spanish and Italian individuals, and a few Puerto Ricans cluster with the African Americans and African Caribbeans, likely resulting from ancestry proportions that differ from the majority. One Gambian-identified individual is present in a cluster that is otherwise entirely Mende people from Sierra Leone. Only two populations form multiple clusters: Gujarati Indians in Houston, Texas and Punjabi people in Lahore, Pakistan. This clustering is robust to, e.g., the choice of the number of PCs considered (see figure ~\ref{fig:supp_megamontage_pc10_50}). Analysis by 23andMe determined the distinct Gujarati cluster mostly have the last name Patel and suggested their grouping is the result of endogamy~\cite{23andme}.
 
 Finally, contrasting UMAP and t-SNE, we find that UMAP preserves more of the global structure of the data than t-SNE, and is more robust to choices of data pre-processing (figure~\ref{fig:supp_megamontage_pc10_50}).
 
@@ -338,6 +338,16 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \end{subfigure}
     \caption{UMAP (left two columns) and t-SNE (right two columns) applied to the top principal components of the 1KGP labelled by the number of components used. Results are similar until approximately 11 components, where t-SNE breaks apart clusters of South Asian (in green) and Central and South American populations (in pink) while UMAP preserves them. At approximately 30 components populations begin to drift together with UMAP and disperse with t-SNE.}
     \label{fig:supp_megamontage_pc10_50}
+\end{figure*}
+
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{0.95\textwidth}
+    \includegraphics[width=0.95\textwidth]{images/montage_1KGP_umap_convergence_resize.jpeg}
+    \end{subfigure}
+    \caption{UMAP applied to the first few hundred principal components of the 1KGP data. As more components are added, the figure begins to resemble that of UMAP carried out on the full genotype dataset.}
+    \label{fig:supp_montage_1kgp_converge}
 \end{figure*}
 
 \begin{figure*}
