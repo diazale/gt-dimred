@@ -121,25 +121,24 @@ A common practice in dimensional reduction is to first apply PCA. In addition to
     MXL, Mexican in Los Angeles, California;
     PEL, Peruvian;
     PUR, Puerto Rican;
-    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS colored by estimated admixture proportions. (b) UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya.}
+    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS coloured by estimated admixture proportions. (b) UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya.}
     \label{fig:subpops}
 \end{figure*}
 
 \subsection*{Results}
-\subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and UMAP with PCA pre-processing. Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to more distinct population clusters and less defined continental structure. Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; adding further components converges to results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9}, \ref{fig:supp_megamontage_pc10_50}, and \ref{fig:supp_montage_1kgp_converge}). Patterns are also evident when using UMAP on the last components (\ref{fig:supp_1kgp_3350}).
+\subsubsection*{Fine-scale visualization of the 1KGP dataset} The 1KGP contains genotype data of 3,450 individuals from 26 relatively distinct labeled populations\cite{10002015global}. Figure~\ref{fig:1000g_compare} shows visualizations using PCA, t-SNE, UMAP, and UMAP with PCA pre-processing. Using UMAP and t-SNE on the genotype data presents clusters that are roughly grouped by continent, with UMAP showing a clear hierarchy of population and continental clusters, whereas t-SNE fails to assign many individuals to population clusters. Using either on the top principal components leads to distinct population clusters and less defined continental structure. Adding more components results in progressively finer clusters until approximately 20 populations appear using 15 components; adding further components converges to results similar to using the entire genotype data (see figures~\ref{fig:supp_megamontage_pc2_9}, \ref{fig:supp_megamontage_pc10_50}, and \ref{fig:supp_montage_1kgp_converge}). Patterns are also evident when using UMAP on the last components (\ref{fig:supp_1kgp_3350}).
 
-Focusing on UMAP with 15 principal components (figure~\ref{fig:1000g_compare}~(iv)), we find several population clusters that reflect shared ancestries. British individuals from England and Scotland form a cluster mixed with those from Utah who claim Northern and Western European ancestry. Toscani and Iberian individuals form a group reflecting their Mediterranean heritage. African Americans in the Southwest US, African Caribbean individuals in Barbados, and some Puerto Ricans also form a cluster. Three East Asian groups appear: one is largely Han and Southern Han individuals, another is comprised of the Chinese Dai in southern China and the Kinh from Vietnam, and the third is the Japanese population. Looser geographical groupings include Colombians and Peruvians, and the Esan and Yoruba populations of Nigeria; both groupings appear as connected sub-clusters. The South Asian populations also form a loose grouping. 
+Focusing on UMAP with 15 principal components (figure~\ref{fig:1000g_compare}~(iv)), several population clusters reflect shared ancestries. British individuals from England and Scotland form a cluster mixed with those from Utah who claim Northern and Western European ancestry. Toscani and Iberian individuals form a group reflecting their Mediterranean heritage. African Americans in the Southwest US, African Caribbean individuals in Barbados, and some Puerto Ricans also form a cluster. Three East Asian groups appear: one is largely Han and Southern Han individuals, another is comprised of the Chinese Dai in southern China and the Kinh from Vietnam, and the third is the Japanese population. Looser geographical groupings include Colombians and Peruvians, and the Esan and Yoruba populations of Nigeria; both groupings appear as connected sub-clusters. The South Asian populations also form a loose grouping. 
 
 Only a few individuals cluster differently than the majority of individual bearing the same population label: a few Mexican individuals cluster with Spanish and Italian individuals, and a few Puerto Ricans cluster with the African Americans and African Caribbeans, likely resulting from ancestry proportions that differ from the majority. One Gambian-identified individual is present in a cluster that is otherwise entirely Mende people from Sierra Leone. Two populations form multiple clusters: Gujarati Indians in Houston, Texas and Punjabi people in Lahore, Pakistan. This clustering effect is robust to the number of components considered (see figure~\ref{fig:supp_megamontage_pc10_50}). Analysis of the cluster by 23andMe suggested the Gujarati grouping is the result of endogamy~\cite{23andme}.
 
-\subsubsection*{The genetic continuum of admixed populations} The 1KGP sampled individuals from relatively distinct populations, so the data are more likely to form iclusters. Most medical cohorts comprise larger numbers of individuals sampled across extended geographical areas. For example, the HRS contains genotype data of 12,454 American individuals across all 50 states who have provided racial identity (10,434 White, 1,652 Black, 368 Other) as well as whether they identify as Hispanic (1,203 total) and, if so, whether they identify as Mexican-American (705 total)\cite{juster1995overview}. We crossed these three variables to form a composite self-reported ethnicity resulting in 10 categories (e.g. White Hispanic Mexican-American), and considered birth regions based on the 10 census regions and divisions used by the US Census Bureau. Admixture proportions for each individual were estimated in \cite{baharian2016great} by assuming ancestral African, Asian/Native American, and European populations using RFMIX \cite{Maples:2013fia}.
-We have scaled these three proportions to values between 0 and 255, to color individual points by their estimated admixture represented by RGB where red, green, and blue respectively correspond to African, European, and Asian/Native American ancestry. Using UMAP on the first 10 principal components, we demonstrate projections that present a collection of sub-populations and a continuum of genetic variation.
+\subsubsection*{The genetic continuum of admixed populations} The 1KGP sampled individuals from relatively distinct populations, so the data are more likely to form clusters. Most medical cohorts comprise larger numbers of individuals sampled across extended geographical areas. The HRS contains genotype data of 12,454 American individuals across all 50 states who have provided racial identity (10,434 White, 1,652 Black, 368 Other) as well as whether they identify as Hispanic (1,203 total) and, if so, whether they identify as Mexican-American (705 total)\cite{juster1995overview}. We crossed these three variables to form a composite self-reported ethnicity resulting in 10 categories (e.g. White Hispanic Mexican-American), and considered birth regions based on the 10 census regions and divisions used by the US Census Bureau. Admixture proportions for each individual were estimated in \cite{baharian2016great} by assuming ancestral African, Asian/Native American, and European populations using RFMIX \cite{Maples:2013fia}. We have scaled each of the three proportions to values between 0 and 255 (with 100\% corresponding to 255), to colour individual points by their estimated admixture represented by RGB where red, green, and blue respectively correspond to African, European, and Asian/Native American ancestry. Using UMAP on the first 10 principal components, we demonstrate projections that present a collection of sub-populations and a continuum of genetic variation.
 
 The HRS forms several large groupings and clusters, reflecting both ethnicity (figure~\ref{fig:supp_umap_hrs_eth}) and admixture proportions (figure~\ref{fig:umap_hrs_admix}). Gradients in admixture proportion are visible within the predominantly Hispanic cluster, but not within the predominantly Black cluster, perhaps because the variance in ancestry proportions is greater among Hispanics. The "White Not Hispanic" (WNH) group forms several interconnected clusters, and these do not correspond to broad geographical areas (figure~\ref{fig:supp_hrs_born}). The clarity of the interconnected clusters varies by parameterization, but they consistently form a large, roughly connected group.
 
 To investigate possible ancestries related to populations in the 1KGP we took two approaches. In the first we generated PC axes and a UMAP embedding using HRS and 1KGP data together (figure~\ref{fig:supp_hrs_1000g}). In the second we used the PC axes and UMAP embedding generated in figure~\ref{fig:umap_hrs_admix} and projected 1KGP data onto it (figure~\ref{fig:supp_hrs_1kgp_projected}). Both approaches reveal substructure within the Hispanic cluster, groupings of Finnish individuals within the WNH groups, as well as Italian and Spanish individuals grouping near the White Hispanic population. One group of WNH individuals regularly appears at the periphery of the main cluster and does not cluster with any 1KGP populations.
 
-\subsubsection*{Deep population structure in the American Hispanic subpopulation} In contrast to the WNH individuals, applying UMAP to self-identified Hispanic individuals reveals clear groupings related to birth region. One separate cluster, highlighted in figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp}, consists almost entirely of individuals born in the Mountain Region of the United States. This cluster is not apparent when looking at a grid of pairwise plots of the first 8 principal components, provided in figure~\ref{fig:supp_hrs_hisp_grid}, as the signal is distributed along PCs 3, 4, and 6. Even though continental admixture patterns do correlate with UMAP position (figure~\ref{fig:supp_umap_hrs_hisp_admix}), these do not explain the Mountain Region cluster. Individuals from 1KGP populations do not appear in the cluster when projected to the UMAP embedding. The cluster possibly comprises the Hispano population of the Southwest US, who have been present in the Mountain Region area long before the more recent immigrants from Latin America, and whose ancestry is expected to reflect both distinct Native ancestry and population-specific drift relative to other Hispanic populations. A recent preprint discusses the Mountain Region Hispanics and provides a more detailed historical description \cite{Jordan333609}.  
+\subsubsection*{Regional patterns in the Hispanic subpopulation} In contrast to the WNH individuals, applying UMAP to self-identified Hispanic individuals reveals clear groupings related to birth region. One separate cluster, highlighted in figure~\ref{fig:supp_umap_hrs_hisp_1kgp_hisp}, consists almost entirely of individuals born in the Mountain Region of the United States. This cluster is not apparent when looking at a grid of pairwise plots of the first 8 principal components, provided in figure~\ref{fig:supp_hrs_hisp_grid}, as the signal is distributed along PCs 3, 4, and 6. Even though continental admixture patterns do correlate with UMAP position (figure~\ref{fig:supp_umap_hrs_hisp_admix}), these do not explain the Mountain Region cluster. Individuals from 1KGP populations do not appear in the cluster when projected to the UMAP embedding. The cluster possibly comprises the Hispano population of the Southwest US, who have been present in the Mountain Region area long before the more recent immigrants from Latin America, and whose ancestry is expected to reflect both distinct Native ancestry and population-specific drift relative to other Hispanic populations. A recent preprint discusses the Mountain Region Hispanics and provides a more detailed historical description \cite{Jordan333609}.  
 
 \subsubsection*{Population structure in the UKBB reflects local and global genetic variation} The UKBB provides genotype data on 488,377 individuals along with self-identified ethnic background in a hierarchical tree-structured dictionary. Participants provided ethnic background on two occasions. We used the initial ethnicity after finding minimal differences between the two. The dataset is majority White (88.3\% British, 2.6\% Irish, 3.4\% other), with large populations identifying as Black (1.6\% either African, Caribbean, or other), Asian (1.9\% either Indian, Pakistani, Bangladeshi, or other), Chinese (0.3\%), an other ethnic group (0.8\%), mixed ethnicity (0.6\%), or an unavailable response (0.5\%). 
 
@@ -157,7 +156,7 @@ UMAP on the top 10 principal components reveals both continuous and discrete pop
 \caption{UMAP on first 10 principal components}%
 \label{fig:umap_ukbb_pc10}%
 \end{subfigure}%
-\caption{The UKBB projected onto two dimensions, colored by self-reported ethnic background. (a) The first two principal components, showing the usual triangle with vertices corresponding to African, Asian/Native American, and European ancestries, and intermediate values indicating admixture or lack of relationship to the vertex populations. (b) UMAP on the first 10 principal components. The cluster of White British and White Irish individuals is greatly expanded, with the Irish forming a distinct sub cluster mixed with the White British population. South Asian and East Asian individuals form their separate clusters, as do individuals of African or Caribbean backgrounds. Population clusters are connected by "trails" comprised of large proportions of individuals with mixed backgrounds.
+\caption{The UKBB coloured by self-reported ethnic background. (a) The first two principal components, showing the usual triangle with vertices corresponding to African, Asian/Native American, and European ancestries, and intermediate values indicating admixture or lack of relationship to the vertex populations. (b) UMAP on the first 10 principal components. The cluster of White British and White Irish individuals is greatly expanded, with the Irish forming a distinct sub cluster mixed with the White British population. South Asian and East Asian individuals form their separate clusters, as do individuals of African or Caribbean backgrounds. Population clusters are connected by "trails" comprised of large proportions of individuals with mixed backgrounds.
 BA, Black African; 
 BC, Black Caribbean; 
 BG, Bangladeshi; 
@@ -196,7 +195,7 @@ Figure~\ref{fig:umap_ukbb_geo_osgb} presents the UMAP projection in figure~\ref{
    \caption{Colouring the projection by phenotypic data}
     \label{fig:umap_height_female}
       \end{subfigure}
-      \caption{Using different colourings with the projection in figure~\ref{fig:umap_ukbb_pc10}, relationships between population structure, geography, and phenotypes become clear. (Top) Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colors individuals by their north-south ("northing") coordinates, and the right image colors them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. (Bottom) Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
+      \caption{Using different colourings with the projection in figure~\ref{fig:umap_ukbb_pc10}, relationships between population structure, geography, and phenotypes become clear. (Top) Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colours individuals by their north-south ("northing") coordinates, and the right image colours them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. (Bottom) Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
 \end{figure}
 
 As an alternate visualization of geography and genetic diversity, we performed a 3D UMAP projection and converted the UMAP coordinates into RGB values, allowing us to plot individuals on a map of Great Britain, emphasizing both spatial gradients of genetic relatedness and increased diversity in urban centers (figure~\ref{fig:umap_ukbb_geo_map}). The patterns in rural areas observed are similar to those reported in~\cite{leslie2015fine} using the haplotype-based CHROMOPAINTER on British individuals whose grandparents lived nearby.  
@@ -204,7 +203,7 @@ As an alternate visualization of geography and genetic diversity, we performed a
 \begin{figure}
     \centering
     \includegraphics[width=0.5\columnwidth]{images/UKBB_mapsInMaps_2D3_permute50.jpg}
-    \caption{A map of Great Britain colored by a 3D UMAP projection. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates (inset): Individuals who are closer to each other in the projection will appear to be closer in color. Patterns in genetic similarity are visible in Scotland, South England, the East and West Midlands, and major urban centres. A flattened 2D view of of the 3D projection used for coloring is presented in the top right. To protect participant privacy, data has been randomized as explained in the materials and methods.}
+    \caption{A map of Great Britain coloured by a 3D UMAP projection. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates (inset): Individuals who are closer to each other in the projection will appear to be closer in colour. Patterns in genetic similarity are visible in Scotland, South England, the East and West Midlands, and major urban centres. A flattened 2D view of of the 3D projection used for colouring is presented in the top right. To protect participant privacy, data has been randomized as explained in the materials and methods.}
     \label{fig:umap_ukbb_geo_map}
 \end{figure}
 
@@ -219,24 +218,15 @@ Forced expiratory volume in 1 second (FEV1) (figures~\ref{fig:supp_ukbb_fev_f}, 
 To compare UMAP to t-SNE and assess the role of convergence, we ran UMAP, Python's sklearn implementation of t-SNE, and a hybrid approach where the early exaggeration phase of t-SNE (typically the first 250 iterations) has been replaced by a full UMAP run (600 epochs for the 1KGP data and 230 epochs for the HRS and UKBB data). The three approaches produce similar results in smaller datasets such as the 1KGP and HRS, with the main differences being in run-time and some qualitative factors such as clusters being more interconnected when using UMAP (figures~\ref{fig:supp_tsne_umap_compare_1kgp},~\ref{fig:supp_tsne_umap_compare_hrs}). When applied to the UKBB, UMAP provides a more compelling visualization of the data compared to both versions of t-SNE. The hybrid approach also produces a better value for the t-SNE metric than the default t-SNE approach (figure~\ref{fig:supp_tsne_umap_compare_ukbb_graph}), confirming that the default t-SNE optimization fails to identify the global t-SNE minimum. The standard t-SNE initialization generated a large number of arbitrary clusters, while initializing t-SNE with UMAP preserved much of the large scale structure created by the UMAP embedding but again began arbitrarily creating clusters and breaking the projection's continuous structure (figure~\ref{fig:supp_tsne_umap_compare_ukbb}). An animation of t-SNE iterations starting from the UMAP embedding can be seen in the supplementary files. Given these results, we recommend UMAP over t-SNE for large and diverse genomic datasets.
 
 \subsection*{Discussion}
-Understanding population structure is important to identify confounders in medical genomics and studies of anthropology and human evolution. PCA reflects genealogical and geographic data, but visualization requires scanning through a large number of pairwise plots. UMAP condenses these components and comprehensively illustrates information --- phenotypic, geographic, and ancestral --- contained within genotypes on fine-scale levels and within the context of a global population structure. In large datasets where the number of significant PCs is large, the resulting representation has important advantages over PCA alone and provides a superior visualization to t-SNE.
+UMAP comprehensively illustrates information --- phenotypic, geographic, and ancestral --- contained within genotypes on fine-scale levels and within the context of a global population structure. Using it is straightforward and fast; given PCA data and a desktop computer, UMAP can be performed in 15 to 25 minutes on a sample of hundreds of thousands of individuals over tens of dimensions. It excels with larger datasets containing individuals with admixed backgrounds, which present discrete and continuous population structure. By patching together many local genetic neighbourhoods, the visualizations have continuous flow and a semblance of a global structure, unlike arbitrary clusters generated by t-SNE as in figures \ref{fig:supp_tsne_umap_compare_ukbb} and \ref{fig:supp_ukbb_tsne}. These are undesirable when we are interested in gradients across populations.
 
-The three datasets provide many intriguing clusters that would otherwise have been difficult to identify. In particular, several areas from figure~\ref{fig:umap_ukbb_pc10}, highlighted in figure~\ref{fig:supp_ukbb_zoom}, show multiple unidentified groups related to each of the East Asian and South Asian super-populations, as well as to either or both of African or admixed populations. Additionally, the Hispanic population of the HRS contains a geographically-restricted cluster that could not have been identified from pairwise examinations of principal components. The 1KGP --- frequently used in medical and population studies --- contained splits in the Gujarati and Punjabi population samples that were not visible PCA or Admixture analysis alone (although a split among Gujarati is arguably visible in the Admixture analysis with K=12 in \cite{10002015global}).
+Using UMAP reveals intriguing clusters that would otherwise have been very difficult to identify via numerous pairwise PCA plots, such as the geographically restricted cluster within the Hispanic population of the HRS. The 1KGP --- frequently used in medical and population studies --- contained splits in the Gujarati and Punjabi population samples that were not visible through PCA or Admixture analysis alone (although a split among Gujarati is arguably visible in the Admixture analysis with K=12 in \cite{10002015global}). Application to the UKBB underscores the strength of UMAP in large cohorts, with fine relationships between genotype and phenotype and geography presented in visualizations that account for natural genetic clustering. Figures~\ref{fig:umap_height_female}, \ref{fig:supp_ukbb_fev_f}, and \ref{fig:supp_ukbb_zoom} demonstrate phenotypic variation within and across clusters, with height showing continuous variation across admixture edges, as expected from genetically controlled traits, and others, such as leukocyte counts or FEV1, showing sharper boundaries, as expected from environmentally determined traits.  
 
-Application to the UKBB underscores the strength of UMAP in large cohorts. We see clear, fine relationships between genotype and phenotype and geography, and this is presented in a visualization that accounts for natural genetic clustering. Figures~\ref{fig:umap_height_female}, \ref{fig:supp_ukbb_fev_f}, and \ref{fig:supp_ukbb_zoom} demonstrate phenotypic variation within and across clusters, with phenotypes such as height showing continuous variation across admixture edges, as expected from genetically controlled traits, and others, such as leukocyte counts or FEV1, showing sharper boundaries, as expected from environmentally determined traits.  
+UMAP works well at highlighting groups of individuals who share more ancestry; when clusters form consistently, this suggests the individuals within it share more ancestry, though nothing can be said about the differences between clusters. The 1KGP dataset was deliberately crafted to come from geographically separated populations that are homogeneous internally. Thus, most of its populations form isolated clusters, with the exception of those that most closely share ancestries.
 
-Using UMAP is straightforward and fast. Most of the plots presented in this article were generated directly from the PCA data using UMAP with default parameters, except that we set the "minimum distance" parameter to 0.5 which made fine features on UMAP more visible (results with default parameter 0.1 provided qualitatively similar results). Given PCA data and a desktop computer, UMAP can be performed in 15 to 25 minutes on a sample of hundreds of thousands of individuals over tens of dimensions. 
+Like most non-linear methods, UMAP lacks direct interpretability. It is premised on local distances being more important than global distances; while points that appear very close locally can be thought to be more similar to each other, points that are distant from each other cannot be considered to be more different from each other. Figure~\ref{fig:supp_megamontage_pc10_50} demonstrates that disconnected population clusters can bounce around in each projection. For this reason, UMAP coordinates should not be used as GWAS covariates or for calculating distances between populations. The number of principal components used will have an effect on the visualization depending on the variable of interest. Across datasets, groupings on ethnicity formed slowly until reaching a stable number around 10 to 15 components. Geographical patterns in the UKBB continued to appear even up to 40 components, as visible in figures~\ref{fig:supp_montage_ukbb_ns} and \ref{fig:supp_montage_ukbb_ew}. The main limitation on how many principal components to use is computational power.
 
-Like most non-linear methods, UMAP lacks direct interpretability. The dimensions in its embeddings have no inherent meaning, unlike PCA where the axes correspond to the proportion of variance explained. Approaches like PCA will keep more distantly related populations further from each other, but in choosing which dimensions to examine, we are forced to flatten dimensions and clump together groups such as Central and South Americans with South Asians as in figure~\ref{fig:1000g_compare}. UMAP is premised on local distances being more important than global distances; while points that appear very close locally can be thought to be more similar to each other, points that are very distant from each other cannot be considered to be more different from each other. Since the low dimensional embedding is formed by patching together many neighbourhoods there is a semblance of a global structure -- one that is superior to methods like t-SNE; however, the developers of UMAP caution that researchers interested primarily in global structure may wish to consider other methods.
-
-UMAP works well at highlighting groups of individuals who share more ancestry, as evidenced by the Hispanic individuals in the HRS and the many 1KGP populations. When clusters form consistently, this suggests the individuals within it share more ancestry, though nothing can be said about the differences between clusters. The 1KGP dataset was deliberately crafted to come from geographically separated populations that are relatively homogeneous internally. For this reason most of its populations form isolated clusters, with the exception of those that most closely share ancestries (Iberians and Toscani, Han Chinese and Southern Han Chinese). In figure~\ref{fig:supp_megamontage_pc10_50}, population clusters bounce around in each projection, again highlighting that the positions of disconnected clusters relative to one another are not meaningful. For this reason, UMAP coordinates should not be used as covariates in a GWAS or calculating distances between populations.
-
-UMAP excels with larger datasets containing individuals with admixed backgrounds, which present discrete and continuous population structure. Unlike t-SNE, it patches together many local neighbourhoods, resulting in a relatively continuous flow to the data. t-SNE can generate seemingly arbitrary clusters, as in figures \ref{fig:supp_tsne_umap_compare_ukbb} and \ref{fig:supp_ukbb_tsne}, where small islands of ethnic groups are scattered across the projection. These are undesirable when looking at colourings by phenotypes, geography, or admixture, where we are interested in gradients across populations.
-
-% Note: the HRS data didn't really "converge" as nicely as 1KGP data with its subcontinental structure. PCs may serve a dual role to filter data?
-We suggest making several runs of UMAP and to highlight consistent qualitative results. Tuning parameters will generally not make a difference beyond making some patterns easier to see. The number of principal components used will have an effect on the visualization depending on the variable of interest. In each dataset, the groupings on ethnicity formed slowly until reaching a stable number around 10 to 15 components. Geographical coordinates in the UKBB continued to concentrate even up to 40 components, as visible in figures~\ref{fig:supp_montage_ukbb_ns} and \ref{fig:supp_montage_ukbb_ew}. The total number of components to use is limited primarily by computational power.
-
-Both UMAP and t-SNE are sensitive to sample size, and spend more visual real estate for populations with larger sample sizes compared to PCA. This is useful to identify significant patterns in a cohort, but it makes comparing visualization across cohorts difficult and exaggerates the variance within a population. We did not assign meaning to wiggles in UMAP figures, which occurred consistently in the UKBB but may be an artifact of the dimensional reduction strategy rather than a meaningful feature of the data. Hand-waving interpretations of pretty plots has a history of getting population geneticists in trouble (as pointed out, e.g., in \cite{novembre2008interpreting}): visualization is not a replacement for statistical testing.       
+Both UMAP and t-SNE are sensitive to sample size, and spend more visual real estate for larger populations than PCA. This is useful to identify significant patterns in a cohort, but it makes comparing visualization across cohorts difficult and exaggerates the genetic variation within a population, such as the White British population in the UKBB. We did not assign meaning to wiggles in UMAP figures, which occurred consistently in the UKBB but may be an artefact of the dimensional reduction strategy rather than a meaningful feature of the data. Hand-waving interpretations of pretty plots has a history of getting population geneticists in trouble (as pointed out, e.g., in \cite{novembre2008interpreting}): visualization is not a replacement for statistical testing.       
 
 With these caveats in mind, a priori data visualization plays a central role in quality control, hypothesis generation, and confounder identification for a wide range of genomic applications. Nonlinear approaches, despite their limitations, become increasingly useful as the size of datasets increases. UMAP, in particular, reveals a wide range of features that would not be apparent using linear maps. Given its ease of use, breadth of results, and low computational cost, we propose that UMAP should become a default companion to PCA in large genomic cohorts.
 
@@ -246,14 +236,14 @@ Scripts for all tests and plotting functions can be found on \url{https://github
 
 Both UMAP and t-SNE feature a number of adjustable parameters. Among the parameters that we varied, the number of PCs used in pre-processing of the data has the largest effect for both methods (see figures~\ref{fig:supp_megamontage_pc2_9} and \ref{fig:supp_megamontage_pc10_50}). 
 
-We tested different choices for perplexity in t-SNE. The default value of 30 provided comparable performance to other parameter choices.  Similarly, we tested different parameter choices for UMAP, with the clearest results generated by specifying 15 nearest neighbours (the default value) and a "minimum distance" between points in low dimensions of 0.5. UMAP developers described "sensible" values for nearest neighbours as between 5 and 50 and minimum distance between 0.5 and 0.001.
+We tested different choices for perplexity in t-SNE. The default value of 30 provided comparable performance to other parameter choices.  Similarly, we tested different parameter choices for UMAP, with the clearest results generated by specifying 15 nearest neighbours (the default value) and a "minimum distance" between points in low dimensions of 0.5. UMAP developers described "sensible" values for nearest neighbours as between 5 and 50 and minimum distance between 0.5 and 0.001. Tuning these parameters will not change qualitative results much but may make patterns easier to identify. Increasing the number of neighbours will increase the computational load.
 
 UMAP and t-SNE projections were carried out on an iMac with a 3.5GhZ Intel Core i7 processor, 32 GB 1600 MHz DDR3 of RAM, and an NVIDIA GeForce GTX 775M 2048 MB graphics card.
 
 To reduce the potential risks for re-identification from results in this publication, data has been randomly permuted so that the population characteristics are preserved but individual-level data is not presented directly in the figures. We rounded each attribute to an attribute-specific number of bins, and then permuted the data in the following way: 
 For each point (i.e. each individual) in UMAP visualizations, and each attribute, we identified the 9 nearest neighbouring points, and copied the attribute from a randomly selected neighbor (thus allowing for the possibility of one value being printed twice).  Because this process is done independently for each visualization, a given point shown on the figure will copy values from different randomly selected individuals. Additionally, spatial coordinates have random noise added (normally distributed about 0 with a standard deviation of 50km) before binning to the nearest 50km.
 
-For each point in figure~\ref{fig:umap_ukbb_geo_map} we identified the nearest 50 neighbouring individuals and copied the color value from a randomly selected neighbour.}
+For each point in figure~\ref{fig:umap_ukbb_geo_map} we identified the nearest 50 neighbouring individuals and copied the colour value from a randomly selected neighbour.}
 
 \showmatmethods{} % Display the Materials and Methods section
 
@@ -331,7 +321,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_admix.pdf}
     \end{subfigure}
-    \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, colored by estimated admixture proportions.}
+    \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, coloured by estimated admixture proportions.}
     \label{fig:supp_umap_hrs_hisp_admix}
 \end{figure*}
 
@@ -340,14 +330,14 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{0.95\textwidth}
     \includegraphics[width=0.75\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_race_hisp_mex_labels.pdf}
     \end{subfigure}
-    \caption{UMAP applied to the first 10 principal components of HRS data. Points colored by self-identified race, Hispanic status, and Mexican-American status. The cluster on the left is mostly people who identify as neither Black nor White and were born outside the contiguous United States or in the Pacific census region. Clustering with the 1KGP data places them with Asian-identified populations. BNH, Black (not Hispanic); BHO, Black (Hispanic, Other); WNH, White (not Hispanic); WHM, White (Hispanic, Mexican-American); WHO, White Hispanic (Other); ONH, Other (not Hispanic); OHM, Other (Hispanic, Mexican-American); OHO, Other (Hispanic, Other).}
+    \caption{UMAP applied to the first 10 principal components of HRS data. Points coloured by self-identified race, Hispanic status, and Mexican-American status. The cluster on the left is mostly people who identify as neither Black nor White and were born outside the contiguous United States or in the Pacific census region. Clustering with the 1KGP data places them with Asian-identified populations. BNH, Black (not Hispanic); BHO, Black (Hispanic, Other); WNH, White (not Hispanic); WHM, White (Hispanic, Mexican-American); WHO, White Hispanic (Other); ONH, Other (not Hispanic); OHM, Other (Hispanic, Mexican-American); OHO, Other (Hispanic, Other).}
     \label{fig:supp_umap_hrs_eth}
 \end{figure*}
 
 \begin{figure}
 \centering
    \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix.pdf}
-   \caption{UMAP on the first 10 principal components of HRS data. Coloring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. This projection colored by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}.}
+   \caption{UMAP on the first 10 principal components of HRS data. colouring individuals by estimated admixture from three ancestral populations reveals considerable diversity in the Hispanic population. This projection coloured by self-identified race and Hispanic status is presented in figure~\ref{fig:supp_umap_hrs_eth}.}
     \label{fig:umap_hrs_admix}
 \end{figure}
 
@@ -356,7 +346,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=0.75\textwidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_born.pdf}
     \end{subfigure}
-    \caption{UMAP on the top 10 principal components of the HRS dataset, colored by Census Bureau birth region. Each colour represents one of the 10 birth regions. There is no obvious pattern in the clusters of majority "White Not Hispanic" individuals.}
+    \caption{UMAP on the top 10 principal components of the HRS dataset, coloured by Census Bureau birth region. Each colour represents one of the 10 birth regions. There is no obvious pattern in the clusters of majority "White Not Hispanic" individuals.}
     \label{fig:supp_hrs_born}
 \end{figure*}
 
@@ -383,7 +373,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/HRS_PCGRID_8.pdf}
     \end{subfigure}
-    \caption{Pairwise plots of the first 8 principal components of the Hispanic subset of the HRS. Those born in the Mountain region are colored green.}
+    \caption{Pairwise plots of the first 8 principal components of the Hispanic subset of the HRS. Those born in the Mountain region are coloured green.}
     \label{fig:supp_hrs_hisp_grid}
 \end{figure*}
 
@@ -401,7 +391,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{0.95\textwidth}
     \includegraphics[width=0.95\textwidth]{images/default_clean_size10_alpha60_flip.jpeg}
     \end{subfigure}
-    \caption{UMAP on UKBB data, colored by self-identified ethnic background. Images are labelled by the number of components included.}
+    \caption{UMAP on UKBB data, coloured by self-identified ethnic background. Images are labelled by the number of components included.}
     \label{fig:supp_montage_ukbb_eth}
 \end{figure*}
 
@@ -410,7 +400,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{0.95\textwidth}
     \includegraphics[width=0.95\textwidth]{images/default_clean_size10_alpha60_ns.jpeg}
     \end{subfigure}
-    \caption{UMAP on UKBB data, colored by northing values, with more blue representing more northern coordinates and more red representing more southern coordinates. Images are labelled by the number of components included. Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on UKBB data, coloured by northing values, with more blue representing more northern coordinates and more red representing more southern coordinates. Images are labelled by the number of components included. Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_montage_ukbb_ns}
 \end{figure*}
 
@@ -419,14 +409,14 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/default_clean_size10_alpha60_ew.jpeg}
     \end{subfigure}
-    \caption{UMAP on UKBB data, colored by easting values, with more yellow representing more eastern coordinates and more pink representing more western coordinates. Images are labelled by the number of components included. Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on UKBB data, coloured by easting values, with more yellow representing more eastern coordinates and more pink representing more western coordinates. Images are labelled by the number of components included. Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_montage_ukbb_ew}
 \end{figure*}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/UKBB_TSNE_10PCs_DefaultPerplexity_eth.pdf}
-    \caption{t-SNE applied to the top 10 principal components of the UKBB, colored by ethnic background. The unbalanced populations resulted in many individuals and populations being orphaned along the periphery of the main cluster.}
+    \caption{t-SNE applied to the top 10 principal components of the UKBB, coloured by ethnic background. The unbalanced populations resulted in many individuals and populations being orphaned along the periphery of the main cluster.}
     \label{fig:supp_ukbb_tsne}
 \end{figure}
 
@@ -436,7 +426,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871417039_basophill_count_pct5_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by basophil count (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by basophil count (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_basophill_f}
 \end{figure}
 
@@ -445,7 +435,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871417039_basophill_count_pct5_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by basophil count (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by basophil count (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_basophill_m}
 \end{figure}
 
@@ -454,7 +444,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871417720_eosinophill_count_pct5_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by eosinophil count (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by eosinophil count (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_eosinophill_f}
 \end{figure}
 
@@ -463,7 +453,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871417720_eosinophill_count_pct5_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by eosinophil count (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by eosinophil count (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_eosinophill_m}
 \end{figure}
 
@@ -472,7 +462,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871416305_3063_0_0_pct1_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by FEV1 (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by FEV1 (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_fev_f}
 \end{figure}
 
@@ -481,7 +471,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871416305_3063_0_0_pct1_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by FEV1 (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by FEV1 (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_fev_m}
 \end{figure}
 
@@ -490,7 +480,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_2018714161841_Height_res_pct1_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by height (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by height (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_height_f}
 \end{figure}
 
@@ -499,7 +489,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_2018714161841_Height_res_pct1_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by height (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by height (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_height_m}
 \end{figure}
 
@@ -508,7 +498,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871416519_leukocyte_count_pct5_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by leukocyte count (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by leukocyte count (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_leukocyte_f}
 \end{figure}
 
@@ -517,7 +507,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871416519_leukocyte_count_pct5_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by leukocyte count (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by leukocyte count (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_leukocyte_m}
 \end{figure}
 
@@ -526,7 +516,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_2018714165614_neutrophill_count_pct5_f.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by neutrophil count (female). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by neutrophil count (female). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_neutrophill_f}
 \end{figure}
 
@@ -535,7 +525,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     %\begin{subfigure}{0.8\textwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_2018714165614_neutrophill_count_pct5_m.pdf}
     %\end{subfigure}
-    \caption{UMAP on the top 10 principal components of the UKBB colored by neutrophil count (male). Data has been randomized as explained in the materials and methods section.}
+    \caption{UMAP on the top 10 principal components of the UKBB coloured by neutrophil count (male). Data has been randomized as explained in the materials and methods section.}
     \label{fig:supp_ukbb_neutrophill_m}
 \end{figure}
 
@@ -599,7 +589,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/montage_fev1_height_afr_permuted.pdf}
     \end{subfigure}
-    \caption{Individuals of Black African, Black Caribbean, and mixed backgrounds (primarily White and Black Caribbean/African) colored by self-identified ethnic background (left, from figure~\ref{fig:umap_ukbb_pc10}), FEV1 (middle), and age-adjusted height (right). An arrow points to an area where the FEV1 distribution appears to change, corresponding to where the clusters contain more people with self-identified mixed backgrounds.}
+    \caption{Individuals of Black African, Black Caribbean, and mixed backgrounds (primarily White and Black Caribbean/African) coloured by self-identified ethnic background (left, from figure~\ref{fig:umap_ukbb_pc10}), FEV1 (middle), and age-adjusted height (right). An arrow points to an area where the FEV1 distribution appears to change, corresponding to where the clusters contain more people with self-identified mixed backgrounds.}
     \label{fig:supp_comparison_fev_afr}
 \end{figure*}
 
@@ -608,7 +598,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/montage_fev1_height_chi_eur_permuted.pdf}
     \end{subfigure}
-    \caption{Zoomed in section of figure~\ref{fig:umap_ukbb_pc10} focused on individuals with Chinese (CHI), White British (GBR), any other white background, or any other ethnic group (OEG) colored by ethnicity (left), FEV1 (middle), and age-adjusted height (right). The OEG cluster next to the Chinese cluster is colored differently, suggesting this population may have different FEV1 characteristics. A cluster of OEG/other white individuals is more blue, suggesting they may have lower than average FEV1 values relative to the rest of the British or white population.}
+    \caption{Zoomed in section of figure~\ref{fig:umap_ukbb_pc10} focused on individuals with Chinese (CHI), White British (GBR), any other white background, or any other ethnic group (OEG) coloured by ethnicity (left), FEV1 (middle), and age-adjusted height (right). The OEG cluster next to the Chinese cluster is coloured differently, suggesting this population may have different FEV1 characteristics. A cluster of OEG/other white individuals is more blue, suggesting they may have lower than average FEV1 values relative to the rest of the British or white population.}
     \label{fig:supp_comparison_fev_chi_eur}
 \end{figure*}
 
