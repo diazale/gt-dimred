@@ -194,7 +194,7 @@ Figure~\ref{fig:umap_ukbb_geo_osgb} presents the UMAP projection in figure~\ref{
    \caption{Colouring the projection by phenotypic data}
     \label{fig:umap_height_female}
       \end{subfigure}
-      \caption{Using different colourings with the projection in figure~\ref{fig:umap_ukbb_pc10}, relationships between population structure, geography, and phenotypes become clear. (Top) Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colours individuals by their north-south ("northing") coordinates, and the right image colours them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. (Bottom) Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
+      \caption{Relationships between population structure, geography, and phenotype heterogeneity. (Top) Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colours individuals by their north-south ("northing") coordinates, and the right image colours them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. (Bottom) Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
 \end{figure}
 
 As an alternate visualization of geography and genetic diversity, we performed a 3D UMAP projection and converted the UMAP coordinates into RGB values, allowing us to plot individuals on a map of Great Britain, emphasizing both spatial gradients of genetic relatedness and increased diversity in urban centers (figure~\ref{fig:umap_ukbb_geo_map}). The patterns in rural areas observed are similar to those reported in~\cite{leslie2015fine} using the haplotype-based CHROMOPAINTER on British individuals whose grandparents lived nearby. Using data about country of birth, we performed a similar analysis of a world map~\ref{fig:umap_world_map}, revealing subtle regional variation around the world. 
@@ -215,10 +215,10 @@ As an alternate visualization of geography and genetic diversity, we performed a
     \end{subfigure}
      \begin{subfigure}{\columnwidth}
          \includegraphics[width=0.9\columnwidth]{images/meanWorldMap.jpg}
-   \caption{Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States \sgcomment{rationale?}. Zoomed maps of East Asia, the Caribbean, and Europe are available in figures~\ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur}, respectively.}
+   \caption{Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States \sgcomment{rationale?}. Zoomed maps of East Asia, the Caribbean, and Europe are available in figures~\ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur}, respectively.}
     \label{fig:umap_world_map}
       \end{subfigure}
-      \caption{Maps coloured by 3D UMAP projections of the top 20 principal components of the UKBB. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates. Individuals who are closer to each other in the projection will be closer in colour in the maps. More details on colouring, as well as randomization of points to protect participant privacy, are available in the materials and methods.}
+      \caption{Maps coloured by 3D UMAP projections of the top 20 principal components of the UKBB. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates. Individuals who are closer to each other in the projection will be closer in colour in the maps. More details on colouring, as well as randomization of points to protect participant privacy, are available in the materials and methods. \sgcomment{Merge captions. Make sure to have overall title! }}
 \end{figure}
 
 Similarly to UMAP, t-SNE applied to the UKBB data both displays diversity within the "White British" population and identifies clusters among other groups. However, it has three drawbacks: it is much slower, requiring 2.26 hours for its first thousand iterations alone on 10 principal components against UMAP's 14 minutes; it fails to find a global optimum, which results in a scattering of individuals and groups that are not stable across independent runs; and it does not identify continuity between different continental groups resulting from admixture (figure~\ref{fig:supp_ukbb_tsne}). 
@@ -264,7 +264,7 @@ We tested different choices for perplexity in t-SNE. The default value of 30 pro
 
 UMAP and t-SNE projections were carried out on an iMac with a 3.5GhZ Intel Core i7 processor, 32 GB 1600 MHz DDR3 of RAM, and an NVIDIA GeForce GTX 775M 2048 MB graphics card.
 
-Colours for maps in figures~\ref{fig:umap_world_map}, \ref{fig:umap_ukbb_geo_map}, \ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur} were determined by projecting data to 3D and using each 3D coordinate as an RGB coordinate. For the world map, countries were determined using the country of birth variable, with a country's colour being determined by the mean $x$, $y$, and $z$ values of all individuals born in that country. Because many self-identified White British individuals were born abroad, including them everywhere would skew the colour scheme; they were included only if they were born in the UK, Europe, Australia, Canada, or the United States. This approach to colouring is sensitive to sample sizes as UMAP will give more space to larger populations. For this reason, differences between Ireland/the UK and other countries appear exaggerated. Selecting a smaller minimum distance can result in breaking connections between clusters, leading to different colour groups appearing. We provide an example world map using 40 principal components and a minimum distance of 0.001 in figure~\ref{fig:supp_umap_ukbb_worldmap_alt}.
+Colours for maps in figures~\ref{fig:umap_world_map}, \ref{fig:umap_ukbb_geo_map}, \ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur} were determined by projecting data to 3D and using each 3D coordinate as an RGB coordinate. For the world map, countries were determined using the country of birth variable, with a country's colour being determined by the mean $x$, $y$, and $z$ values of all individuals born in that country. Because many self-identified White British individuals were born abroad, including them everywhere would skew the colour scheme; they were included only if they were born in the UK, Europe, Australia, Canada, or the United States. This approach to colouring is sensitive to sample sizes as UMAP will give more space to larger populations. For this reason, differences between Ireland/the UK and other countries appear exaggerated. Selecting a smaller minimum distance can result in breaking connections between clusters, leading to different colour groups appearing. We provide an example world map using 40 principal components and a minimum distance of 0.001 in figure~\ref{fig:supp_umap_ukbb_worldmap_alt}. \sgcomment{Is this really a "material and method" comment? THe logical flow with the last comment is not clear to me.}
 
 To reduce the potential risks for re-identification from results in this publication, data has been randomly permuted so that the population characteristics are preserved but individual-level data is not presented directly in the figures. We rounded each attribute to an attribute-specific number of bins, and then permuted the data in the following way: 
 For each point (i.e. each individual) in UMAP visualizations, and each attribute, we identified the 9 nearest neighbouring points, and copied the attribute from a randomly selected neighbor (thus allowing for the possibility of one value being printed twice).  Because this process is done independently for each visualization, a given point shown on the figure will copy values from different randomly selected individuals. Additionally, spatial coordinates have random noise added (normally distributed about 0 with a standard deviation of 50km) before binning to the nearest 50km. For each point in figure~\ref{fig:umap_ukbb_geo_map} we identified the nearest 50 neighbouring individuals and copied the colour value from a randomly selected neighbour.}
@@ -442,7 +442,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanAsiaMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Asia.}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Asia. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
     \label{fig:supp_umap_ukbb_asia}
 \end{figure*}
 
@@ -451,7 +451,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanCarribeanMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on the Caribbean.}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on the Caribbean. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
     \label{fig:supp_umap_ukbb_car}
 \end{figure*}
 
@@ -460,7 +460,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanEuroMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Europe.}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Europe. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
     \label{fig:supp_umap_ukbb_eur}
 \end{figure*}
 
@@ -704,7 +704,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_basophill_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of basophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Basophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_basophill_f}
 \end{figure*}
 
@@ -713,7 +713,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_basophill_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of basophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Basophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_basophill_m}
 \end{figure*}
 
@@ -722,7 +722,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_eosinophill_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of eosinophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Eeosinophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_eosinophill_f}
 \end{figure*}
 
@@ -731,7 +731,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_eosinophill_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of eosinophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Eosinophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_eosinophill_m}
 \end{figure*}
 
@@ -740,7 +740,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_fev_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_fev_f}
 \end{figure*}
 
@@ -749,7 +749,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_fev_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_fev_m}
 \end{figure*}
 
@@ -758,7 +758,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_height_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_height_f}
 \end{figure*}
 
@@ -767,7 +767,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_height_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_height_m}
 \end{figure*}
 
@@ -776,7 +776,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_leukocyte_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of leukocyte counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Leukocyte counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_leukocyte_f}
 \end{figure*}
 
@@ -785,7 +785,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_leukocyte_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of leukocyte counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Leukocyte counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_leukocyte_m}
 \end{figure*}
 
@@ -794,7 +794,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_neutrophil_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of neutrophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Neutrophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_neutrophill_f}
 \end{figure*}
 
@@ -803,7 +803,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/male_neutrophil_boxplot_annotated.pdf}
     \end{subfigure}
-    \caption{Boxplot of neutrophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \caption{Neutrophil counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
     \label{fig:supp_box_neutrophill_m}
 \end{figure*}
 
@@ -813,7 +813,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanWorldMap_mindist001.jpg}
     \end{subfigure}
-    \caption{Alternate colouring of figre~\ref{fig:umap_world_map} using a UMAP projection on the top 40 components with minimum distance 0.001.}
+    \caption{Alternate colouring of figure~\ref{fig:umap_world_map} using a UMAP projection on the top 40 components with minimum distance 0.001.}
     \label{fig:supp_umap_ukbb_worldmap_alt}
 \end{figure*}
 
@@ -823,7 +823,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/admixture_plot_highlight_mountain_copy.pdf}
     \end{subfigure}
-    \caption{Admixture plot of Hispanic individuals in the HRS. Those born in the Mountain census region fall between the white lines (indices 48 to 184)}
+    \caption{Admixture plot of Hispanic individuals in the HRS. Individuals born in the Mountain census region fall between the white lines (indices 48 to 184)}
     \label{fig:supp_hrs_hisp_admix}
 \end{figure*}
 
