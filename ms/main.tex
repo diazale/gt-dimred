@@ -12,6 +12,9 @@
      }
 \newcommand{\sgcomment}[1]{{\textcolor{blue}{SG: #1}}}
 \newcommand{\adpcomment}[1]{{\textcolor{orange}{ADP: #1}}}
+
+\newcommand{\rulesep}{\unskip\ \vrule\ }
+
 %\usepackage{subfig}
 \usepackage{adjustbox}
 \usepackage{subcaption}
@@ -67,7 +70,7 @@ Principal component analysis (PCA) is often the first dimensional reduction tool
 \begin{figure*}[!ht]
     \centering
     \includegraphics[width=0.7\textwidth]{images/montage_1000G_labels_axes.pdf}
-    \caption{Four methods of dimension reduction of 1KGP genotype data with population labels (i) PCA maps individuals in a triangle with vertices corresponding to African, Asian/Native American, and European continental ancestry. Discarding lower-variance PCs leads to overlap of populations with no close affinity, such as Central and South American populations with South Asians. (ii) t-SNE forms groups corresponding to continents, with some overlap between European and Central and South American people. Smaller subgroups are visible within continental clusters. The cloud of peripheral points results from the method's poor convergence. (iii) UMAP forms distinct clusters related to continent with clearly defined subgroups. Japanese, Finnish, Luhya, and some Punjabi and Telugu populations form separate clusters consistent with their population history\cite{10002015global}. (iv) UMAP on the first 15 principal components forms fine-scale clusters for individual populations. Groups closely related by ancestry or geography, such as African Caribbean/African American, Spanish/Italian, and Kinh/Dai populations cluster together. Results using t-SNE on principal components are presented in figure~\ref{fig:supp_megamontage_pc2_9}. Axes in UMAP and t-SNE are arbitrary. Since the algorithms prioritize local distances, long distances between clusters are not meaningful.
+    \caption{\textbf{Four methods of dimension reduction of 1KGP genotype data with population labels.} (i) PCA maps individuals in a triangle with vertices corresponding to African, Asian/Native American, and European continental ancestry. Discarding lower-variance PCs leads to overlap of populations with no close affinity, such as Central and South American populations with South Asians. (ii) t-SNE forms groups corresponding to continents, with some overlap between European and Central and South American people. Smaller subgroups are visible within continental clusters. The cloud of peripheral points results from the method's poor convergence. (iii) UMAP forms distinct clusters related to continent with clearly defined subgroups. Japanese, Finnish, Luhya, and some Punjabi and Telugu populations form separate clusters consistent with their population history\cite{10002015global}. (iv) UMAP on the first 15 principal components forms fine-scale clusters for individual populations. Groups closely related by ancestry or geography, such as African Caribbean/African American, Spanish/Italian, and Kinh/Dai populations cluster together. Results using t-SNE on principal components are presented in figure~\ref{fig:supp_megamontage_pc2_9}. Axes in UMAP and t-SNE are arbitrary. Since the algorithms prioritize local distances, long distances between clusters are not meaningful.
     ACB, African Caribbean in Barbados;
     ASW, African Ancestry in Southwest US;
     BEB, Bengali;
@@ -107,21 +110,21 @@ Nonlinear dimension reduction methods tend to be computationally intensive. A co
     \centering
     \begin{subfigure}{0.5\columnwidth}
     \includegraphics[width=\columnwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
-    \caption{Subset of Hispanic population of the HRS}
+    \caption{}
     \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
     \end{subfigure}\hfill
         \begin{subfigure}{0.5\columnwidth}
     \includegraphics[width=\columnwidth]{images/Asthma_FullAsian_PC_QC_new_UMAP_PC8_NC2_NN15_MD05_20193117303txt_eth_for_ms_lw2.jpeg}
-    \caption{Subset of the Asian population of the UKBB}
+    \caption{}
         \label{fig:umap_ukbb_indian}
     \end{subfigure}
-    \caption{Applying UMAP to subets of data can reveal deep population structure. (a) UMAP on the top $7$ principal components of the self-identified Hispanic population of the HRS reveals a cluster (highlighted). Colouring the points by birthplace shows they were born almost entirely in the Mountain region of the United States (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). When populations from the 1KGP are projected onto the UMAP embedding they do not map to the cluster. Six 1KGP populations are presented:
+    \caption{\textbf{Applying UMAP to subets of data can reveal deep population structure.} \textbf{(a)} UMAP on the top $7$ principal components of the self-identified Hispanic population of the HRS reveals a cluster (highlighted). Colouring the points by birthplace shows they were born almost entirely in the Mountain region of the United States (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). When populations from the 1KGP are projected onto the UMAP embedding they do not map to the cluster. Six 1KGP populations are presented:
     CLM, Colombian in Medellin, Colombia;
     IBS, Iberian in Spain;
     MXL, Mexican in Los Angeles, California;
     PEL, Peruvian;
     PUR, Puerto Rican;
-    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS coloured by estimated admixture proportions. (b) UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya.}
+    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS coloured by estimated admixture proportions. \textbf{(b)} UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya.}
     \label{fig:subpops}
 \end{figure*}
 
@@ -147,15 +150,15 @@ The UKBB contains data on 488,377 individuals containing phenotypic measures and
 \centering
 \begin{subfigure}{.5\columnwidth}
 \includegraphics[width=\columnwidth]{images/UKBB_PC0_PC1_eth_crop.jpeg}%
-\caption{Principal components 1 and 2}%
+\caption{}%
 \label{fig:pc_ukbb}%
 \end{subfigure}\hfill%
 \begin{subfigure}{.5\columnwidth}
 \includegraphics[width=\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_eth_labels.pdf}%
-\caption{UMAP on first 10 principal components}%
+\caption{}%
 \label{fig:umap_ukbb_pc10}%
 \end{subfigure}%
-\caption{The UKBB coloured by self-reported ethnic background. (a) The first two principal components, showing the usual triangle with vertices corresponding to African, Asian/Native American, and European ancestries, and intermediate values indicating admixture or lack of relationship to the vertex populations. (b) UMAP on the first 10 principal components. The cluster of White British and White Irish individuals is greatly expanded, with the Irish forming a distinct sub cluster mixed with the White British population. South Asian and East Asian individuals form their separate clusters, as do individuals of African or Caribbean backgrounds. Population clusters are connected by "trails" comprised of large proportions of individuals with mixed backgrounds.
+\caption{\textbf{The UKBB coloured by self-reported ethnic background.} \textbf{(a)} The first two principal components, showing the usual triangle with vertices corresponding to African, Asian/Native American, and European ancestries, and intermediate values indicating admixture or lack of relationship to the vertex populations. \textbf{(b)} UMAP on the first 10 principal components. The cluster of White British and White Irish individuals is greatly expanded, with the Irish forming a distinct sub cluster mixed with the White British population. South Asian and East Asian individuals form their separate clusters, as do individuals of African or Caribbean backgrounds. Population clusters are connected by "trails" comprised of large proportions of individuals with mixed backgrounds.
 BA, Black African; 
 BC, Black Caribbean; 
 BG, Bangladeshi; 
@@ -185,16 +188,16 @@ Figure~\ref{fig:umap_ukbb_geo_osgb} presents the UMAP projection in figure~\ref{
     \begin{subfigure}{\columnwidth}
     \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_ns_permuted_10nn_sd50000_base50000_201883118582.pdf}
     \includegraphics[width=.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_ew_permuted_10nn_sd50000_base50000_201883118582.pdf}
-    \caption{Colouring the projection by geographic coordinates.}
+    \caption{}
     \label{fig:umap_ukbb_geo_osgb}
     \end{subfigure}
      \begin{subfigure}{\columnwidth}
          \includegraphics[width=0.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_2018714161841_Height_res_pct1_f.pdf}
     \includegraphics[width=.4\columnwidth]{images/UKBB_UMAP_PC10_NN15_MD05_2018328174511_201871416519_leukocyte_count_pct5_f.pdf}
-   \caption{Colouring the projection by phenotypic data}
+   \caption{}
     \label{fig:umap_height_female}
       \end{subfigure}
-      \caption{Relationships between population structure, geography, and phenotype heterogeneity. (Top) Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colours individuals by their north-south ("northing") coordinates, and the right image colours them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. (Bottom) Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
+      \caption{\textbf{UMAP captures relationships between population structure, geography, and phenotype heterogeneity.} \textbf{(a)} Each individual is coloured by their geographical coordinates of residence. Coordinates follow the UKBB's OSGB1936 geographic grid system and represent distance from the Isles of Scilly, which lie southwest of Great Britain. The left image colours individuals by their north-south ("northing") coordinates, and the right image colours them by their east-west ("easting") coordinates. Adding more components creates finer clusters.  (figures~\ref{fig:supp_montage_ukbb_ns} and~\ref{fig:supp_montage_ukbb_ew}). Northing values were truncated between $100$km and $700$km, and easting values were truncated between $200$km and $600$km. \textbf{(b)} Females from the same projection coloured by age-adjusted difference from mean population height (left) and leukocyte counts (right). Individuals with missing data were excluded. To protect participant privacy, data in these images has been randomized as explained in the materials and methods section.}
 \end{figure}
 
 As an alternate visualization of geography and genetic diversity, we performed a 3D UMAP projection and converted the UMAP coordinates into RGB values, allowing us to plot individuals on a map of Great Britain, emphasizing both spatial gradients of genetic relatedness and increased diversity in urban centers (figure~\ref{fig:umap_ukbb_geo_map}). The patterns in rural areas observed are similar to those reported in~\cite{leslie2015fine} using the haplotype-based CHROMOPAINTER on British individuals whose grandparents lived nearby. Using data about country of birth, we performed a similar analysis of a world map~\ref{fig:umap_world_map}, revealing subtle regional variation around the world. 
@@ -206,19 +209,50 @@ As an alternate visualization of geography and genetic diversity, we performed a
 %    \label{fig:umap_ukbb_geo_map}
 %\end{figure}
 
-\begin{figure}
-    \centering
-    \begin{subfigure}{\columnwidth}
-    \includegraphics[width=0.5\columnwidth]{images/UKBB_mapsInMaps_2D3_permute50.jpg}
-    \caption{Each point is an individual placed based on where they live. Patterns in genetic similarity are visible in Scotland, South England, North and South Wales, the East and West Midlands, and major urban centres.}
+%\begin{figure}[h!]
+%  \centering
+%  \begin{subfigure}[b]{0.4\linewidth}
+%    \includegraphics[width=\linewidth]{Figures/1KGP_UMAP_labels.jpeg}
+%  \end{subfigure}
+%  \rulesep
+%  \begin{subfigure}[b]{0.4\linewidth}
+%    \includegraphics[width=\linewidth]{Figures/1KGP_PC15_UMAP_labels.jpeg}
+%  \end{subfigure}
+%  \caption{UMAP embeddings of the 1KGP genotype data (left) and the top 15 principal components of the genotype data (right). Each point is coloured and labelled by its population. See Appendix~\ref{AppendixA} for label definitions.}
+%  \label{fig:1KGP}
+%\end{figure}
+
+%\begin{figure}
+%    \centering
+%     \textbf{Test}\par\medskip
+%    \begin{subfigure}{\columnwidth}
+%    \includegraphics[width=0.35\columnwidth]{images/UKBB_mapsInMaps_2D3_permute50.jpg}
+%     %\includegraphics[width=0.55\columnwidth]{images/meanWorldMap.jpg}
+%    \caption{Each point is an individual placed based on where they live. Patterns in genetic similarity are visible in Scotland, South England, North and South Wales, the East and West Midlands, and major urban centres.}
+%    \label{fig:umap_ukbb_geo_map}
+%    \end{subfigure}
+%          \rulesep
+%     \begin{subfigure}{\columnwidth}
+%         \includegraphics[width=0.45\columnwidth]{images/meanWorldMap.jpg}
+%   \caption{Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States. \sgcomment{rationale?}. Zoomed maps of East Asia, the Caribbean, and Europe are available in figures~\ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur}, respectively.}
+%    \label{fig:umap_world_map}
+%      \end{subfigure}
+%      \caption{Maps coloured by 3D UMAP projections of the top 20 principal components of the UKBB. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates. Individuals who are closer to each other in the projection will be closer in colour in the maps. More details on colouring, as well as randomization of points to protect participant privacy, are available in the materials and methods. \sgcomment{Merge captions. Make sure to have overall title! }}
+%\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{images/UKBB_mapsInMaps_2D3_permute50.jpg}
+    \caption{}
     \label{fig:umap_ukbb_geo_map}
-    \end{subfigure}
-     \begin{subfigure}{\columnwidth}
-         \includegraphics[width=0.9\columnwidth]{images/meanWorldMap.jpg}
-   \caption{Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States \sgcomment{rationale?}. Zoomed maps of East Asia, the Caribbean, and Europe are available in figures~\ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur}, respectively.}
-    \label{fig:umap_world_map}
-      \end{subfigure}
-      \caption{Maps coloured by 3D UMAP projections of the top 20 principal components of the UKBB. Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates. Individuals who are closer to each other in the projection will be closer in colour in the maps. More details on colouring, as well as randomization of points to protect participant privacy, are available in the materials and methods. \sgcomment{Merge captions. Make sure to have overall title! }}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{images/meanWorldMap.jpg}
+    \caption{}
+  \label{fig:umap_world_map}
+  \end{subfigure}
+  \caption{\textbf{Maps coloured by 3D UMAP projections of the top 20 principal components of the UKBB.} Each individual is assigned a 3D RGB vector based on 3D UMAP coordinates (a flattened projection is in the top right of \textbf{(a)}. Individuals who are closer to each other in the projection will be closer in colour in the maps. More details on colouring, as well as randomization of points to protect participant privacy, are available in the materials and methods. \textbf{(a)} Each point is an individual placed based on where they live. Patterns in genetic similarity are visible in Scotland, South England, North and South Wales, the East and West Midlands, and major urban centres. \textbf{(b)} Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States, where UKBB participants already tended to have European ancestry. \sgcomment{rationale?}. Zoomed maps of East Asia, the Caribbean, and Europe are available in figures~\ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur}, respectively.}
 \end{figure}
 
 Similarly to UMAP, t-SNE applied to the UKBB data both displays diversity within the "White British" population and identifies clusters among other groups. However, it has three drawbacks: it is much slower, requiring 2.26 hours for its first thousand iterations alone on 10 principal components against UMAP's 14 minutes; it fails to find a global optimum, which results in a scattering of individuals and groups that are not stable across independent runs; and it does not identify continuity between different continental groups resulting from admixture (figure~\ref{fig:supp_ukbb_tsne}). 
@@ -238,9 +272,9 @@ Identifying the best dimension reduction technique is to an extent subjective. H
 \subsection*{Discussion}
 UMAP comprehensively illustrates genotypic information at fine-scales and within the context of a global population structure. Using it is straightforward and fast; given PCA data and a desktop computer, UMAP can be performed in 15 to 25 minutes on a sample of hundreds of thousands of individuals over tens of dimensions. It excels with larger datasets containing individuals with admixed backgrounds, which present discrete and continuous population structure. By patching together many local genetic neighbourhoods, the visualizations preserve aspects of both local and global structure, unlike any existing method that we are familiar with. 
 
-Using UMAP reveals intriguing clusters that would otherwise have been very difficult to identify via numerous pairwise PCA plots, such as the geographically restricted cluster within the Hispanic population of the HRS, or the splits within the Gujarati and Punjabi population samples in the 1kGP that were not visible through PCA or Admixture analysis alone \sgcomment{How did the Reich paper find it?}. Application to the UKBB underscores the strength of UMAP in large cohorts, with fine relationships between genotype and phenotype and geography presented in visualizations that account for natural genetic clustering. Figures~\ref{fig:umap_height_female}, \ref{fig:supp_ukbb_fev_f}, and \ref{fig:supp_ukbb_zoom} demonstrate phenotypic variation within and across clusters, with height showing continuous variation across admixture edges, as expected from genetically controlled traits, and others, such as leukocyte counts or FEV1, showing sharper boundaries, as expected from environmentally determined traits.  
+Using UMAP reveals  clusters that would have been difficult to identify via numerous pairwise PCA plots, such as the geographically restricted cluster within the Hispanic population of the HRS, or the splits within the Gujarati and Punjabi population samples in the 1kGP that were not visible through PCA or Admixture analysis alone \sgcomment{How did the Reich paper find it?}\adpcomment{PCA on the Gujarati alone followed by FST. I guess the highlight is it was found without having to look at a sub-population specifically}. Application to the UKBB underscores the strength of UMAP in large cohorts, with fine relationships between genotype and phenotype and geography presented in visualizations that account for natural genetic clustering. Figures~\ref{fig:umap_height_female}, \ref{fig:supp_ukbb_fev_f}, and \ref{fig:supp_ukbb_zoom} demonstrate phenotypic variation within and across clusters, with height showing continuous variation across admixture edges, as expected from genetically controlled traits, and others, such as leukocyte counts or FEV1, showing sharper boundaries, as expected from environmentally determined traits.
 
-UMAP works well at highlighting groups of individuals who share more ancestry; when clusters form consistently, this suggests the individuals within it share more ancestry, though nothing can be said about the differences between clusters. The 1KGP dataset was deliberately crafted to come from geographically separated populations that are homogeneous internally. Thus, most of its populations form isolated clusters, with the exception of those that most closely share ancestries. \sgcomment{I don't understand what this paragraph is trying to say. You might be a bit too wordy here. }
+\adpcomment{(scrapped a paragraph here)}
 
 Like most non-linear methods, UMAP lacks direct interpretability. It is premised on local distances being more important than global distances; while points that appear very close locally can be thought to be more similar to each other, points that are distant from each other are not necessarily very different from each other. Figure~\ref{fig:supp_megamontage_pc10_50} demonstrates that disconnected population clusters can appear at different locations depending on parameter choices. For this reason, UMAP coordinates should not be used as GWAS covariates or for quantifying distances between populations. 
 
@@ -264,7 +298,7 @@ We tested different choices for perplexity in t-SNE. The default value of 30 pro
 
 UMAP and t-SNE projections were carried out on an iMac with a 3.5GhZ Intel Core i7 processor, 32 GB 1600 MHz DDR3 of RAM, and an NVIDIA GeForce GTX 775M 2048 MB graphics card.
 
-Colours for maps in figures~\ref{fig:umap_world_map}, \ref{fig:umap_ukbb_geo_map}, \ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur} were determined by projecting data to 3D and using each 3D coordinate as an RGB coordinate. For the world map, countries were determined using the country of birth variable, with a country's colour being determined by the mean $x$, $y$, and $z$ values of all individuals born in that country. Because many self-identified White British individuals were born abroad, including them everywhere would skew the colour scheme; they were included only if they were born in the UK, Europe, Australia, Canada, or the United States. This approach to colouring is sensitive to sample sizes as UMAP will give more space to larger populations. For this reason, differences between Ireland/the UK and other countries appear exaggerated. Selecting a smaller minimum distance can result in breaking connections between clusters, leading to different colour groups appearing. We provide an example world map using 40 principal components and a minimum distance of 0.001 in figure~\ref{fig:supp_umap_ukbb_worldmap_alt}. \sgcomment{Is this really a "material and method" comment? THe logical flow with the last comment is not clear to me.}
+Colours for maps in figures~\ref{fig:umap_world_map}, \ref{fig:umap_ukbb_geo_map}, \ref{fig:supp_umap_ukbb_asia}, \ref{fig:supp_umap_ukbb_car}, and \ref{fig:supp_umap_ukbb_eur} were determined by projecting data to 3D and using each 3D coordinate as an RGB coordinate. For the world map, countries were determined using the country of birth variable, with a country's colour being determined by the mean $x$, $y$, and $z$ values of all individuals born in that country. Because many self-identified White British individuals were born abroad, including them everywhere would skew the colour scheme; they were included only if they were born in the UK, Europe, Australia, Canada, or the United States. This approach to colouring is sensitive to sample sizes as UMAP will give more space to larger populations. For this reason, differences between Ireland/the UK and other countries appear exaggerated. Selecting a smaller minimum distance can result in breaking connections between clusters, leading to different colour groups appearing. We provide an example world map using 40 principal components and a minimum distance of 0.001 in figure~\ref{fig:supp_umap_ukbb_worldmap_alt}. \sgcomment{Is this really a "material and method" comment? THe logical flow with the last comment is not clear to me.} \adpcomment{This was moved to trim some text from the main body, I can just remove it as it's redundant with info from 2 paragraphs earlier.}
 
 To reduce the potential risks for re-identification from results in this publication, data has been randomly permuted so that the population characteristics are preserved but individual-level data is not presented directly in the figures. We rounded each attribute to an attribute-specific number of bins, and then permuted the data in the following way: 
 For each point (i.e. each individual) in UMAP visualizations, and each attribute, we identified the 9 nearest neighbouring points, and copied the attribute from a randomly selected neighbor (thus allowing for the possibility of one value being printed twice).  Because this process is done independently for each visualization, a given point shown on the figure will copy values from different randomly selected individuals. Additionally, spatial coordinates have random noise added (normally distributed about 0 with a standard deviation of 50km) before binning to the nearest 50km. For each point in figure~\ref{fig:umap_ukbb_geo_map} we identified the nearest 50 neighbouring individuals and copied the colour value from a randomly selected neighbour.}
@@ -442,7 +476,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanAsiaMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Asia. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Asia. Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States, where UKBB participants already tended to have European ancestry.}
     \label{fig:supp_umap_ukbb_asia}
 \end{figure*}
 
@@ -451,7 +485,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanCarribeanMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on the Caribbean. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on the Caribbean. Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States, where UKBB participants already tended to have European ancestry.}
     \label{fig:supp_umap_ukbb_car}
 \end{figure*}
 
@@ -460,7 +494,7 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/meanEuroMap.jpg}
     \end{subfigure}
-    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Europe. \sgcomment{add caption from fig5b? No cost to being self-contained here. }}
+    \caption{Figure~\ref{fig:umap_world_map}, zoomed in on Europe. Geographic distribution of UMAP coordinates. Using the country of birth of individuals in the UKBB, we colour countries by the closeness in 3D UMAP space of those born there. Broad patterns of similarity appear in East Asia, South Asia, North African and the Middle East, West Africa, and South America. Differences between neighbouring countries can reflect both ancient population structure and recent differences in migration history. Evidence of migrations related to colonialism are visible with, e.g., European ancestry in South Africa and South Asian ancestry in Kenya and Tanzania. Because of the large number of White British individuals born abroad, to avoid skewing the colour scale they were not included unless they were born in the UK, Europe, Australia, Canada, or the United States, where UKBB participants already tended to have European ancestry. }
     \label{fig:supp_umap_ukbb_eur}
 \end{figure*}
 
