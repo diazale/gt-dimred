@@ -109,7 +109,7 @@ Nonlinear dimension reduction methods tend to be computationally intensive. A co
 \begin{figure*}
     \centering
     \begin{subfigure}{0.49\columnwidth}
-    \includegraphics[width=\columnwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.pdf}
+    \includegraphics[width=\columnwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp.jpeg}
     \caption{}
     \label{fig:supp_umap_hrs_hisp_1kgp_hisp}
     \end{subfigure}\hfill
@@ -119,13 +119,13 @@ Nonlinear dimension reduction methods tend to be computationally intensive. A co
     \caption{}
         \label{fig:umap_ukbb_indian}
     \end{subfigure}
-    \caption{\textbf{Applying UMAP to subsets of data can reveal deep population structure.} \textbf{(a)} UMAP on the top $7$ principal components of the self-identified Hispanic population of the HRS reveals a cluster (highlighted). Colouring the points by birthplace shows they were born almost entirely in the Mountain region (in green) of the United States (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). When populations from the 1KGP are projected onto the UMAP embedding they do not map to the cluster. Six 1KGP populations are presented:
+    \caption{\textbf{Applying UMAP to subsets of data can reveal deep population structure.} \textbf{(a)} UMAP on the top $7$ principal components of the self-identified Hispanic population of the HRS reveals a cluster. Colouring the points by birthplace shows they were born almost entirely in the Mountain region (in green) of the United States (New Mexico, Arizona, Colorado, Utah, Nevada, Wyoming, Idaho, and Montana). When populations from the 1KGP are projected onto the UMAP embedding they do not map to the cluster. Six 1KGP populations are presented:
     CLM, Colombian in Medellin, Colombia;
     IBS, Iberian in Spain;
     MXL, Mexican in Los Angeles, California;
     PEL, Peruvian;
     PUR, Puerto Rican;
-    TSI, Tuscani in Italy. Figure~\ref{fig:supp_umap_hrs_hisp_admix} presents the same projection of individuals from the HRS coloured by estimated admixture proportions. \textbf{(b)} UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya. Colours represent self-identified ethnic background, with those identifying as Indian coloured purple. }
+    TSI, Tuscani in Italy. Figures~\ref{fig:supp_umap_hrs_hisp_admix} and \ref{fig:supp_umap_hrs_hisp_birth} present the same projection of individuals from the HRS coloured by estimated admixture proportions census region of birth, respectively. \textbf{(b)} UMAP on the top $8$ principal components of the self-identified Asian populations of the UKBB create clusters. Almost all individuals in the highlighted cluster are Indian individuals born in Kenya. Colours represent self-identified ethnic background, with those identifying as Indian coloured purple. }
     \label{fig:subpops}
 \end{figure*}
 
@@ -338,6 +338,15 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \end{subfigure}
     \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, coloured by estimated admixture proportions. Admixture proportions for each individual were estimated in \cite{baharian2016great} by assuming ancestral African, Asian, and European populations using RFMIX \cite{Maples:2013fia}. We have scaled each of the three proportions to values between 0 and 255 (with 100\% corresponding to 255), to colour individual points by their estimated admixture represented by RGB where red, green, and blue respectively correspond to African, European, and Asian/Native American ancestry.}
     \label{fig:supp_umap_hrs_hisp_admix}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.8\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_1kgp_hisp_birthonly.jpeg}
+    \end{subfigure}
+    \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, coloured region of birth.}
+    \label{fig:supp_umap_hrs_hisp_birth}
 \end{figure*}
 
 \begin{figure*}
