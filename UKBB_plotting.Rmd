@@ -1,0 +1,84 @@
+---
+title: "London alpha plotting"
+author: 
+  - name: Alex Diaz-Papkovich
+affiliation:
+  - &cruk Quantitative Life Sciences, McGill University,  Montreal, Canada
+date: '`r format(Sys.Date(), "%Y-%B-%d")`'
+output:
+  html_notebook:
+  df_print: paged
+code_folding: show
+toc: yes
+toc_float: 
+  collapsed: false
+smooth_scroll: false
+---
+## Plotting UKBB stuff
+Python's plotting is getting on my nerves. I want to make a scatterplot where I specify each point's colour and alpha values.
+
+# Import libraries
+```{r}
+library(ggplot2)
+library(tidyverse)
+```
+
+# Import the data
+```{r}
+data_dir <- "/Volumes/Stockage/alex/ukbb_other/data/london_alphas.csv"
+
+ukbb_plotting_data <- read.csv(data_dir)
+ukbb_plotting_data <- ukbb_plotting_data[!(ukbb_plotting_data$eth_txt %in% c('British', 'Irish', 'Any other white background')),]
+
+out_dir <- "/Volumes/Stockage/alex/ukbb_images/london_alpha"
+fname <- "UKBB_UMAP_PC10_NN15_MD05_2018328174511_within50km"
+ h <- 15
+ w <- 15
+
+p_scatter <- ggplot(ukbb_plotting_data, aes(x=x_coords, y=y_coords)) +
+  geom_point(colour=ukbb_plotting_data$colour, alpha=ukbb_plotting_data$London_alpha, stroke=0) +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank())
+p_scatter
+
+ggsave(paste(out_dir, paste(fname,".jpeg",sep=""), sep="/"), device = "jpeg", height = h, width = w, units = "in")
+```
+
+# What about those outside of 50k from London?
+```{r}
+data_dir <- "/Volumes/Stockage/alex/ukbb_other/data/london_alphas.csv"
+
+ukbb_plotting_data <- read.csv(data_dir)
+ukbb_plotting_data <- ukbb_plotting_data[!(ukbb_plotting_data$eth_txt %in% c('British', 'Irish', 'Any other white background')),]
+
+ukbb_plotting_data$Outside_London <- ifelse(ukbb_plotting_data$London_alpha==0,1,0)
+
+out_dir <- "/Volumes/Stockage/alex/ukbb_images/london_alpha"
+fname <- "UKBB_UMAP_PC10_NN15_MD05_2018328174511_outside_50km"
+ h <- 15
+ w <- 15
+
+p_scatter <- ggplot(ukbb_plotting_data, aes(x=x_coords, y=y_coords)) +
+  geom_point(colour=ukbb_plotting_data$colour, alpha=ukbb_plotting_data$Outside_London, stroke=0) +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank())
+p_scatter
+
+ggsave(paste(out_dir, paste(fname,".jpeg",sep=""), sep="/"), device = "jpeg", height = h, width = w, units = "in")
+```

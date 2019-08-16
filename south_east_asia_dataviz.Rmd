@@ -1,0 +1,531 @@
+---
+title: "DataViz for S/SE Asia"
+author: 
+  - name: Alex Diaz-Papkovich
+affiliation:
+  - &cruk Quantitative Life Sciences, McGill University,  Montreal, Canada
+date: '`r format(Sys.Date(), "%Y-%B-%d")`'
+output:
+  html_notebook:
+  df_print: paged
+code_folding: show
+toc: yes
+toc_float: 
+  collapsed: false
+smooth_scroll: false
+---
+  
+## Load libraries and set directories
+```{r, message=FALSE, warning=FALSE}
+library(cowplot)
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+library(ggridges)
+library(magrittr)
+```
+
+## Import data
+```{r, message=FALSE, warning=FALSE}
+data_path <- "/Volumes/Stockage/alex/ukbb_phenos/south_east_asia_phenos_2018328174511.csv"
+
+# Import the main data
+ukbb_data <- read.csv(data_path, stringsAsFactors = F)
+
+# Reduce to just the countries we're interested in
+pops <- c("Japan","Philippines","Malaysia")
+ukbb_data_ese_asia <- ukbb_data[ukbb_data$COB %in% pops | ukbb_data$eth_txt=="Chinese",]
+
+# Add a "populations" variable (since Chinese is an ethnicity, while the country of birth is technically not)
+attach(ukbb_data_ese_asia)
+ukbb_data_ese_asia$Population <- ifelse(eth_txt=="Chinese","Chinese",COB)
+detach(ukbb_data_ese_asia)
+
+ukbb_data_ese_asia_with_fev1 <- subset(ukbb_data_ese_asia, is.na(ukbb_data_ese_asia$X3063_0_0)==F)
+```
+
+# Get some summary stats
+```{r}
+table(ukbb_data_ese_asia_with_fev1[,c('Population',"sex")])
+
+temp_malaysia <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$Population=="Malaysia",]
+temp_japan <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$Population=="Japan",]
+temp_philippines <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$Population=="Philippines",]
+```
+
+# Regression using height, sex, age
+```{r}
+ukbb_data_ese_asia_with_fev1$fev1 <- ukbb_data_ese_asia_with_fev1$X3063_0_0
+ukbb_data_ese_asia_with_fev1$sex_factor <- as.factor(ukbb_data_ese_asia_with_fev1$sex)
+ukbb_data_ese_asia_with_fev1$pop_factor <- as.factor(ukbb_data_ese_asia_with_fev1$Population)
+
+mod <- lm(data = ukbb_data_ese_asia_with_fev1, fev1 ~ Height + age + age^2 + sex_factor)#  + pop_factor)
+
+summary(mod)
+
+# Regress out sex, age, age^2, height
+ukbb_data_ese_asia_with_fev1$fev_residuals <- mod$residuals
+```
+
+# Regression using height, age (no sex)
+```{r}
+mod <- lm(data = ukbb_data_ese_asia_with_fev1, fev1 ~ Height + age + age^2)
+
+summary(mod)
+
+# Regress out age, age^2, height
+ukbb_data_ese_asia_with_fev1$fev_residuals_nosex <- mod$residuals
+```
+
+# Statistical testing (split by sex, regression includes sex)
+```{r}
+# Split into a list of data frames (one female, one male) so we can more easily run the tests
+# We want graphics split by sex anyway
+# Run Welch's t-tests (assuming unequal variances, different sample sizes)
+
+# Select the dataset and variable of interest. Assumes sex is a binary chr ("0" for female, "1" for male)
+testing_set <- ukbb_data_ese_asia_with_fev1
+testing_var <- "fev_residuals"
+
+testing_data <- list()
+t_test_results <- list(list)
+
+# First subset by sex, then remove missing data.
+# There's probably a more succinct approach but this is readable and it works.
+testing_data[["female"]] <- testing_set[testing_set$sex=="0",]
+testing_data[["female"]] <- testing_data[["female"]][!is.na(testing_data[["female"]][[testing_var]]),]
+
+testing_data[["male"]] <- testing_set[testing_set$sex=="1",]
+testing_data[["male"]] <- testing_data[["male"]][!is.na(testing_data[["male"]][[testing_var]]),]
+
+# Compare them relative to the Japanese population (we're not doing a huge pairwise thing)
+# The Japanese cluster seems to be the only one with a different distribution visually
+pop_vec = c("Chinese","Malaysia","Philippines")
+sex_vec = c("female","male")
+
+compare_pop = "Japan"
+
+for (s in sex_vec){
+ for (p in pop_vec){
+   print(paste("Now comparing",p,"to",compare_pop))
+   baseline_set <- testing_data[[s]][testing_data[[s]]$Population==compare_pop,]
+   compare_set <- testing_data[[s]][testing_data[[s]]$Population==p,]
+   
+   t_test_results[[s]][[p]] <- t.test(baseline_set[[testing_var]], compare_set[[testing_var]])
+ } 
+}
+
+```
+
+# Statistical testing (both sexes, regression includes sex)
+```{r}
+# Run Welch's t-tests (assuming unequal variances, different sample sizes)
+
+# Select the dataset and variable of interest
+testing_set <- ukbb_data_ese_asia_with_fev1
+testing_var <- "fev_residuals"
+
+testing_data_both <- list()
+t_test_results_both <- list()
+
+
+testing_data_both[["both"]] <- testing_set
+testing_data_both[["both"]] <- testing_data_both[["both"]][!is.na(testing_data_both[["both"]][[testing_var]]),]
+
+# Compare them relative to the Japanese population (we're not doing a huge pairwise thing)
+# The Japanese cluster seems to be the only one with a different distribution visually
+pop_vec = c("Chinese","Malaysia","Philippines")
+sex_vec <- c("both")
+
+compare_pop = "Japan"
+for (s in sex_vec){
+  for (p in pop_vec){
+   print(paste("Now comparing",p,"to",compare_pop))
+   baseline_set <- testing_data_both[[s]][testing_data_both[[s]]$Population==compare_pop,]
+   compare_set <- testing_data_both[[s]][testing_data_both[[s]]$Population==p,]
+   
+   t_test_results_both[[p]] <- t.test(baseline_set[[testing_var]], compare_set[[testing_var]])
+  } 
+}
+
+```
+
+# Kind of a pain but we need to merge the various statistics
+```{r}
+t_test_df <- data.frame(sex=character(),
+                        Population=character(),
+                        mean_diff=double(),
+                        pval=double(),
+                        ast=character(),
+                        stringsAsFactors = F)
+sex_vec <- c("female","male")
+
+for (s in sex_vec){
+  for (p in pop_vec){
+    # Difference of means
+    mean1 <- t_test_results[[s]][[p]]$estimate[1]
+    mean2 <- t_test_results[[s]][[p]]$estimate[2]
+    
+    mean_diff <- mean1 - mean2
+    
+    # Find the p-value and adjust it for multiple testing
+    pval <- t_test_results[[s]][[p]]$p.value
+  
+    if (pval < 0.05/length(pop_vec)){
+      ast <- "*"
+    } else {
+      ast <- ""
+    }
+    
+    # Initialize the data frame (first observation)
+    if(p==pop_vec[1] & s==sex_vec[1]){
+        t_test_df[1,] <- list(as.character(s),
+                              as.character(p),
+                              as.numeric(mean_diff), 
+                              as.numeric(pval),
+                              as.character(ast))
+    } else {
+      t_test_df <- rbind(t_test_df, list(as.character(s),
+                                         as.character(p),
+                                       as.numeric(mean_diff), 
+                                       as.numeric(pval),
+                                       as.character(ast)))
+    }
+  }
+}
+# Insert the Japanese row and sort alphabetically
+t_test_df <- rbind(t_test_df, list(as.character("female"),
+                                   as.character("Japan"),
+                                   as.numeric(0),
+                                   as.numeric(0),
+                                   as.character("")))
+t_test_df <- rbind(t_test_df, list(as.character("male"),
+                                   as.character("Japan"),
+                                   as.numeric(0),
+                                   as.numeric(0),
+                                   as.character("")))
+
+# Round values
+#t_test_df$pval <- round(t_test_df$pval, 2)
+
+# Sort to match labelling
+t_test_df <- t_test_df[order(t_test_df$Population),]
+t_test_df[order(t_test_df$Population),]
+```
+
+# Ridge plot of females
+```{r}
+# Subset to females
+plotting_data <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$sex=="0",]
+
+# Remove NaN
+plotting_data <- plotting_data[!is.na(plotting_data$fev_residuals),]
+
+# Get means (sort by these)
+plotting_means <- aggregate(plotting_data$fev_residuals, list(plotting_data$Population), mean)
+names(plotting_means) <- c("Population", "mean")
+
+# Colour palette
+pal <- c("#e377c2","#98df8a","#aec7e8","#8c564b")
+
+# Subset t-test results
+t_test_vals <- t_test_df[t_test_df$sex=="female",]
+
+label_vec <- paste(names(table(plotting_data$Population)),
+                                   " (n=",
+                                   table(plotting_data$Population),
+                                   ", μ=", formatC(plotting_means$mean, digits=2),
+                                   ", p-val=", formatC(t_test_vals$pval, format="e", digits=2),
+                                   t_test_vals$ast, ")",
+                                   sep="")
+# cheating a bit here
+label_vec[2] <- paste("Japan (n=202, μ=",formatC(plotting_means[plotting_means$Population=="Japan",]$mean, digits=2),")",sep="")
+
+p_female <- ggplot(plotting_data, aes(x=fev_residuals, y=Population,fill=Population)) +
+  geom_density_ridges(scale=2, alpha=0.4) +
+  scale_fill_manual(values=pal,
+                    labels = label_vec
+                    ) +
+  geom_vline(xintercept=plotting_means$mean, linetype="dashed", colour=pal, size=1) +
+  xlim(-3.5,3.5) +
+  ggtitle("Residual FEV1 (female)") +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        legend.text.align = 0) +
+  guides(fill = guide_legend(reverse=TRUE))
+
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_female_ridges.png", p_female, width=15)
+p_female
+```
+
+# Ridge plot of males
+```{r}
+# Subset to males
+plotting_data <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$sex=="1",]
+
+# Remove NaN
+plotting_data <- plotting_data[!is.na(plotting_data$fev_residuals),]
+
+# Get means (sort by these)
+plotting_means <- aggregate(plotting_data$fev_residuals, list(plotting_data$Population), mean)
+names(plotting_means) <- c("Population", "mean")
+
+# Colour palette
+pal <- c("#e377c2","#98df8a","#aec7e8","#8c564b")
+
+# Subset t-test results
+t_test_vals <- t_test_df[t_test_df$sex=="male",]
+
+label_vec <- paste(names(table(plotting_data$Population)),
+                                   " (n=",
+                                   table(plotting_data$Population),
+                                   ", μ=", formatC(plotting_means$mean, digits=2),
+                                   ", p-val=", formatC(t_test_vals$pval, format="e", digits=2),
+                                   t_test_vals$ast, ")",
+                                   sep="")
+
+label_vec[2] <- paste("Japan (n=30, μ=",formatC(plotting_means[plotting_means$Population=="Japan",]$mean, digits=2),")",sep="")
+
+p_male <- ggplot(plotting_data, aes(x=fev_residuals, y=Population,fill=Population)) +
+  geom_density_ridges(scale=2, alpha=0.4) +
+  scale_fill_manual(values=pal,
+                    labels = label_vec
+                    ) +
+  geom_vline(xintercept=plotting_means$mean, linetype="dashed", colour=pal, size=1) +
+  xlim(-3.5,3.5) +
+  ggtitle("Residual FEV1 (male)") +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank()) +
+  guides(fill = guide_legend(reverse=TRUE))
+
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_male_ridges.png", p_male, width=15)
+p_male
+```
+
+# Put the two plots on the same graphic (cowplot)
+```{r}
+p_combined <- plot_grid(p_female, p_male, align="v", nrow=2, ncol=1)
+p_combined
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_ridges.png", p_combined,
+       height=7, width=10)
+```
+
+# Same but use residuals from regression that didn't include sex
+```{r}
+# Split into a list of data frames (one female, one male) so we can more easily run the tests
+# We want graphics split by sex anyway
+# Run Welch's t-tests (assuming unequal variances, different sample sizes)
+
+# Select the dataset and variable of interest. Assumes sex is a binary chr ("0" for female, "1" for male)
+testing_set <- ukbb_data_ese_asia_with_fev1
+testing_var <- "fev_residuals_nosex"
+
+testing_data <- list()
+t_test_results <- list(list)
+
+# First subset by sex, then remove missing data.
+# There's probably a more succinct approach but this is readable and it works.
+testing_data[["female"]] <- testing_set[testing_set$sex=="0",]
+testing_data[["female"]] <- testing_data[["female"]][!is.na(testing_data[["female"]][[testing_var]]),]
+
+testing_data[["male"]] <- testing_set[testing_set$sex=="1",]
+testing_data[["male"]] <- testing_data[["male"]][!is.na(testing_data[["male"]][[testing_var]]),]
+
+# Compare them relative to the Japanese population (we're not doing a huge pairwise thing)
+# The Japanese cluster seems to be the only one with a different distribution visually
+pop_vec = c("Chinese","Malaysia","Philippines")
+sex_vec = c("female","male")
+
+compare_pop = "Japan"
+
+for (s in sex_vec){
+ for (p in pop_vec){
+   print(paste("Now comparing",p,"to",compare_pop))
+   baseline_set <- testing_data[[s]][testing_data[[s]]$Population==compare_pop,]
+   compare_set <- testing_data[[s]][testing_data[[s]]$Population==p,]
+   
+   t_test_results[[s]][[p]] <- t.test(baseline_set[[testing_var]], compare_set[[testing_var]])
+ } 
+}
+
+```
+
+# Merge the various statistics
+```{r}
+t_test_df <- data.frame(sex=character(),
+                        Population=character(),
+                        mean_diff=double(),
+                        pval=double(),
+                        ast=character(),
+                        stringsAsFactors = F)
+for (s in sex_vec){
+  for (p in pop_vec){
+    # Difference of means
+    mean1 <- t_test_results[[s]][[p]]$estimate[1]
+    mean2 <- t_test_results[[s]][[p]]$estimate[2]
+    
+    mean_diff <- mean1 - mean2
+    
+    # Find the p-value and adjust it for multiple testing
+    pval <- t_test_results[[s]][[p]]$p.value
+  
+    if (pval < 0.05/length(pop_vec)){
+      ast <- "*"
+    } else {
+      ast <- ""
+    }
+    
+    # Initialize the data frame (first observation)
+    if(p==pop_vec[1] & s==sex_vec[1]){
+        t_test_df[1,] <- list(as.character(s),
+                              as.character(p),
+                              as.numeric(mean_diff), 
+                              as.numeric(pval),
+                              as.character(ast))
+    } else {
+      t_test_df <- rbind(t_test_df, list(as.character(s),
+                                         as.character(p),
+                                       as.numeric(mean_diff), 
+                                       as.numeric(pval),
+                                       as.character(ast)))
+    }
+  }
+}
+# Insert the Japanese row and sort alphabetically
+t_test_df <- rbind(t_test_df, list(as.character("female"),
+                                   as.character("Japan"),
+                                   as.numeric(0),
+                                   as.numeric(0),
+                                   as.character("")))
+t_test_df <- rbind(t_test_df, list(as.character("male"),
+                                   as.character("Japan"),
+                                   as.numeric(0),
+                                   as.numeric(0),
+                                   as.character("")))
+
+# Round values
+#t_test_df$pval <- round(t_test_df$pval, 2)
+
+# Sort to match labelling
+t_test_df <- t_test_df[order(t_test_df$Population),]
+t_test_df[order(t_test_df$Population),]
+```
+
+# Ridge plot of females
+```{r}
+# Subset to females
+plotting_data <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$sex=="0",]
+
+# Remove NaN
+plotting_data <- plotting_data[!is.na(plotting_data$fev_residuals_nosex),]
+
+# Get means (sort by these)
+plotting_means <- aggregate(plotting_data$fev_residuals_nosex, list(plotting_data$Population), mean)
+names(plotting_means) <- c("Population", "mean")
+
+# Colour palette
+pal <- c("#e377c2","#98df8a","#aec7e8","#8c564b")
+
+# Subset t-test results
+t_test_vals <- t_test_df[t_test_df$sex=="female",]
+
+label_vec <- paste(names(table(plotting_data$Population)),
+                                   " (n=",
+                                   table(plotting_data$Population),
+                                   ", μ=", formatC(plotting_means$mean, digits=2),
+                                   ", p-val=", formatC(t_test_vals$pval, format="e", digits=2),
+                                   t_test_vals$ast, ")",
+                                   sep="")
+# cheating a bit here
+label_vec[2] <- paste("Japan (n=202, μ=",formatC(plotting_means[plotting_means$Population=="Japan",]$mean, digits=2),")",sep="")
+
+p_female <- ggplot(plotting_data, aes(x=fev_residuals_nosex, y=Population,fill=Population)) +
+  geom_density_ridges(scale=2, alpha=0.4) +
+  scale_fill_manual(values=pal,
+                    labels = label_vec
+                    ) +
+  geom_vline(xintercept=plotting_means$mean, linetype="dashed", colour=pal, size=1) +
+  #xlab("FEV1 residuals (female)") + ylab("Population") +
+  xlim(-3.5,3.5) +
+  ggtitle("Residual FEV1 (female)") +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        legend.text.align = 0) +
+  guides(fill = guide_legend(reverse=TRUE))
+
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_female_ridges_nosex.png", p_female, width=15)
+p_female
+```
+
+# Ridge plot of males
+```{r}
+# Subset to males
+plotting_data <- ukbb_data_ese_asia_with_fev1[ukbb_data_ese_asia_with_fev1$sex=="1",]
+
+# Remove NaN
+plotting_data <- plotting_data[!is.na(plotting_data$fev_residuals_nosex),]
+
+# Get means (sort by these)
+plotting_means <- aggregate(plotting_data$fev_residuals_nosex, list(plotting_data$Population), mean)
+names(plotting_means) <- c("Population", "mean")
+
+# Colour palette
+pal <- c("#e377c2","#98df8a","#aec7e8","#8c564b")
+
+# Subset t-test results
+t_test_vals <- t_test_df[t_test_df$sex=="male",]
+
+label_vec <- paste(names(table(plotting_data$Population)),
+                                   " (n=",
+                                   table(plotting_data$Population),
+                                   ", p-val=", formatC(t_test_vals$pval, format="e", digits=2),
+                                   t_test_vals$ast, ")",
+                                   sep="")
+
+label_vec[2] <- paste("Japan (n=30, μ=",formatC(plotting_means[plotting_means$Population=="Japan",]$mean, digits=2),")",sep="")
+
+p_male <- ggplot(plotting_data, aes(x=fev_residuals_nosex, y=Population,fill=Population)) +
+  geom_density_ridges(scale=2, alpha=0.4) +
+  scale_fill_manual(values=pal,
+                    labels = label_vec
+                    ) +
+  geom_vline(xintercept=plotting_means$mean, linetype="dashed", colour=pal, size=1) +
+  #xlab("FEV1 residuals (male)") + ylab("Population") +
+  xlim(-3.5,3.5) +
+  ggtitle("Residual FEV1 (male)") +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank()) +
+  guides(fill = guide_legend(reverse=TRUE))
+
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_male_ridges_nosex.png", p_male, width=15)
+p_male
+```
+
+# Put the two plots on the same graphic (cowplot)
+```{r}
+p_combined <- plot_grid(p_female, p_male, align="v", nrow=2, ncol=1)
+p_combined
+ggsave("/Volumes/Stockage/alex/ukbb_images/other/fev1_residual_east_asia_ridges_nosex.png", p_combined,
+       height=7, width=10)
+```
+# Simple test
+```{r}
+# Run a t-test for the manuscript - we just need to know the effect size controlling for age, sex, age^2, height.
+temp_set <- ukbb_data_ese_asia_with_fev1[!is.na(ukbb_data_ese_asia_with_fev1$fev_residuals),]
+temp_set <- temp_set[temp_set$sex=="1",]
+
+baseline_set <- temp_set[temp_set$Population=="Japan",]
+compare_set <- temp_set[temp_set$Population=="Chinese",]
+
+test_results <- t.test(baseline_set[["fev_residuals"]], compare_set[["fev_residuals"]])
+test_results
+test_results$estimate[1] - test_results$estimate[2]
+```

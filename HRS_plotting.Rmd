@@ -1,0 +1,525 @@
+---
+title: "HRS plotting"
+author: 
+  - name: Alex Diaz-Papkovich
+affiliation:
+  - &cruk Quantitative Life Sciences, McGill University,  Montreal, Canada
+date: '`r format(Sys.Date(), "%Y-%B-%d")`'
+output:
+  html_notebook:
+  df_print: paged
+code_folding: show
+toc: yes
+toc_float: 
+  collapsed: false
+smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## HRS admixture plots
+
+teeeeeext
+
+## Including Plots
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(Ternary)
+library(dplyr)
+```
+
+# Import the HRS auxiliary data and projection to use.
+```{r}
+# Auxiliary data
+hrs_aux_data <- read.csv("/Volumes/Stockage/alex/hrs/aux/HRS_aux.csv")
+
+# Projection
+fname <- "HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD0.5_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116"
+proj_dir <- "/Volumes/Stockage/alex/gt-dimred/np1/projections"
+
+hrs_1kgp_proj <- read.table(paste(proj_dir, fname, sep="/"))
+
+# This is HRS+1KGP data; first 12,454 are HRS
+hrs_proj <- hrs_1kgp_proj[1:12454,]
+
+# Merge the tables
+hrs_full_data <- cbind(hrs_aux_data, hrs_proj)
+
+# RGB colours from admixture
+hrs_full_data$rgb_vals <- rgb(hrs_full_data$ADMIX1*255,
+                              hrs_full_data$ADMIX2*255,
+                              hrs_full_data$ADMIX3*255,
+                              maxColorValue = 255)
+
+```
+
+```{r}
+# legends
+require(RColorBrewer)
+#pcol=brewer.pal(9, "Set1")
+
+AncCol=c("#FF0000","#00FF00","#0000FF")
+
+AncRGB=col2rgb(AncCol)/255
+#pdf("UMAP_ternary_plot_legend.pdf",height=2.375,width=2.375,pointsize=10)
+par(mar=c(2.1,2.1,0.1,0.1))
+TernaryPlot(alab=expression(''%->% "African ancestry (%)" %->% ''),blab=expression(''%->%"European ancestry (%)" %->% ''),clab=expression(''%<-% "Asian/Native American ancestry (%)" %<-% ''),lab.cex=1,axis.cex = 0.8)
+dx=0.01;
+cnt=0
+bk=0;
+for(xi in seq(0,1,length=round(1/dx))){
+  for(yi in seq(0,1,length=round(1/dx))){
+    for(zi in seq(0,1,length=round(1/dx))){
+      if(abs(1-(xi+yi+zi)) < 1e-8){
+        ired = xi*AncRGB[1,1] + yi*AncRGB[1,2] + zi*AncRGB[1,3]
+        igreen = xi*AncRGB[2,1] + yi*AncRGB[2,2] + zi*AncRGB[2,3]
+        iblue = xi*AncRGB[3,1] + yi*AncRGB[3,2] + zi*AncRGB[3,3]
+        AddToTernary(points,c(xi,yi,zi),col=rgb(ired,igreen,iblue,1),pch=20)
+        cnt=cnt+1
+      }
+    }
+  }
+}
+
+# legends
+require(RColorBrewer)
+#pcol=brewer.pal(9, "Set1")
+
+AncCol=c("#FF0000","#0000FF","#00FF00")
+
+AncRGB=col2rgb(AncCol)/255
+#pdf("UMAP_ternary_plot_legend.pdf",height=2.375,width=2.375,pointsize=10)
+par(mar=c(2.1,2.1,0.1,0.1))
+TernaryPlot(alab=expression(''%->% "African ancestry (%)" %->% ''),blab=expression(''%->%"European ancestry (%)" %->% ''),clab=expression(''%<-% "Asian/Native American ancestry (%)" %<-% ''),lab.cex=1,axis.cex = 0.8)
+dx=0.01;
+cnt=0
+bk=0;
+for(xi in seq(0,1,length=round(1/dx))){
+  for(yi in seq(0,1,length=round(1/dx))){
+    for(zi in seq(0,1,length=round(1/dx))){
+      if(abs(1-(xi+yi+zi)) < 1e-8){
+        ired = xi*AncRGB[1,1] + yi*AncRGB[1,2] + zi*AncRGB[1,3]
+        igreen = xi*AncRGB[2,1] + yi*AncRGB[2,2] + zi*AncRGB[2,3]
+        iblue = xi*AncRGB[3,1] + yi*AncRGB[3,2] + zi*AncRGB[3,3]
+        AddToTernary(points,c(xi,yi,zi),col=rgb(ired,igreen,iblue,1),pch=20)
+        cnt=cnt+1
+      }
+    }
+  }
+}
+```
+
+```{r}
+out_dir <- "/Volumes/Stockage/alex/hrs_1000G/images/for_export/alt_colours"
+fname <- "HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_birth"
+
+p_hrs_birth <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=BirthRegionName)) +
+  geom_point(alpha=0.6, size=0.1) +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        legend.position="bottom",
+        legend.title=element_blank()) + 
+  guides(colour = guide_legend(override.aes = list(size=4, alpha = 1)))
+
+p_hrs_birth
+
+ggsave(paste(out_dir, "/", fname, ".jpeg", sep=""), height=h, width=w, units=u)
+```
+
+```{r}
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX1*255,
+                                                       hrs_full_data$ADMIX2*255,
+                                                       hrs_full_data$ADMIX3*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+```
+
+# Alternate colourings
+```{r}
+
+out_dir <- "/Volumes/Stockage/alex/hrs_1000G/images/for_export/alt_colours"
+fname <- "HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix"
+
+# dimensions
+h <- 120.4
+w <- 186.0
+
+# units
+u <- "mm"
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX1*255,
+                                                       hrs_full_data$ADMIX2*255,
+                                                       hrs_full_data$ADMIX3*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "123.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX1*255,
+                                                       hrs_full_data$ADMIX3*255,
+                                                       hrs_full_data$ADMIX2*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "132.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX2*255,
+                                                       hrs_full_data$ADMIX1*255,
+                                                       hrs_full_data$ADMIX3*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "213.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX2*255,
+                                                       hrs_full_data$ADMIX3*255,
+                                                       hrs_full_data$ADMIX1*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "231.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX3*255,
+                                                       hrs_full_data$ADMIX1*255,
+                                                       hrs_full_data$ADMIX2*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "312.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_full_data, aes(x=V1, y=V2, col=rgb(hrs_full_data$ADMIX3*255,
+                                                       hrs_full_data$ADMIX2*255,
+                                                       hrs_full_data$ADMIX1*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=0.1) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "321.jpeg", sep=""), height=h, width=w, units=u)
+```
+
+# Same, but for Hispanic data
+```{r}
+
+# Auxiliary data
+#hrs_aux_data <- read.csv("/Volumes/Stockage/alex/hrs/aux/HRS_aux.csv")
+
+# Projection
+fname <- "HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD0.5_pca_hrshisp_added1kgp_2018115153245"
+proj_dir <- "/Volumes/Stockage/alex/gt-dimred/np1/projections"
+
+hrs_hisp_1kgp_proj <- read.table(paste(proj_dir, fname, sep="/"))
+
+# Only the first 12,454 are HRS.
+# Note that we did the projection with all the HRS (so we can also project the other HRS onto Hisps)
+hrs_hisp_1kgp_proj <- hrs_hisp_1kgp_proj[1:12454,]
+
+# Merge the tables
+hrs_hisp_data <- cbind(hrs_aux_data, hrs_hisp_1kgp_proj)
+
+# Reduce to just Hispanic individuals
+hrs_hisp_data <- subset(hrs_hisp_data, HispanicStatus=="Hispanic")
+
+# RGB colours from admixture
+hrs_hisp_data$rgb_vals <- rgb(hrs_hisp_data$ADMIX1*255,
+                              hrs_hisp_data$ADMIX2*255,
+                              hrs_hisp_data$ADMIX3*255,
+                              maxColorValue = 255)
+
+```
+
+
+# Create beautiful plots!
+```{r}
+out_dir <- "/Volumes/Stockage/alex/hrs_1000G/images/for_export/alt_colours"
+fname <- "HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_admix"
+
+# dimensions
+h <- 154.6
+w <- 169.2
+
+# units
+u <- "mm"
+
+# point size
+s <- 0.5
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX1*255,
+                                                       hrs_hisp_data$ADMIX2*255,
+                                                       hrs_hisp_data$ADMIX3*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "123_hisp.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX1*255,
+                                                       hrs_hisp_data$ADMIX3*255,
+                                                       hrs_hisp_data$ADMIX2*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "132_hisp.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX2*255,
+                                                       hrs_hisp_data$ADMIX1*255,
+                                                       hrs_hisp_data$ADMIX3*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "213_hisp.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX2*255,
+                                                       hrs_hisp_data$ADMIX3*255,
+                                                       hrs_hisp_data$ADMIX1*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "231_hisp.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX3*255,
+                                                       hrs_hisp_data$ADMIX1*255,
+                                                       hrs_hisp_data$ADMIX2*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "312_hisp.jpeg", sep=""), height=h, width=w, units=u)
+
+p_hrs <- ggplot(hrs_hisp_data, aes(x=V1, y=V2, col=rgb(hrs_hisp_data$ADMIX3*255,
+                                                       hrs_hisp_data$ADMIX2*255,
+                                                       hrs_hisp_data$ADMIX1*255,
+                                                       maxColorValue = 255))) +
+  geom_point(alpha=0.6, size=s) +
+  scale_color_identity() +
+  theme(
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "transparent",colour = NA),
+        plot.background = element_rect(fill = "transparent",colour = NA),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+p_hrs
+
+ggsave(paste(out_dir, "/", fname, "321_hisp.jpeg", sep=""), height=h, width=w, units=u)
+```
+
+```{r}
+library('Ternary')
+require(RColorBrewer)
+#pcol=brewer.pal(9, "Set1")
+
+AncCol=c("#4DAF4A","#E41A1C","#377EB8")
+
+AncRGB=col2rgb(AncCol)/255
+#pdf("UMAP_ternary_plot_legend.pdf",height=2.375,width=2.375,pointsize=10)
+par(mar=c(2.1,2.1,0.1,0.1))
+TernaryPlot(alab=expression(''%->% "African ancestry (%)" %->% ''),blab=expression(''%->%"European ancestry (%)" %->% ''),clab=expression(''%<-% "Native American ancestry (%)" %<-% ''),lab.cex=0.6,axis.cex = 0.5)
+dx=0.01;
+cnt=0
+bk=0;
+for(xi in seq(0,1,length=round(1/dx))){
+  for(yi in seq(0,1,length=round(1/dx))){
+    for(zi in seq(0,1,length=round(1/dx))){
+      if(abs(1-(xi+yi+zi)) < 1e-8){
+        ired = xi*AncRGB[1,1] + yi*AncRGB[1,2] + zi*AncRGB[1,3]
+        igreen = xi*AncRGB[2,1] + yi*AncRGB[2,2] + zi*AncRGB[2,3]
+        iblue = xi*AncRGB[3,1] + yi*AncRGB[3,2] + zi*AncRGB[3,3]
+        AddToTernary(points,c(xi,yi,zi),col=rgb(ired,igreen,iblue,1),pch=20)
+        cnt=cnt+1
+      }
+    }
+  }
+}
+```
+
+```{r}
+tern_data <- select(hrs_full_data,ADMIX1*255,ADMIX2*255,ADMIX3*255)
+
+p_tern <- ggtern() +
+  geom_point(data=data.frame(x=255,y=255,z=255), aes(x,y,z))
+
+p_tern
+```

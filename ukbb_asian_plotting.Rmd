@@ -1,0 +1,118 @@
+---
+title: "UKBB plotting Asian populations"
+author: 
+  - name: Alex Diaz-Papkovich
+affiliation:
+  - &cruk Quantitative Life Sciences, McGill University,  Montreal, Canada
+date: '`r format(Sys.Date(), "%Y-%B-%d")`'
+output:
+  html_notebook:
+  df_print: paged
+code_folding: show
+toc: yes
+toc_float: 
+  collapsed: false
+smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import libraries
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+## Import the files
+```{r}
+
+data_path <- "/Volumes/Stockage/alex/ukbb_other/data/ukbb_asian_data.csv"
+ukbb_asian_data <- read.csv(data_path)
+
+```
+
+## Recreate the original image from the jupyter notebook
+```{r}
+
+out_dir <- "/Volumes/Stockage/alex/ukbb_images/ggplot_for_export"
+fname <- "Asthma_FullAsian_PC_QC_new_UMAP_PC5_NC2_NN15_MD05_201931173256"
+h <- 10
+w <- 6.49
+s <- 0.5
+a <- 0.6
+
+# Colour palette from other projection
+#original_pal <- c("#fcc5c0","#3f007d","#f768a1","#e377c2","#49006a","#ae017e")
+
+# New colour palette to better distinguish groups
+colour_pal <- c("#fcc5c0","#c7c7c7","#ff7f0e","#e377c2","#49006a","#2ca02c")
+
+p_asian <- ggplot(data = ukbb_asian_data, aes(x=x_coords, y=y_coords, colour=eth_txt)) +
+  geom_point(size=s, alpha=a) +
+  scale_color_manual(values=colour_pal) +
+  theme(
+        axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(), panel.background = element_blank(),
+        legend.position="bottom", legend.title=element_blank()
+        ) +
+  guides(colour = guide_legend(override.aes = list(size=3)))
+#+
+#  guides(colour=FALSE)
+
+p_asian
+
+ggsave(paste(paste(out_dir,fname,sep="/"),".jpeg", sep=""), height=h, width=w, units="in")
+```
+
+# Tweak the dataset so that we can use ethnicity x COB
+```{r}
+ukbb_asian_data$eth_COB <- paste(ukbb_asian_data$eth_txt, "born in", ukbb_asian_data$COB)
+
+eth_cob_counts <- as.data.frame(table(ukbb_asian_data$eth_COB))
+eth_cob_counts[order(-eth_cob_counts$Freq),][1:10,]
+```
+
+We only want the top few.
+
+```{r}
+ukbb_asian_data$eth_COB_2 <- ifelse(ukbb_asian_data$eth_COB=="Indian born in Kenya",
+                                    "Indian born in Kenya", "Other")
+```
+
+# Now do some more plotting with this new variable
+```{r}
+out_dir <- "/Volumes/Stockage/alex/ukbb_images/ggplot_for_export"
+fname <- "Asthma_FullAsian_PC_QC_new_UMAP_PC5_NC2_NN15_MD05_201931173256_ethcob"
+h <- 10
+w <- 6.49
+s <- 0.5
+a <- 0.4
+
+# Colour palette from other projection
+colour_pal <- c("#49006a","#e8e8e8")
+
+p_asian <- ggplot(data = ukbb_asian_data, aes(x=x_coords, y=y_coords, colour=eth_COB_2)) +
+  geom_point(size=s, alpha=a) +
+  scale_color_manual(values=colour_pal) +
+  theme(axis.title.y=element_blank(),
+      axis.text.y=element_blank(),
+      axis.ticks.y=element_blank(),
+      axis.title.x=element_blank(),
+      axis.text.x=element_blank(),
+      axis.ticks.x=element_blank(),
+      panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank()) +
+  guides(colour=FALSE) +
+  annotate("text", x=5, y=-25,label="Indians born in Kenya",colour=colour_pal[1])
+
+p_asian
+
+ggsave(paste(paste(out_dir,fname,sep="/"),".jpeg", sep=""), height=h, width=w, units="in")
+```
