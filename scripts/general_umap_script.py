@@ -33,7 +33,9 @@ def str2bool(v):
 
 # example text for usage
 example_text = '''
-Requires the following packages: argparse, numpy, logging, os, sys, time, timeit, umap
+Requires the following packages: argparse, numpy, logging, os, sys, time, timeit, umap.
+File names are generated automatically based on the input file name. Files are time-stamped
+to avoid being overwritten from new runs.
 
 EXAMPLE USAGE
 
@@ -71,7 +73,7 @@ parser.add_argument('-nc', type=int,
     help='Integer. Low dimensional components to project to (default 2D)')
 parser.add_argument('-met', type=str,
     default='euclidean',
-    help='String. Type of distance metric to use (default euclidean)')
+    help='String. Type of distance metric to use (default euclidean). Check UMAP documentation for full list.')
 parser.add_argument('-outdir', type=str,
     help='String. Output directory')
 parser.add_argument('-head', type=str2bool,
