@@ -1,159 +1,211 @@
 # Python script to carry out UMAP on PC data
 
+import argparse
+from argparse import RawTextHelpFormatter
 import numpy as np
 import logging
 import os
-import sklearn
 import sys
 import time
+import timeit
 
 import umap
 
-dset = input('Specify PC dataset (UKBB/HRS/HRS_HISP/HRS_WHITE/HRS_BLACK/1000G/HRS_1000G): ')
-pcs = [int(n) for n in input('Number of principal components (spaces between list elements, default 10): ').split()]
-nn = int(input('Specify number of neighbours (default 15): '))
-md = float(input('Specify minimum distance (default 0.1): '))
-nc = int(input('Specify number of components (usually 2): '))
+# Desired inputs with argparse
+# -in (filename)
+# -pc (# PCs)
+# -nn 
+# -md
+# -nc
+# -dist
+# -outdir 
 
-# PCA files
-ukbb_dir = '/Volumes/Stockage/alex/ukbb_projections'
-hrs_dir = '/Volumes/Stockage/alex/hrs/projections'
-tg_dir = '/Volumes/Stockage/alex/1000G/projections'
-hrs_1000g_dir = '/Volumes/Stockage/alex/hrs_1000G/projections'
+# define a str2bool function to intake the -head argument
+def str2bool(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
 
-ukbb_path = os.path.join(ukbb_dir,'ukbb_pca_only')
-hrs_path = os.path.join(hrs_dir,'hrs_200_pc')
-hrs_hisp_path = os.path.join(hrs_dir, 'HRS_PCA_hispanic.eigenvec')
-hrs_white_path = os.path.join(hrs_dir, 'HRS_PCA_white.eigenvec')
-hrs_black_path = os.path.join(hrs_dir, 'HRS_PCA_black.eigenvec')
-hrs_1000g_path = os.path.join(hrs_1000g_dir, 'merged_1000G_HRS_pca.eigenvec')
-tg_path = os.path.join(tg_dir,'pca_1000g_100')
+# example text for usage
+example_text = '''
+Requires the following packages: argparse, numpy, logging, os, sys, time, timeit, umap
 
-# Logging directory.
-log_dir = '/Volumes/Stockage/alex/logs'
+EXAMPLE USAGE
 
-tstamp_log = ''.join([str(t) for t in time.gmtime()[0:6]])
-log_file = os.path.join(log_dir,'log_general_umap_' + dset + '_UMAP_NC' + str(nc) + '_NN' + str(nn) + '_MD' + str(md) + tstamp_log)
+Dataset: my_pcs.txt
+Run UMAP on the top 15 PCs, using 10 neighbours, a minimum distance of 0.001,
+reducing to 3D, assuming the first row of the file my_pcs.txt contains headers
 
-#log_file = logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-with open(log_file, 'w') as f:
-    sys.stdout = f
+python general_umap_script.py \\ 
+-dset ~/Documents/my_umap_project/my_pcs.txt \\ 
+-pc 15 \\ 
+-nn 10 \\ 
+-md 0.001 \\ 
+-nc 3 \\ 
+-outdir ~/Documents/my_umap_project/umap_projections \\ 
+-head T \\ 
+-log ~/Documents/my_umap_project/logs
+'''
 
-    # Print the parameters:
-    print(dset + '_UMAP' + str(pcs) + '_NC' + str(nc) + '_NN' + str(nn) + '_MD' + str(md))
+parser = argparse.ArgumentParser(description='Runs UMAP on specified datasets.',
+    epilog=example_text, formatter_class=RawTextHelpFormatter)
 
-    # Load the PCA data and set the output directory
-    try:
-        if dset=='UKBB':
-            with open(ukbb_path) as pc:
-                pca_contents = pc.readlines()
+parser.add_argument('-dset', type=str,
+    help='Input dataset. This script assumes the data has already been reduced to PCs.')
+parser.add_argument('-pc', type=int,
+    default='10',
+    help='Integer. Number of top PCs to use (default 10)')
+parser.add_argument('-nn', type=int,
+    default=15,
+    help='Integer. Number of neighbours for UMAP')
+parser.add_argument('-md', type=float,
+    default=0.1,
+    help='Float. Minimum distance for UMAP (default 0.1)')
+parser.add_argument('-nc', type=int,
+    default=2,
+    help='Integer. Low dimensional components to project to (default 2D)')
+parser.add_argument('-met', type=str,
+    default='euclidean',
+    help='String. Type of distance metric to use (default euclidean)')
+parser.add_argument('-outdir', type=str,
+    help='String. Output directory')
+parser.add_argument('-head', type=str2bool,
+    help='Boolean. Indicate whether the file has headers')
+parser.add_argument('-log', type=str,
+    help='String. Log directory')
 
-            pca_data = []
+args = parser.parse_args()
+tstamp = time.strftime('%Y%m%d_%H%M%S',time.localtime(time.time()))
 
-            for pc in pca_contents[1:]:
-                pca_data.append(pc.split()[3:len(pc)])
+# Import arguments
+dset = args.dset
+pcs = args.pc
+nn = args.nn
+md = args.md
+nc = args.nc
+met = args.met.lower()
+out_dir = args.outdir
+has_headers = args.head
+log_dir = args.log
 
-            pca_data_array = np.array(pca_data).astype(np.float)
-            del(pca_data)
-            del(pc)
-            del(pca_contents)
-            print('Successfully imported UKBB PCA data.')
+# Check if important parameters have been left empty
+if dset is None:
+    print('ERROR: No input dataset specified.')
+    sys.exit(1)
+elif out_dir is None:
+    print('ERROR: No output directory specified.')
+    sys.exit(1)
+elif has_headers is None:
+    print('ERROR: Headers in file not specified.')
+    sys.exit(1)
 
-            out_dir = ukbb_dir
-        elif dset=='HRS':
-            pca_data_array = np.loadtxt(hrs_path)
+# Make sure the number of components is >= the number of PCs
+if pcs < nc:
+    print('ERROR: Number of PCs is less than request dimensions.')
+    sys.exit(1)
 
-            out_dir = hrs_dir
-        elif dset=='1000G':
-            pca_data_array = np.loadtxt(tg_path)
+# Print the parameters
+param_str = dset.split('/')[-1].split('.txt')[0] + '_UMAP_PC' + str(pcs) + '_NC' + str(nc) + '_NN' \
++ str(nn) + '_MD' + str(md) + '_' + met
 
-            out_dir = tg_dir
-        elif dset=='HRS_HISP':
-            with open(hrs_hisp_path) as pc:
-                pca_contents = pc.readlines()
+log_file = os.path.join(log_dir, 'log_umap_' + param_str + '_' + tstamp + '.txt')
 
-            pca_data = []
+print('Beginning import of data')
+print('Parameters: ', '\n PCs:', str(pcs), '\n NC:', str(nc), '\n NN:', str(nn), '\n MD:', str(md),
+    '\n Metric:', met, '\n Has headers:', str(has_headers))
 
-            for pc in pca_contents:
+# set up logging
+orig_stdout = sys.stdout # print() statements
+orig_stderr = sys.stderr # terminal statements
+f = open(log_file, 'w')
+sys.stdout = f
+sys.stderr = f
+
+print('Parameters: ', '\n PCs:', str(pcs), '\n NC:', str(nc), '\n NN:', str(nn), '\n MD:', str(md),
+    '\n Metric:', met, '\n Has headers:', str(has_headers))
+
+try:
+    with open(dset) as data:
+        data_contents = data.readlines()
+
+        pca_data = []
+
+        # import top PCs
+        if has_headers==True:
+            for pc in data_contents[1:]:
+                pca_data.append(pc.split()[2:len(pc)])
+        else:
+            for pc in data_contents:
                 pca_data.append(pc.split()[2:len(pc)])
 
-            pca_data_array = np.array(pca_data).astype(np.float)
-            out_dir = hrs_dir
+        pca_data_array = np.array(pca_data).astype(np.float)
 
-            del(pca_data)
-            del(pc)
-            del(pca_contents)
-            print('Successfully imported HRS_HISP PCA data.')
-        elif dset=='HRS_WHITE':
-            with open(hrs_white_path) as pc:
-                pca_contents = pc.readlines()
+        print(pca_data_array.shape)
+        
+        del(pca_data)
+        del(pc)
+        del(data_contents)
+except Exception as e:
+    print(e)
+    print('Error during data import')
 
-            pca_data = []
+    f.close()
+    print('Error during data import')
 
-            for pc in pca_contents:
-                pca_data.append(pc.split()[2:len(pc)])
+    sys.exit(1)
 
-            pca_data_array = np.array(pca_data).astype(np.float)
-            out_dir = hrs_dir
+#fname = dset.split('.txt')[0] + '_UMAP_PC' + str(pcs) + '_NC' + str(nc) + '_NN' + str(nn) + '_MD' + str(md) + '_' \
+#+ met + "_" + tstamp + ".txt"
+fname = param_str + '_' + tstamp + '.txt'
 
-            del(pca_data)
-            del(pc)
-            del(pca_contents)
-            print('Successfully imported HRS_WHITE PCA data.')
-        elif dset=='HRS_BLACK':
-            with open(hrs_black_path) as pc:
-                pca_contents = pc.readlines()
+# preamble for log
+print()
+print("Using UMAP version: " + umap.__version__)
+print("Reducing to " + str(nc) + " components")
+print("Using " + str(nn) + " neighbours")
+print("Using minimum distance of " + str(md))
+print("Using metric: " + met)
+print("Using " + str(pcs) + " PCs")
+print()
+print("Input data shape: ", pca_data_array.shape)
 
-            pca_data = []
+try:
+    # Carry out UMAP
+    start = timeit.default_timer()
+    umap_proj = umap.UMAP(n_components=nc, n_neighbors=nn,min_dist=md,metric=met,
+        verbose=True).fit_transform(pca_data_array[:,:pcs])
+    stop = timeit.default_timer()
+except Exception as e:
+    print(e)
+    print('Error during UMAP')
 
-            for pc in pca_contents:
-                pca_data.append(pc.split()[2:len(pc)])
+    f.close()
+    print('Error during UMAP')
+    sys.exit(1)
 
-            pca_data_array = np.array(pca_data).astype(np.float)
-            out_dir = hrs_dir
+print()
+print("UMAP runtime: ", stop - start)
 
-            del(pca_data)
-            del(pc)
-            del(pca_contents)
-            print('Successfully imported HRS_BLACK PCA data.')
-        elif dset=='HRS_1000G':
-            with open(hrs_1000g_path) as pc:
-                pca_contents = pc.readlines()
+out_file = os.path.join(out_dir,fname)
 
-            pca_data = []
+print()
+print("Output file:", out_file)
+print("Output data shape:", umap_proj.shape)
 
-            for pc in pca_contents:
-                pca_data.append(pc.split()[2:len(pc)])
+np.savetxt(out_file, umap_proj)
 
-            pca_data_array = np.array(pca_data).astype(np.float)
-            out_dir = hrs_1000g_dir
+del(umap_proj)
+del(pca_data_array)
 
-            del(pca_data)
-            del(pc)
-            del(pca_contents)
-            print('Successfully imported HRS_1000G PCA data.')
-    except Exception as e:
-        print(e)
-        print('Could not load PC data.')
-        sys.exit(1)
+# restore print statements to terminal
+sys.stdout = orig_stdout
+sys.stderr = orig_stderr
+f.close()
 
-    # Call UMAP for each PC
-    try:
-        for pc in pcs:
-            tstamp = ''.join([str(t) for t in time.gmtime()[0:6]])
-            print('Beginning loop for PC ' + str(pc))
-            fname = dset + '_UMAP_PC' + str(pc) + '_NC' + str(nc) + '_NN' + str(nn) + '_MD' + str(md)
-            try:
-                umap_proj = umap.UMAP(n_components=nc, n_neighbors=nn,min_dist=md).fit_transform(pca_data_array[:,:pc])
-            except Exception as e:
-                print(e)
-                print('Error during UMAP projection.')
-                sys.exit(1)
-
-            np.savetxt(os.path.join(out_dir,fname+'_'+tstamp), umap_proj)
-            print('File output to: ' + os.path.join(out_dir,fname+'_'+tstamp))
-            del(umap_proj)
-    except Exception as e:
-        print(e)
-        print('Error during PC loop.')
-        sys.exit(1)
+# print runtime to terminal.
+print("Finished successfully! UMAP runtime: ", stop - start)
