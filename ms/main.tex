@@ -379,13 +379,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \label{fig:umap_hrs_admix}
 \end{figure}
 
-\begin{figure}
-\centering
-   \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix132.jpeg}
-   \caption{An alternate colouring of \ref{fig:umap_hrs_admix}. Here red, green, and blue correspond to African, Asian/Native American, and European ancestry, respectively.}
-    \label{fig:umap_hrs_admix_alt}
-\end{figure}
-
 \begin{figure*}
     \centering
     \begin{subfigure}{\textwidth}
@@ -393,15 +386,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \end{subfigure}
     \caption{UMAP on the top 10 principal components of the HRS dataset, coloured by Census Bureau birth region. Each colour represents one of the 10 birth regions. There is no obvious pattern in the clusters of majority "White Not Hispanic" individuals.}
     \label{fig:supp_hrs_born}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/HRS_1000G_UMAP_PC10_NC2_NN15_MD05_2018627203416_label.pdf}
-    \end{subfigure}
-    \caption{UMAP projection of the top 10 principal components of the combined HRS and 1KGP datasets. One cluster (in the box) does not group with any of the 1KGP populations. A cluster of Finnish (FIN) individuals consistently appears in the "White Not Hispanic" (WNH) group. Groups of Central and South American populations from the 1KGP (CLM, Colombian; MXL, Mexican; PEL, Peruvian; PUR, Puerto Rican) form nearby or within the HRS Hispanic cluster (HIS). Iberian individuals (IBS) cluster near the Hispanic population. Toscani individuals (TSI) form some small clusters and sometimes appear near the Iberian and Hispanic populations. Individuals with British/Scottish (GBR) or Northern/Western European ancestry (CEU) are scattered throughout the WNH clusters. Individuals with African ancestry from the 1KGP group with Black Americans from the HRS (AFR). Similar population groupings occur with South Asian (SAS) and East Asian (EAS) individuals.}
-    \label{fig:supp_hrs_1000g}
 \end{figure*}
 
 \begin{figure*}
@@ -429,15 +413,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \end{subfigure}
     \caption{UMAP of the first 7 principal components of the Hispanic population of the HRS, coloured by estimated admixture proportions. Admixture proportions for each individual were estimated in \cite{baharian2016great} by assuming ancestral African, Asian, and European populations using RFMIX \cite{Maples:2013fia}. We have scaled each of the three proportions to values between 0 and 255 (with 100\% corresponding to 255), to colour individual points by their estimated admixture represented by RGB where red, green, and blue respectively correspond to African, European, and Asian/Native American ancestry. An alternate colouring is provided in fig~\ref{fig:supp_umap_hrs_hisp_admix_alt}.}
     \label{fig:supp_umap_hrs_hisp_admix}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=0.7\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_admix132_hisp.jpeg}
-    \end{subfigure}
-    \caption{An alternate colouring of fig~\ref{fig:supp_umap_hrs_hisp_admix}. Here red, green, and blue correspond to African, Asian/Native American, and European ancestry, respectively.}
-    \label{fig:supp_umap_hrs_hisp_admix_alt}
 \end{figure*}
 
 \begin{figure*}
@@ -651,6 +626,42 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure*}
     \centering
     \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/female_height_boxplot_annotated.pdf}
+    \end{subfigure}
+    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \label{fig:supp_box_height_f}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/male_height_boxplot_annotated.pdf}
+    \end{subfigure}
+    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \label{fig:supp_box_height_m}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/female_fev_boxplot_annotated.pdf}
+    \end{subfigure}
+    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \label{fig:supp_box_fev_f}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/male_fev_boxplot_annotated.pdf}
+    \end{subfigure}
+    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
+    \label{fig:supp_box_fev_m}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/montage_fev1_height_afr_permuted.pdf}
     \end{subfigure}
     \caption{Individuals of Black African, Black Caribbean, and mixed backgrounds (primarily White and Black Caribbean/African) coloured by self-identified ethnic background (left, from fig~\ref{fig:umap_ukbb_pc10}), FEV1 (middle), and age-adjusted height (right). An arrow points to an area where the FEV1 distribution appears to change, corresponding to where the clusters contain more people with self-identified mixed backgrounds.}
@@ -665,6 +676,38 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \caption{Zoomed in section of fig~\ref{fig:umap_ukbb_pc10} focused on individuals with Chinese (CHI), White British (GBR), any other white background, or any other ethnic group (OEG) coloured by ethnicity (left), FEV1 (middle), and age-adjusted height (right). The OEG cluster next to the Chinese cluster appears redder on the middle panel, suggesting higher levels of FEV1.}
     \label{fig:supp_comparison_fev_chi_eur}
 \end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=0.5\textwidth]{images/east_asia_population_colours.png}
+    \end{subfigure}
+    \caption{Individuals from the zoomed in section in fig~\ref{fig:supp_comparison_fev_chi_eur} used in statistical testing, coloured the same as in fig~\ref{fig:supp_fev_ridgeplots}. Brown, blue, and green represent those born in the Philippines, Malaysia, and Japan; pink represents those who self-identify as Chinese. The Chinese individuals were those who self-identified their ethnic background as Chinese, and the remaining populations were determined based on country of birth; the categorizations are mutually exclusive.}
+    \label{fig:supp_fev_test_pops}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/east_asia_ridgeplots_fev.png}
+    \end{subfigure}
+    \caption{Plots of the distributions of residual FEV1 by sex for East Asian populations, after adjusting for height, age, age$^2$, and sex through linear regression. Individuals were limited to those in the "Chinese/Other Ethnic Group" cluster from fig~\ref{fig:supp_comparison_fev_chi_eur}. The Chinese individuals were those who self-identified their ethnic background as Chinese, and the remaining populations were determined based on country of birth; the categorizations are mutually exclusive. Asterisks indicate significant difference from the Japanese population, using Welch's unpaired t-test with a Bonferroni correction for 3 groups. The dashed lines are the means of the distributions, and Japanese populations have consistently higher means.}
+    \label{fig:supp_fev_ridgeplots}
+\end{figure*}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_ukbb.jpeg}
+    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the UKBB dataset with 20000 iterations. The UMAP-initialized graph has been shifted by 230 iterations to approximate the 230 epochs UMAP uses for large datasets ($n>10,000$).}
+    \label{fig:supp_tsne_umap_compare_ukbb_graph}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{images/ukbb_tsne_umap.jpeg}
+    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the UKBB. t-SNE used 20000 iterations}
+    \label{fig:supp_tsne_umap_compare_ukbb}
+\end{figure}
 
 \begin{figure*}
     \centering
@@ -719,24 +762,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \label{fig:supp_ukbb_zoom}
 \end{figure*}
 
-\begin{figure*}
-    \centering
-    \begin{subfigure}{0.5\textwidth}
-    \includegraphics[width=0.5\textwidth]{images/east_asia_population_colours.png}
-    \end{subfigure}
-    \caption{Individuals from the zoomed in section in fig~\ref{fig:supp_comparison_fev_chi_eur} used in statistical testing, coloured the same as in fig~\ref{fig:supp_fev_ridgeplots}. Brown, blue, and green represent those born in the Philippines, Malaysia, and Japan; pink represents those who self-identify as Chinese. The Chinese individuals were those who self-identified their ethnic background as Chinese, and the remaining populations were determined based on country of birth; the categorizations are mutually exclusive.}
-    \label{fig:supp_fev_test_pops}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/east_asia_ridgeplots_fev.png}
-    \end{subfigure}
-    \caption{Plots of the distributions of residual FEV1 by sex for East Asian populations, after adjusting for height, age, age$^2$, and sex through linear regression. Individuals were limited to those in the "Chinese/Other Ethnic Group" cluster from fig~\ref{fig:supp_comparison_fev_chi_eur}. The Chinese individuals were those who self-identified their ethnic background as Chinese, and the remaining populations were determined based on country of birth; the categorizations are mutually exclusive. Asterisks indicate significant difference from the Japanese population, using Welch's unpaired t-test with a Bonferroni correction for 3 groups. The dashed lines are the means of the distributions, and Japanese populations have consistently higher means.}
-    \label{fig:supp_fev_ridgeplots}
-\end{figure*}
-
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\columnwidth]{images/1KGP_tsne_umap.jpeg}
@@ -749,20 +774,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
     \includegraphics[width=0.95\columnwidth]{images/HRS_tsne_umap.jpeg}
     \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the HRS. t-SNE used 5000 iterations.}
     \label{fig:supp_tsne_umap_compare_hrs}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.95\columnwidth]{images/tsne_umap_graph_ukbb.jpeg}
-    \caption{Comparing the error terms of standard t-SNE versus t-SNE initialized with a UMAP embedding and no early exaggeration. Done on the UKBB dataset with 20000 iterations. The UMAP-initialized graph has been shifted by 230 iterations to approximate the 230 epochs UMAP uses for large datasets ($n>10,000$).}
-    \label{fig:supp_tsne_umap_compare_ukbb_graph}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.95\columnwidth]{images/ukbb_tsne_umap.jpeg}
-    \caption{Comparing the visualizations of UMAP, standard t-SNE, and t-SNE initialized with a UMAP projection, on the top 10 principal components of the UKBB. t-SNE used 20000 iterations}
-    \label{fig:supp_tsne_umap_compare_ukbb}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -822,42 +833,6 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \begin{figure*}
     \centering
     \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/female_fev_boxplot_annotated.pdf}
-    \end{subfigure}
-    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
-    \label{fig:supp_box_fev_f}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/male_fev_boxplot_annotated.pdf}
-    \end{subfigure}
-    \caption{FEV1 by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
-    \label{fig:supp_box_fev_m}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/female_height_boxplot_annotated.pdf}
-    \end{subfigure}
-    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
-    \label{fig:supp_box_height_f}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
-    \includegraphics[width=\textwidth]{images/male_height_boxplot_annotated.pdf}
-    \end{subfigure}
-    \caption{Height by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
-    \label{fig:supp_box_height_m}
-\end{figure*}
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{images/female_leukocyte_boxplot_annotated.pdf}
     \end{subfigure}
     \caption{Leukocyte counts by sex and ethnic group, annotated with p-values. Asterisks indicate significant difference from the White British group with a Bonferroni correction for 12 groups.}
@@ -892,6 +867,31 @@ We thank all participants in the HRS, UKBB, and 1KGP for providing their genetic
 \end{figure*}
 
 %%%%% boxplots end
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{images/HRS_1000G_UMAP_PC10_NC2_NN15_MD05_2018627203416_label.pdf}
+    \end{subfigure}
+    \caption{UMAP projection of the top 10 principal components of the combined HRS and 1KGP datasets. One cluster (in the box) does not group with any of the 1KGP populations. A cluster of Finnish (FIN) individuals consistently appears in the "White Not Hispanic" (WNH) group. Groups of Central and South American populations from the 1KGP (CLM, Colombian; MXL, Mexican; PEL, Peruvian; PUR, Puerto Rican) form nearby or within the HRS Hispanic cluster (HIS). Iberian individuals (IBS) cluster near the Hispanic population. Toscani individuals (TSI) form some small clusters and sometimes appear near the Iberian and Hispanic populations. Individuals with British/Scottish (GBR) or Northern/Western European ancestry (CEU) are scattered throughout the WNH clusters. Individuals with African ancestry from the 1KGP group with Black Americans from the HRS (AFR). Similar population groupings occur with South Asian (SAS) and East Asian (EAS) individuals.}
+    \label{fig:supp_hrs_1000g}
+\end{figure*}
+
+\begin{figure}
+\centering
+   \includegraphics[width=0.6\linewidth]{images/HRS_1000G_NP1_UMAP_PC10_NC2_NN15_MD05_pca_1kgp_onto_hrs_umap_1kgp_onto_hrs_2018112221116_admix132.jpeg}
+   \caption{An alternate colouring of \ref{fig:umap_hrs_admix}. Here red, green, and blue correspond to African, Asian/Native American, and European ancestry, respectively.}
+    \label{fig:umap_hrs_admix_alt}
+\end{figure}
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{\textwidth}
+    \includegraphics[width=0.7\textwidth]{images/HRS_1000G_NP1_UMAP_PC7_NC2_NN15_MD05_pca_hrshisp_added1kgp_2018115153245_admix132_hisp.jpeg}
+    \end{subfigure}
+    \caption{An alternate colouring of fig~\ref{fig:supp_umap_hrs_hisp_admix}. Here red, green, and blue correspond to African, Asian/Native American, and European ancestry, respectively.}
+    \label{fig:supp_umap_hrs_hisp_admix_alt}
+\end{figure*}
 
 \begin{figure*}
     \centering
