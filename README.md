@@ -5,6 +5,8 @@ These are the core files used in the manuscript here: https://biorxiv.org/conten
 
 The pre-print has since been published at PLOS Genetics: https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1008432
 
+If you are interested in clustering, see our latest preprint: https://www.biorxiv.org/content/10.1101/2023.07.06.548007 with associated Github repo: https://github.com/diazale/topstrat
+
 If you want a simple Python script to carry out UMAP on your PC data, see https://github.com/diazale/gt-dimred/blob/master/scripts/general_umap_script.py
 
 Most of the code is dedicated to data management and visualization.
