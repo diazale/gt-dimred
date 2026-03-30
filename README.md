@@ -17,7 +17,7 @@ This is the code used in [Diaz-Papkovich et al (2019)](https://journals.plos.org
 
 If you are interested in clustering (with updated versions of our scripts), see [Diaz-Papkovich et al @ PLoS Genetics (2026)](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012068) with the associated repo: https://github.com/diazale/topstrat
 
-If you want a simple Python script to carry out UMAP on your PC data, see https://github.com/diazale/gt-dimred/blob/master/scripts/general_umap_script.py
+If you want a simple Python script to carry out UMAP on your PC data, see https://github.com/diazale/gt-dimred/blob/main/scripts/general_umap_script.py
 
 Most of the code is dedicated to data management and visualization.
 
